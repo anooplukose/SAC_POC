@@ -1,3 +1,4 @@
+console.log("22");
 (function()  {
 	console.log("1");
     let tmpl = document.createElement('template');
