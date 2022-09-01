@@ -1,4 +1,4 @@
-(function()  {
+(function run(_rawData)  {
     console.log("1");
    let count=0;
    
