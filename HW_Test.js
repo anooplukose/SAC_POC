@@ -1,5 +1,5 @@
 (function()  {
-    
+    console.log("1");
    let count=0;
     //let coreJS=document.createElement('script');
     //coreJS.src='https://www.amcharts.com/lib/4/core.js';
