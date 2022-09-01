@@ -1,5 +1,5 @@
 (function()  {
-    
+     console.log("beginning");
    let count=0;
    const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
