@@ -1,5 +1,6 @@
 console.log("22");
 (function()  {
+	console.log("33");
 	console.log("1");
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
