@@ -33,7 +33,7 @@
   
   console.log("Step3");
 
-customElements.define('com-sap-sample-helloworld11', class HelloWorld2 extends HTMLElement     {
+customElements.define('com-sap-sample-helloworld11', class HelloWorld1 extends HTMLElement     {
    constructor() {
 			super(); 
       
