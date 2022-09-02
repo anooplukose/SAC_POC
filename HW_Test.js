@@ -1,5 +1,5 @@
 
-console.log("30");
+console.log("31");
 (function()  {
 	 const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
@@ -112,7 +112,8 @@ console.log("22");
 
         redraw(){
 		let myChart=this.shadowRoot.getElementById('chartdiv');
-		var myChart1 = echarts.init(myChart, null, {
+		var dom = document.getElementById('chartdiv');
+		var myChart1 = echarts.init(dom, null, {
   renderer: 'canvas',
   useDirtyRect: false
 });
