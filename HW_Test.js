@@ -1,21 +1,16 @@
-console.log("111");
+
 (function()  {
-    console.log("1");
+  
    let count=0;
+	console.log("1-Step");
     let template = document.createElement('template');
   template.innerHTML = `
-  <style>
-#chartdiv {
- width: 100%;
-height:500px;
-}
-</style>
-  <div id="chartdiv"></div>
-  `;
-  
+   <h1>H</h1>
+  ;
   console.log("Step3");
 
-customElements.define('com-sap-sample-helloworld2', class HelloWorld2 extends HTMLElement     {
+customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
+
    constructor() {
 			super(); 
       
