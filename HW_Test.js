@@ -196,13 +196,7 @@ console.log("22");
     series: seriesList
   };
   myChart.setOption(option);
-}
-		
-	
-	    
-	   
+	}  
         }
-	    
-
     });
 })();
