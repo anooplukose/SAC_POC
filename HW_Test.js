@@ -198,7 +198,9 @@ console.log("22");
   myChart.setOption(option);
 }
 		
-	console.log("eee");
+	
+	    
+	    console.log("eee");
         }
 	    
 
