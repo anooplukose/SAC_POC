@@ -23,9 +23,8 @@
   template.innerHTML = `
   <style>
 #chartdiv {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+ width: 100%;
+height:500px;
 }
 </style>
   <div id="chartdiv"></div>
