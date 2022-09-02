@@ -111,9 +111,8 @@ console.log("22");
         */
 
         redraw(){
-		let myChart=this.shadowRoot.getElementById('chartdiv');
-		var dom = document.getElementById('chartdiv');
-		var myChart1 = echarts.init(dom, null, {
+		var myChart=this.shadowRoot.getElementById('chartdiv');	
+		var myChart1 = echarts.init(myChart, null, {
   renderer: 'canvas',
   useDirtyRect: false
 });
