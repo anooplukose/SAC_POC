@@ -9,27 +9,32 @@
   ;
   console.log("Step3");
 
-customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
+customElements.define('com-sap-sample-helloworld2', class HelloWorld2 extends HTMLElement {
 
    constructor() {
 			super(); 
-      
-      console.log("step-4");
+      			console.log("step-4");
 		   let shadowRoot = this.attachShadow({mode: "open"});
 		   shadowRoot.appendChild(template.content.cloneNode(true));
-             this.addEventListener("click", event => {
-				var event = new Event("onClick");
-				this.dispatchEvent(event);
-            });
+              this._firstConnection = false;
 		
     
     }
 
-
+ //Fired when the widget is added to the html DOM of the page
+        connectedCallback(){
+            this._firstConnection = true;
+            this.redraw();
+        }
+	
+	//Fired when the widget is removed from the html DOM of the page (e.g. by hide)
+        disconnectedCallback(){
+        
+        }
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
     
-    
+    		
 
 		}
     
@@ -37,7 +42,9 @@ customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HT
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
-            
+            if (this._firstConnection){
+                this.redraw();
+            }
             }
             
             
@@ -48,7 +55,8 @@ customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HT
         
         }
         
-        
+      redraw(){
+        }  
        
  });
 })();
