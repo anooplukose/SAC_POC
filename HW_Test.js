@@ -104,6 +104,8 @@ console.log("22");
         */
 
         redraw(){
+		let myChart=this.shadowRoot.getElementById('chartdiv');
+       console.log("Step-11");
         }
     });
 })();
