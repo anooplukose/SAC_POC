@@ -1,4 +1,4 @@
-(function run(_rawData)  {
+(function()  {
     console.log("1");
    let count=0;
    
@@ -202,3 +202,5 @@ customElements.define('com-sap-sample-helloworld2', class HelloWorld2 extends HT
   };
   myChart.setOption(option);
 }
+ });
+})();
