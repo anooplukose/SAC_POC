@@ -112,6 +112,10 @@ console.log("22");
 
         redraw(){
 		let myChart=this.shadowRoot.getElementById('chartdiv');
+		var myChart1 = echarts.init(myChart, null, {
+  renderer: 'canvas',
+  useDirtyRect: false
+});
        console.log("Step-11");
 		const countries = [
     'Finland',
@@ -199,7 +203,7 @@ console.log("22");
     series: seriesList
   };
 		console.log("23");
-  myChart.setOption(option);
+  myChart1.setOption(option);
 		console.log("24");
 	}  
         
