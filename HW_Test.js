@@ -1,7 +1,7 @@
 
 (function()  {
   
-   let count=0;
+  
 	console.log("1-Step");
     let template = document.createElement('template');
   template.innerHTML = `
