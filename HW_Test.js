@@ -122,9 +122,11 @@ console.log("22");
     'Russia',
     'United Kingdom'
   ];
+		console.log("20");
   const datasetWithFilters = [];
   const seriesList = [];
   echarts.util.each(countries, function (country) {
+	  console.log("21");
     var datasetId = 'dataset_' + country;
     datasetWithFilters.push({
       id: datasetId,
