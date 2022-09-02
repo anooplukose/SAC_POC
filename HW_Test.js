@@ -123,6 +123,7 @@ console.log("22");
     'Russia',
     'United Kingdom'
   ];
+		var option;
 		console.log("20");
   const datasetWithFilters = [];
   const seriesList = [];
