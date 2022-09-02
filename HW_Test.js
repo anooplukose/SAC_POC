@@ -48,7 +48,7 @@ customElements.define('com-sap-sample-helloworld2', class HelloWorld2 extends HT
             }
             
             
-        }
+        
         
         //When the custom widget is removed from the canvas or the analytic application is closed
         onCustomWidgetDestroy(){
