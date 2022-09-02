@@ -1,4 +1,5 @@
-console.log("29");
+
+console.log("30");
 (function()  {
 	 const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
@@ -167,6 +168,7 @@ console.log("22");
       }
     });
   });
+		console.log("22");
   option = {
     animationDuration: 10000,
     dataset: [
@@ -195,7 +197,9 @@ console.log("22");
     },
     series: seriesList
   };
+		console.log("23");
   myChart.setOption(option);
+		console.log("24");
 	}  
         
     });
