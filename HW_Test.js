@@ -5,7 +5,7 @@ console.log("11");
   <style>
 #chartdiv {
   position: relative;
-  height: 100vh;
+  height: 100px;
   overflow: hidden;
 }
 </style>
