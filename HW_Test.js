@@ -2,7 +2,7 @@ console.log("1111");
 (function()  {
 	 const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
-	
+	console.log("2222");
 	function loadScript(src)
     {
     
