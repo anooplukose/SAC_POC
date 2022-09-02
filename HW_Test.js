@@ -1,8 +1,8 @@
-console.log("11111");
+console.log("16");
 (function()  {
 	 const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
-	console.log("22222");
+	console.log("26");
 	function loadScript(src)
     {
     
