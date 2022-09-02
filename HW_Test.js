@@ -14,8 +14,8 @@ customElements.define('com-sap-sample-helloworld2', class HelloWorld2 extends HT
    constructor() {
 			super(); 
       			console.log("step-4");
-		   let shadowRoot = this.attachShadow({mode: "open"});
-		   shadowRoot.appendChild(template.content.cloneNode(true));
+		  this._shadowRoot = this.attachShadow({mode: "open"});
+            this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
               this._firstConnection = false;
 		
     
