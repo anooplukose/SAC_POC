@@ -1,4 +1,4 @@
-console.log("20");
+console.log("29");
 (function()  {
 	 const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
@@ -169,7 +169,13 @@ console.log("22");
   });
   option = {
     animationDuration: 10000,
-    
+    dataset: [
+      {
+        id: 'dataset_raw'
+        
+      },
+      ...datasetWithFilters
+    ],
     title: {
       text: 'Income of Germany and France since 1950'
     },
