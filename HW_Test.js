@@ -1,5 +1,23 @@
-console.log("11");
+console.log("111");
 (function()  {
+	
+	function loadScript(src)
+    {
+    
+    console.log("Step-9");
+    
+	  return new Promise(function(resolve, reject) 
+    {
+		let script = document.createElement('script');
+		script.src = src;
+
+		script.onload = () => {console.log("Load: " + src); resolve(script);}
+		script.onerror = () => reject(new Error(`Script load error for ${src}`));
+
+		document.head.appendChild(script)
+	  });
+	}
+	
      let template = document.createElement('template');
   template.innerHTML = `
   <style>
