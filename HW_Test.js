@@ -1,9 +1,16 @@
-console.log("1");
+console.log("11");
 (function()  {
-    let tmpl = document.createElement('template');
-    tmpl.innerHTML = `
-        <h1>Hello World</h1>
-    `;
+     let template = document.createElement('template');
+  template.innerHTML = `
+  <style>
+#chartdiv {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+</style>
+  <div id="chartdiv"></div>
+  `;
 console.log("22");
     customElements.define('com-sap-sample-helloworld2', class HelloWorld2 extends HTMLElement {
 
