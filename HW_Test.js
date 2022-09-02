@@ -1,5 +1,7 @@
-console.log("111");
+console.log("1111");
 (function()  {
+	 const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
+    const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
 	
 	function loadScript(src)
     {
@@ -43,7 +45,31 @@ console.log("22");
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
             this._firstConnection = true;
-            this.redraw();
+            async function LoadLibs(callme) {
+        	console.log("Step - 7");
+        
+					try
+          				{
+						console.log("Step-8");
+						await loadScript(echart1js);				
+						await loadScript(echart2js);		
+						
+            
+					} 
+         				 catch (e) 
+         				 {
+						alert(e);
+					} 
+          				finally 
+         				 {
+          					console.log("Step-10");
+          					console.log(" execute kyun nahi ho raha");
+          					callme.redraw();
+					}
+				}
+        
+        console.log("Step-6");
+        LoadLibs(this);
         }
 
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
