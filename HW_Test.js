@@ -197,6 +197,6 @@ console.log("22");
   };
   myChart.setOption(option);
 	}  
-        }
+        
     });
 })();
