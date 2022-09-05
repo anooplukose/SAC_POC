@@ -32,7 +32,11 @@ console.log("2");
     }
 
     async render () {
-      await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
+	    console.log("11");
+      await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery');
+	      console.log("12");
+	    await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js');
+	      console.log("13");
 console.log("3");
       const chart = echarts.init(this._root)
       const option = {
@@ -130,4 +134,4 @@ console.log("6");
   }
 
   customElements.define('com-sap-sample-echarts-prepared', SamplePrepared)
-})()
+})();
