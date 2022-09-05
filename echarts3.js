@@ -40,6 +40,8 @@ console.log("2");
 console.log("3");
       const chart = echarts.init(this._root)
       const countries = []
+      const datasetWithFilters = []
+       const seriesList = []
       const option = {
 	 countries = [
     'Finland',
@@ -51,10 +53,6 @@ console.log("3");
     'Russia',
     'United Kingdom'
   ]    
-	 
-  const datasetWithFilters = []
-	   
-  const seriesList = []
   echarts.util.each(countries, function (country) {
     var datasetId = 'dataset_' + country;
     datasetWithFilters.push({
