@@ -5,6 +5,7 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
+	console.log("1");
   const prepared = document.createElement('template')
   prepared.innerHTML = `
       <style>
