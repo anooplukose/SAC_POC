@@ -8,7 +8,7 @@ var getScriptPromisify = (src) => {
   
    const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
-	console.log("27");
+	console.log("28");
 	function loadScript(src)
     {
     
@@ -149,8 +149,9 @@ $.get(
     },
     series: seriesList
   };
+	     chart.setOption(option)
     }
-  chart.setOption(option)
+ 
     }
   }
 
