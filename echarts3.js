@@ -40,8 +40,6 @@ console.log("2");
 console.log("3");
       const chart = echarts.init(this._root)
       const option = {
-
-console.log("4");
 	 const countries = [
     'Finland',
     'France',
