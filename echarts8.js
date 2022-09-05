@@ -5,7 +5,7 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
-	console.log("2");
+	console.log("3");
   const prepared = document.createElement('template')
   prepared.innerHTML = `
       <style>
@@ -37,9 +37,7 @@ var getScriptPromisify = (src) => {
 
       const chart = echarts.init(this._root)
       this.target=0
-	    setTarget(value) {
-      this.target = value
-    }
+	this.target = value
       const option = {
   tooltip: {
     formatter: '{a} <br/>{b} : {c}%'
@@ -57,7 +55,7 @@ var getScriptPromisify = (src) => {
       },
       data: [
         {
-          value: 50,
+          value: target,
           name: 'SCORE'
         }
       ]
