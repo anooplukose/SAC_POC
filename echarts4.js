@@ -58,7 +58,7 @@ var getScriptPromisify = (src) => {
 
       const chart = echarts.init(this._root)
       var ROOT_PATH = 'https://echarts.apache.org/examples';
-
+	var option;
 
 $.get(
   ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
