@@ -5,7 +5,7 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
-	console.log("1");
+	console.log("2");
   const prepared = document.createElement('template')
   prepared.innerHTML = `
       <style>
@@ -36,6 +36,10 @@ var getScriptPromisify = (src) => {
 	await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js')
 
       const chart = echarts.init(this._root)
+      this.target=0
+	    setTarget(value) {
+      this.target = value
+    }
       const option = {
   tooltip: {
     formatter: '{a} <br/>{b} : {c}%'
