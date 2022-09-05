@@ -57,6 +57,17 @@ var getScriptPromisify = (src) => {
 						await loadScript(echart2js);
 
       const chart = echarts.init(this._root)
+      var ROOT_PATH = 'https://echarts.apache.org/examples';
+
+
+$.get(
+  ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+  function (_rawData) {
+    run(_rawData);
+  }
+);
+      
+    function run(_rawData) {  
        const countries = [
     'Finland',
     'France',
@@ -138,7 +149,7 @@ var getScriptPromisify = (src) => {
     },
     series: seriesList
   };
-     
+    }
   chart.setOption(option)
     }
   }
