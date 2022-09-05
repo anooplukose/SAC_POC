@@ -116,7 +116,9 @@ console.log("22");
   renderer: 'canvas',
   useDirtyRect: false
 });
-       console.log("Step-11");
+		const option{
+			
+		      console.log("Step-11");
 		const countries = [
     'Finland',
     'France',
@@ -203,8 +205,10 @@ console.log("22");
     series: seriesList
   };
 		console.log("23");
-  
+   myChart.setOption(option);
 		console.log("24");
+	}	
+		
 	}  
         
     });
