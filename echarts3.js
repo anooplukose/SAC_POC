@@ -49,11 +49,11 @@ console.log("3");
     'Poland',
     'Russia',
     'United Kingdom'
-  ];     
+  ]    
 	 
-  const datasetWithFilters = [];
+  const datasetWithFilters = []
 	   
-  const seriesList = [];
+  const seriesList = []
   echarts.util.each(countries, function (country) {
     var datasetId = 'dataset_' + country;
     datasetWithFilters.push({
