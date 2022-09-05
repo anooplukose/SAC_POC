@@ -1,9 +1,10 @@
+console.log("1");
 var getScriptPromisify = (src) => {
   return new Promise(resolve => {
     $.getScript(src, resolve)
   })
 }
-
+console.log("2");
 (function () {
   const prepared = document.createElement('template')
   prepared.innerHTML = `
@@ -32,11 +33,11 @@ var getScriptPromisify = (src) => {
 
     async render () {
       await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
-
+console.log("3");
       const chart = echarts.init(this._root)
       const option = {
 
-
+console.log("4");
 	 const countries = [
     'Finland',
     'France',
@@ -90,6 +91,7 @@ var getScriptPromisify = (src) => {
       }
     });
   });
+	    console.log("5");
   option = {
     animationDuration: 10000,
     dataset: [
@@ -119,10 +121,11 @@ var getScriptPromisify = (src) => {
     series: seriesList
   };
         // https://echarts.apache.org/examples/zh/index.html
-
+console.log("6");
 
       }
       chart.setOption(option)
+	console.log("7");
     }
   }
 
