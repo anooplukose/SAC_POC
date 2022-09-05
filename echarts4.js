@@ -8,7 +8,7 @@ var getScriptPromisify = (src) => {
   
    const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
-	console.log("28");
+	console.log("29");
 	function loadScript(src)
     {
     
@@ -57,15 +57,14 @@ var getScriptPromisify = (src) => {
 						await loadScript(echart2js);
 
       const chart = echarts.init(this._root)
-      var ROOT_PATH = 'https://echarts.apache.org/examples';
+   
 	var option;
 
-$.get(
-  ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+
   function (_rawData) {
     run(_rawData);
   }
-);
+
       
     function run(_rawData) {  
        const countries = [
