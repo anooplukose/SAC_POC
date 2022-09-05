@@ -58,12 +58,11 @@ var getScriptPromisify = (src) => {
 
       const chart = echarts.init(this._root)
      
-      $.get(
-  ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+     
   function (_rawData) {
     run(_rawData);
   }
-);
+
 function run(_rawData) {
   // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
   const countries = [
