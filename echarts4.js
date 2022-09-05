@@ -8,7 +8,7 @@ var getScriptPromisify = (src) => {
   
    const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
     const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
-	console.log("29");
+	console.log("30");
 	function loadScript(src)
     {
     
@@ -61,12 +61,12 @@ var getScriptPromisify = (src) => {
 	var option;
 
 
-  function (_rawData) {
-    run(_rawData);
-  }
+//   function (_rawData) {
+//     run(_rawData);
+//   }
 
       
-    function run(_rawData) {  
+    function () {  
        const countries = [
     'Finland',
     'France',
@@ -124,8 +124,8 @@ var getScriptPromisify = (src) => {
     animationDuration: 10000,
     dataset: [
       {
-        id: 'dataset_raw',
-        source: _rawData
+        id: 'dataset_raw'
+        
       },
       ...datasetWithFilters
     ],
