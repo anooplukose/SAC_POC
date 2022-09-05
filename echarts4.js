@@ -57,15 +57,7 @@ var getScriptPromisify = (src) => {
 						await loadScript(echart2js);
 
       const chart = echarts.init(this._root)
-     
-     
-  function (_rawData) {
-    run(_rawData);
-  }
-
-function run(_rawData) {
-  // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
-  const countries = [
+       const countries = [
     'Finland',
     'France',
     'Germany',
@@ -118,7 +110,7 @@ function run(_rawData) {
       }
     });
   });
-  option = {
+ const  option = {
     animationDuration: 10000,
     dataset: [
       {
@@ -146,10 +138,8 @@ function run(_rawData) {
     },
     series: seriesList
   };
- 
-}
-
-chart.setOption(option)
+     
+  chart.setOption(option)
     }
   }
 
