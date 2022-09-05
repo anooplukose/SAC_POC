@@ -112,10 +112,7 @@ console.log("22");
 
         redraw(){
 		var myChart=this.shadowRoot.getElementById('chartdiv');	
-		var myChart1 = echarts.init(myChart, null, {
-  renderer: 'canvas',
-  useDirtyRect: false
-});
+		var myChart1 = echarts.init(myChart);
 		const option{
 			
 		      console.log("Step-11");
