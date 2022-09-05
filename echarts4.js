@@ -5,6 +5,27 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
+  
+   const echart1js = "https://fastly.jsdelivr.net/npm/jquery";
+    const echart2js = "https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
+	console.log("26");
+	function loadScript(src)
+    {
+    
+    console.log("Step-9");
+    
+	  return new Promise(function(resolve, reject) 
+    {
+		let script = document.createElement('script');
+		script.src = src;
+
+		script.onload = () => {console.log("Load: " + src); resolve(script);}
+		script.onerror = () => reject(new Error(`Script load error for ${src}`));
+
+		document.head.appendChild(script)
+	  });
+	}
+  
   const prepared = document.createElement('template')
   prepared.innerHTML = `
       <style>
@@ -31,7 +52,9 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
-   await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
+      
+ await loadScript(echart1js);				
+						await loadScript(echart2js);
 
       const chart = echarts.init(this._root)
      
