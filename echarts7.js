@@ -52,7 +52,7 @@ for (let i = 0; i < 20; i++) {
 }
 // option
 const option = {
-  backgroundColor: '#0f375f',
+ 
   tooltip: {
     trigger: 'axis',
     axisPointer: {
