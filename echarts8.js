@@ -5,7 +5,7 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
-	console.log("23");
+	console.log("24");
   const prepared = document.createElement('template')
   prepared.innerHTML = `
       <style>
@@ -32,7 +32,8 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
-      await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
+    //  await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
+	         await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
 
       const chart = echarts.init(this._root)
    const  option = {
