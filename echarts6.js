@@ -41,6 +41,7 @@ for (let i = 0; i <= 360; i++) {
   data.push([r, i]);
 }
 const option = {
+	backgroundColor: '#0f375f',
   title: {
     text: 'Two Value-Axes in Polar'
   },
