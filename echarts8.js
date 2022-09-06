@@ -39,7 +39,7 @@ console.log("30")
 	    console.log(val)
       const chart = echarts.init(this._root)
    const  option = {
-	   backgroundColor: '#0f375f',
+	  
   tooltip: {
     formatter: '{a} <br/>{b} : {c}%'
   },
