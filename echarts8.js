@@ -31,10 +31,12 @@ var getScriptPromisify = (src) => {
       this.render()
     }
 
-    async render () {
+    async render (resultSet) {
     //  await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 	         await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
-
+const val = resultSet
+console.log("30")
+	    console.log(val)
       const chart = echarts.init(this._root)
    const  option = {
   tooltip: {
@@ -53,7 +55,7 @@ var getScriptPromisify = (src) => {
       },
       data: [
         {
-          value: 50,
+          value: val,
           name: 'SCORE'
         }
       ]
