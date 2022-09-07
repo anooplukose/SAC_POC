@@ -38,6 +38,7 @@ var getScriptPromisify = (src) => {
     // Scripting methods
     // ------------------
     async render (resultSet) {
+      console.log("22")
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
@@ -56,9 +57,11 @@ var getScriptPromisify = (src) => {
       const countries = []
       const timeline = []
       const series = []
+      console.log(resultSet)
       resultSet.forEach(dp => {
         const { rawValue, description } = dp[MEASURE_DIMENSION]
         const country = dp.Country.description
+        
         const year = Number(dp.timeline.description)
 
         if (countries.indexOf(country) === -1) {
