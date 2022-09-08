@@ -51,6 +51,7 @@ var getScriptPromisify = (src) => {
       var myChart = this._myChart = echarts.init(this._root, 'dark')
       const MEASURE_DIMENSION = '@MeasureDimension'
       const countries = []
+       const timeline = []
 //       const countries = [
 //     'Finland',
 //     'France',
@@ -68,11 +69,7 @@ var getScriptPromisify = (src) => {
       resultSet.forEach(dp => {
         const { rawValue, description } = dp[MEASURE_DIMENSION]
         const country = dp.Country.description
-
-       
-        const year = Number(dp.timeline.description)
-             
-       
+        const year = Number(dp.timeline.description)    
       
         if (countries.indexOf(country) === -1) {
           countries.push(country)
