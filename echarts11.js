@@ -152,7 +152,7 @@ var getScriptPromisify = (src) => {
       right: 140
     },
     series: seriesList
-  };
+  }
 })
       }
       myChart.setOption(option)
