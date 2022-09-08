@@ -84,7 +84,7 @@ var getScriptPromisify = (src) => {
         if (countries.indexOf(country) === -1) {
           countries.push(country)
         }
-        
+       })  
   echarts.util.each(countries, function (country) {
     var datasetId = country;
     datasetWithFilters.push({
@@ -125,7 +125,7 @@ var getScriptPromisify = (src) => {
       }
     });
   });
-  option = {
+ const option = {
     animationDuration: 10000,
     dataset: [
       {
@@ -153,8 +153,7 @@ var getScriptPromisify = (src) => {
     },
     series: seriesList
   }
-})
-      }
+
       myChart.setOption(option)
     }
   }
