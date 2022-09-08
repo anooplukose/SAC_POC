@@ -118,10 +118,10 @@ var getScriptPromisify = (src) => {
       },
       encode: {
         x: 'timeline',
-        y: description,
-        label: ['Country', description],
+        y: 'Income',
+        label: ['Country', 'Income'],
         itemName: 'timeline',
-        tooltip: [description]
+        tooltip: ['Income']
       }
     });
   });
