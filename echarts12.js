@@ -12,7 +12,7 @@ var getScriptPromisify = (src) => {
       <div id="root" style="width: 100%; height: 100%;">
       </div>
     `
-  class SamplePrepared extends HTMLElement {
+  class SamplePrepared12 extends HTMLElement {
     constructor () {
       super()
 
@@ -127,5 +127,5 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
     }
   }
 
-  customElements.define('com-sap-sample-echarts-prepared', SamplePrepared)
+  customElements.define('com-sap-sample-echarts-prepared12', SamplePrepared12)
 })()
