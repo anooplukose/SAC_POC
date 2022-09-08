@@ -93,8 +93,8 @@ var getScriptPromisify = (src) => {
         type: 'filter',
         config: {
           and: [
-            { dimension: year, gte: 1950 },
-            { dimension: country, '=': country }
+            { dimension: 'timeline', gte: 1950 },
+            { dimension: 'Country', '=': country }
           ]
         }
       }
@@ -117,10 +117,10 @@ var getScriptPromisify = (src) => {
         focus: 'series'
       },
       encode: {
-        x: year,
+        x: 'timeline',
         y: description,
-        label: [country, description],
-        itemName: year,
+        label: ['Country', description],
+        itemName: 'timeline',
         tooltip: [description]
       }
     });
