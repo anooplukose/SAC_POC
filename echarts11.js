@@ -35,10 +35,6 @@ var getScriptPromisify = (src) => {
       this._props = {}
     }
 
-    onCustomWidgetResize (width, height) {
-      this.render()
-    }
-
     async render (resultSet) {
       console.log("3")
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
@@ -81,7 +77,14 @@ var getScriptPromisify = (src) => {
         if (countries.indexOf(country) === -1) {
           countries.push(country)
         }
+        if (timeline.indexOf(year) === -1) {
+          timeline.push(year)
+        }
        })  
+      const data = {
+        countries,
+        timeline
+      }
       console.log("22")
   echarts.util.each(countries, function (country) {
     var datasetId = country;
