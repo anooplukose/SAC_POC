@@ -153,7 +153,8 @@ var getScriptPromisify = (src) => {
     },
     series: seriesList
   };
-
+})
+      }
       chart.setOption(option)
     }
   }
