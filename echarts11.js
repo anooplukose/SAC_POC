@@ -75,11 +75,11 @@ var getScriptPromisify = (src) => {
         console.log(country)
         console.log(dp.Country.description)
         console.log(dp.Country)
-        console.log(Country)
+       
         const year = Number(dp.timeline.description)
                 console.log(dp.timeline.description)
         console.log(dp.timeline)
-        console.log(timeline)
+       
 
         if (countries.indexOf(country) === -1) {
           countries.push(country)
