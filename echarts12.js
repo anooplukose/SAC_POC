@@ -90,7 +90,7 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
     dataset: [
       {
     source: [
-      ['Country','timeline','Income'],
+      ['Country','Year','Income'],
 ['China','2000',1516],
 ['China','2010',9430],
 ['China','2015',13334],
