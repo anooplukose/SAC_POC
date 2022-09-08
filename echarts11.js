@@ -72,19 +72,17 @@ var getScriptPromisify = (src) => {
       resultSet.forEach(dp => {
         const { rawValue, description } = dp[MEASURE_DIMENSION]
         const country = dp.Country.description
-        console.log(country)
-        console.log(dp.Country.description)
-        console.log(dp.Country)
+
        
         const year = Number(dp.timeline.description)
-                console.log(dp.timeline.description)
-        console.log(dp.timeline)
+             
        
-
+      
         if (countries.indexOf(country) === -1) {
           countries.push(country)
         }
        })  
+      console.log("22")
   echarts.util.each(countries, function (country) {
     var datasetId = country;
     datasetWithFilters.push({
@@ -99,6 +97,7 @@ var getScriptPromisify = (src) => {
         }
       }
     });
+    console.log("33")
     seriesList.push({
       type: 'line',
       datasetId: country,
@@ -125,6 +124,7 @@ var getScriptPromisify = (src) => {
       }
     });
   });
+      console.log("44")
  const option = {
     animationDuration: 10000,
     dataset: [
