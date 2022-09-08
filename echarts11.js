@@ -5,66 +5,103 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
-  const prepared = document.createElement('template')
-  prepared.innerHTML = `
+  console.log("1")
+  const template = document.createElement('template')
+  template.innerHTML = `
       <style>
+      #root {
+        background-color: #100c2a;
+      }
+      #placeholder {
+        padding-top: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+      }
       </style>
       <div id="root" style="width: 100%; height: 100%;">
+        <div id="placeholder">Time-Series Animation Chart</div>
       </div>
     `
-  class SamplePrepared extends HTMLElement {
+  class SamplePrepared11 extends HTMLElement {
     constructor () {
       super()
-
+    console.log("2")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
-      this._shadowRoot.appendChild(prepared.content.cloneNode(true))
+      this._shadowRoot.appendChild(template.content.cloneNode(true))
 
       this._root = this._shadowRoot.getElementById('root')
 
       this._props = {}
-
-      this.render()
     }
 
     onCustomWidgetResize (width, height) {
       this.render()
     }
 
-    async render () {
-      await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
-
-      const chart = echarts.init(this._root)
-
-      const countries = [
-    'Finland',
-    'France',
-    'Germany',
-    'Iceland',
-    'Norway',
-    'Poland',
-    'Russia',
-    'United Kingdom'
-  ];
+    async render (resultSet) {
+      console.log("3")
+     // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
+     await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
+       await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
+       this._placeholder = this._root.querySelector('#placeholder')
+      if (this._placeholder) {
+        this._root.removeChild(this._placeholder)
+        this._placeholder = null
+      }
+      if (this._myChart) {
+        echarts.dispose(this._myChart)
+      }
+      var myChart = this._myChart = echarts.init(this._root, 'dark')
+      const MEASURE_DIMENSION = '@MeasureDimension'
+      const countries = []
+//       const countries = [
+//     'Finland',
+//     'France',
+//     'Germany',
+//     'Iceland',
+//     'Norway',
+//     'Poland',
+//     'Russia',
+//     'United Kingdom'
+//   ];
   const datasetWithFilters = [];
   const seriesList = [];
+       console.log(resultSet)
+      
+      resultSet.forEach(dp => {
+        const { rawValue, description } = dp[MEASURE_DIMENSION]
+        const country = dp.Country.description
+        console.log(country)
+        console.log(dp.Country.description)
+        console.log(dp.Country)
+        console.log(Country)
+        const year = Number(dp.timeline.description)
+                console.log(dp.timeline.description)
+        console.log(dp.timeline)
+        console.log(timeline)
+
+        if (countries.indexOf(country) === -1) {
+          countries.push(country)
+        }
+        
   echarts.util.each(countries, function (country) {
-    var datasetId = 'dataset_' + country;
+    var datasetId = country;
     datasetWithFilters.push({
-      id: datasetId,
-      fromDatasetId: 'dataset_raw',
+      id: country,
       transform: {
         type: 'filter',
         config: {
           and: [
-            { dimension: 'Year', gte: 1950 },
-            { dimension: 'Country', '=': country }
+            { dimension: year, gte: 1950 },
+            { dimension: country, '=': country }
           ]
         }
       }
     });
     seriesList.push({
       type: 'line',
-      datasetId: datasetId,
+      datasetId: country,
       showSymbol: false,
       name: country,
       endLabel: {
@@ -80,11 +117,11 @@ var getScriptPromisify = (src) => {
         focus: 'series'
       },
       encode: {
-        x: 'Year',
-        y: 'Income',
-        label: ['Country', 'Income'],
-        itemName: 'Year',
-        tooltip: ['Income']
+        x: year,
+        y: description,
+        label: [country, description],
+        itemName: year,
+        tooltip: [description]
       }
     });
   });
@@ -92,8 +129,8 @@ var getScriptPromisify = (src) => {
     animationDuration: 10000,
     dataset: [
       {
-        id: 'dataset_raw',
-        source: _rawData
+      
+        source: resultSet
       },
       ...datasetWithFilters
     ],
@@ -121,5 +158,5 @@ var getScriptPromisify = (src) => {
     }
   }
 
-  customElements.define('com-sap-sample-echarts-prepared', SamplePrepared)
+  customElements.define('com-sap-sample-echarts-prepared11', SamplePrepared11)
 })()
