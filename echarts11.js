@@ -133,7 +133,7 @@ var getScriptPromisify = (src) => {
     dataset: [
       {
       
-        source: resultSet
+        source: data
       },
       ...datasetWithFilters
     ],
