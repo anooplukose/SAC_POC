@@ -8,8 +8,18 @@ var getScriptPromisify = (src) => {
   const template = document.createElement('template')
   template.innerHTML = `
       <style>
+      #root {
+        background-color: #100c2a;
+      }
+      #placeholder {
+        padding-top: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+      }
       </style>
       <div id="root" style="width: 100%; height: 100%;">
+        <div id="placeholder">Time-Series Animation Chart</div>
       </div>
     `
   class SamplePrepared12 extends HTMLElement {
