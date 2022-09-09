@@ -67,7 +67,7 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
       endLabel: {
         show: true,
         formatter: function (params) {
-          return params.value[3] + ': ' + params.value[0];
+          return params.value[0] + ': ' + params.value[2];
         }
       },
       labelLayout: {
@@ -90,7 +90,7 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
     dataset: [
       {
     source: [
-      ['Country','Year','Income'],
+      ['Country','timeline','Income'],
 ['China','2000',1516],
 ['China','2010',9430],
 ['China','2015',13334],
@@ -99,7 +99,16 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
 ['Australia','2015',44056],
 ['Canada','2000',37314],
 ['Canada','2010',40773],
-['Canada','2015',43294]
+['Canada','2015',43294],
+['Finland','2000',34517],
+['Finland','2010',39425],
+['Finland','2015',38923],
+['Cuba','2000',11268],
+['Cuba','2010',18477],
+['Cuba','2015',21291],
+['France','2000',34774],
+['France','2010',36745],
+['France','2015',37599]
     ]
   },
       ...datasetWithFilters
