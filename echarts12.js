@@ -5,8 +5,8 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
-  const prepared = document.createElement('template')
-  prepared.innerHTML = `
+  const template = document.createElement('template')
+  template.innerHTML = `
       <style>
       </style>
       <div id="root" style="width: 100%; height: 100%;">
@@ -17,7 +17,7 @@ var getScriptPromisify = (src) => {
       super()
 console.log("22")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
-      this._shadowRoot.appendChild(prepared.content.cloneNode(true))
+      this._shadowRoot.appendChild(template.content.cloneNode(true))
 
       this._root = this._shadowRoot.getElementById('root')
 
@@ -93,7 +93,7 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
     dataset: [
       {
     source: [
-      ['Country','timeline','Income'],
+      ['Country','Year','Income'],
 ['China','2000',1516],
 ['China','2010',9430],
 ['China','2015',13334],
