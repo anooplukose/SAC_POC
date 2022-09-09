@@ -33,12 +33,10 @@ console.log("22")
 
       this._props = {}
 
-      this.render()
+     
     }
 
-    onCustomWidgetResize (width, height) {
-      this.render()
-    }
+
 
     async render () {
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
