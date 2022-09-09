@@ -15,7 +15,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared12 extends HTMLElement {
     constructor () {
       super()
-
+console.log("22")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(prepared.content.cloneNode(true))
 
@@ -39,7 +39,10 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
       const countries = [
     'China',
     'Australia',
-    'Canada'
+    'Canada',
+     'Finland',
+        'Cuba',
+        'France'
     
   ];
   const datasetWithFilters = [];
