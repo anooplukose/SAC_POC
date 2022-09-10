@@ -5,8 +5,8 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
-  const template = document.createElement('template')
-  template.innerHTML = `
+  const prepared = document.createElement('template')
+  prepared.innerHTML = `
      <style>
       </style>
       <div id="root" style="width: 100%; height: 100%;">
@@ -15,18 +15,20 @@ var getScriptPromisify = (src) => {
   class SamplePrepared12 extends HTMLElement {
     constructor () {
       super()
-console.log("22")
+console.log("23")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
-      this._shadowRoot.appendChild(template.content.cloneNode(true))
+      this._shadowRoot.appendChild(prepared.content.cloneNode(true))
 
       this._root = this._shadowRoot.getElementById('root')
 
       this._props = {}
 
-     
+     this.render()
     }
 
-
+  onCustomWidgetResize (width, height) {
+      this.render()
+    }
 
     async render () {
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
@@ -34,7 +36,7 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
 
     
-      var myChart = echarts.init(this._root)
+      const myChart = echarts.init(this._root)
       const countries = [
     'China',
     'Australia',
