@@ -25,7 +25,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-
+      console.log("22")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
 
@@ -38,6 +38,7 @@ var getScriptPromisify = (src) => {
 
 
     async render () {
+      console.log("33")
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
@@ -49,7 +50,9 @@ this._placeholder = this._root.querySelector('#placeholder')
       if (this._myChart) {
         echarts.dispose(this._myChart)
       }
+      console.log("44")
       var myChart = this._myChart = echarts.init(this._root, 'dark')
+      console.log("55")
       const countries = [
     'CHINA',
     'EUROPE & AME',
