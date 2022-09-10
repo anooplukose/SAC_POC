@@ -23,11 +23,9 @@ console.log("26")
 
       this._props = {}
 
-      this.render()
+     
     }
- onCustomWidgetResize (width, height) {
-      this.render()
-    }
+ 
 
 
     async render () {
