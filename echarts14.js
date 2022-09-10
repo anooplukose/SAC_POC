@@ -5,38 +5,51 @@ var getScriptPromisify = (src) => {
 }
 
 (function () {
-  const prepared = document.createElement('template')
-  prepared.innerHTML = `
-     <style>
+  const template = document.createElement('template')
+  template.innerHTML = `
+      <style>
+      #root {
+        background-color: #100c2a;
+      }
+      #placeholder {
+        padding-top: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+      }
       </style>
       <div id="root" style="width: 100%; height: 100%;">
+        <div id="placeholder">Time-Series Animation Chart</div>
       </div>
     `
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-console.log("26")
+
       this._shadowRoot = this.attachShadow({ mode: 'open' })
-      this._shadowRoot.appendChild(prepared.content.cloneNode(true))
+      this._shadowRoot.appendChild(template.content.cloneNode(true))
 
       this._root = this._shadowRoot.getElementById('root')
 
       this._props = {}
-      this.render()
-     
     }
+
  
-onCustomWidgetResize (width, height) {
-      this.render()
-    }
+
 
     async render () {
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
-
-    
-      const myChart = echarts.init(this._root)
+this._placeholder = this._root.querySelector('#placeholder')
+      if (this._placeholder) {
+        this._root.removeChild(this._placeholder)
+        this._placeholder = null
+      }
+      if (this._myChart) {
+        echarts.dispose(this._myChart)
+      }
+      var myChart = this._myChart = echarts.init(this._root, 'dark')
       const countries = [
     'CHINA',
     'EUROPE & AME',
