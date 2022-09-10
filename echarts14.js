@@ -25,7 +25,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("23")
+      console.log("24")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
 
@@ -35,7 +35,10 @@ var getScriptPromisify = (src) => {
       this.render()
     }
 
- 
+  onCustomWidgetResize (width, height) {
+     console.log("25")
+      this.render()
+    }
 
 
     async render () {
