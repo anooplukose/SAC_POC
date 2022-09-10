@@ -15,7 +15,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-console.log("25")
+console.log("26")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(prepared.content.cloneNode(true))
 
@@ -25,7 +25,9 @@ console.log("25")
 
       this.render()
     }
-
+ onCustomWidgetResize (width, height) {
+      this.render()
+    }
 
 
     async render () {
@@ -224,7 +226,7 @@ await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
       ...datasetWithFilters
     ],
     title: {
-      text: 'Income of Germany and France since 1950'
+      text: 'All Region Sales Since 2002'
     },
     tooltip: {
       order: 'valueDesc',
