@@ -15,7 +15,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-console.log("24")
+console.log("25")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(prepared.content.cloneNode(true))
 
@@ -23,7 +23,7 @@ console.log("24")
 
       this._props = {}
 
-     
+      this.render()
     }
 
 
