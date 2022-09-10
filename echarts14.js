@@ -15,7 +15,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-console.log("23")
+console.log("24")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(prepared.content.cloneNode(true))
 
@@ -23,12 +23,10 @@ console.log("23")
 
       this._props = {}
 
-     this.render()
+     
     }
 
-  onCustomWidgetResize (width, height) {
-      this.render()
-    }
+
 
     async render () {
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
