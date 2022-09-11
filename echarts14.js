@@ -33,6 +33,11 @@ var getScriptPromisify = (src) => {
 
       this._props = {}
       this.render()
+      this.addEventListener("click", event => {
+        console.log("26")
+				var event = new Event("onClick")
+				this.dispatchEvent(event)
+            })
     }
 
   onCustomWidgetResize (width, height) {
