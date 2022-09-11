@@ -1,8 +1,20 @@
-var getScriptPromisify = (src) => {
-  return new Promise(resolve => {
-    $.getScript(src, resolve)
-  })
-}
+ function loadScript(src)
+    {
+    
+    console.log("Step-9");
+    
+	  return new Promise(function(resolve, reject) 
+    {
+		let script = document.createElement('script');
+		script.src = src;
+
+		script.onload = () => {console.log("Load: " + src); resolve(script);}
+		script.onerror = () => reject(new Error(`Script load error for ${src}`));
+
+		document.head.appendChild(script)
+	  });
+	}
+    
 
 (function () {
   const template = document.createElement('template')
@@ -25,7 +37,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("60")
+      console.log("70")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
