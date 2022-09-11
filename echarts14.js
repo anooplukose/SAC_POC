@@ -25,7 +25,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("49")
+      console.log("59")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -108,13 +108,8 @@ var getScriptPromisify = (src) => {
      console.log("25")
       this.render()
     }
-        //When the custom widget is resized on the canvas, the Custom Widget SDK framework executes the following JavaScript function call on the custom widget
-        // Commented out by default
-        /*
-    
-          
-	  
-///////	  
+       
+        
 	  
   
 
