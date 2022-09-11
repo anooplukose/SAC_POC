@@ -25,7 +25,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("29")
+      console.log("39")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -46,7 +46,7 @@ var getScriptPromisify = (src) => {
         console.log("Step-5");
         this._firstConnection = true;
         
-        async function LoadLibs(callme) {
+        async function LoadLibs() {
         console.log("Step - 7");
         
 					try
@@ -63,7 +63,7 @@ var getScriptPromisify = (src) => {
           {
           console.log("Step-10");
           console.log(" execute kyun nahi ho raha");
-          callme.redraw();
+          this.redraw();
 					}
 				}
         
