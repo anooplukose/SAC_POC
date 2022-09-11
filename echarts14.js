@@ -1,4 +1,9 @@
- function loadScript(src)
+ 
+    
+
+(function () {
+	
+	function loadScript(src)
     {
     
     console.log("Step-9");
@@ -14,9 +19,7 @@
 		document.head.appendChild(script)
 	  });
 	}
-    
-
-(function () {
+	
   const template = document.createElement('template')
   template.innerHTML = `
       <style>
@@ -37,7 +40,7 @@
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("70")
+      console.log("71")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -131,6 +134,7 @@
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
+	    console.log("34")
 this._placeholder = this._root.querySelector('#placeholder')
       if (this._placeholder) {
         this._root.removeChild(this._placeholder)
