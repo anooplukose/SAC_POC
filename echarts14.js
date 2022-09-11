@@ -41,7 +41,7 @@ var getScriptPromisify = (src) => {
 
 //////	  
 	 //Fired when the widget is added to the html DOM of the page
-        connectedCallback(){
+        connectedCallback(callme){
         
         console.log("Step-5");
         this._firstConnection = true;
@@ -63,7 +63,7 @@ var getScriptPromisify = (src) => {
           {
           console.log("Step-10");
           console.log(" execute kyun nahi ho raha");
-          this.redraw();
+          callme.redraw();
 					}
 				}
         
