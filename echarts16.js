@@ -24,13 +24,13 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("001")
+      console.log("002")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
 	this._firstConnection = false;
       this._props = {}
-      this.render()
+     
       this.addEventListener("click", event => {
         console.log("26")
 				var event = new Event("onClick")
@@ -40,73 +40,7 @@ var getScriptPromisify = (src) => {
 
 //////	  
 	 //Fired when the widget is added to the html DOM of the page
-        connectedCallback(callme){
         
-        console.log("Step-5");
-        this._firstConnection = true;
-        
-        async function LoadLibs() {
-        console.log("Step - 7");
-        
-					try
-          {
-						console.log("Step-8");
-						
-            
-					} 
-          catch (e) 
-          {
-						alert(e);
-					} 
-          finally 
-          {
-          console.log("Step-10");
-          console.log(" execute kyun nahi ho raha");
-          callme.redraw();
-					}
-				}
-        
-        console.log("Step-6");
-        LoadLibs(this);
-        }
-        
-       
-       
-       
-
-
-         //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
-        disconnectedCallback(){
-        
-        }
-
-         //When the custom widget is updated, the Custom Widget SDK framework executes this function first
-		onCustomWidgetBeforeUpdate(oChangedProperties) {
-    
-    
-
-		}
-    
-    
-
-        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
-		onCustomWidgetAfterUpdate(oChangedProperties) {
-            if (this._firstConnection){
-            this.redraw();
-            }
-            
-            
-        }
-        
-        //When the custom widget is removed from the canvas or the analytic application is closed
-        onCustomWidgetDestroy(){
-        
-        }
-
-        onCustomWidgetResize (width, height) {
-     console.log("25")
-      this.render()
-    }
        
         
 	  
