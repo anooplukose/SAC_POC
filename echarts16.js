@@ -22,7 +22,7 @@ var getScriptPromisify = (src) => {
         <div id="placeholder">Time-Series Animation Chart</div>
       </div>
     `
-  class SamplePrepared14 extends HTMLElement {
+  class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
       console.log("24")
@@ -268,5 +268,5 @@ this._placeholder = this._root.querySelector('#placeholder')
     }
   }
 
-  customElements.define('com-sap-sample-echarts-prepared14', SamplePrepared14)
+  customElements.define('com-sap-sample-echarts-prepared16', SamplePrepared16)
 })()
