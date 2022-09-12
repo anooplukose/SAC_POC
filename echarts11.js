@@ -24,7 +24,7 @@
   class SamplePrepared11 extends HTMLElement {
     constructor () {
       super()
-      console.log("149")
+      console.log("159")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -161,7 +161,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     animationDuration: 10000,
     dataset: [
       {
-    source: series
+    source: data
   },
       ...datasetWithFilters
     ],
