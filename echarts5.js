@@ -38,7 +38,7 @@ var getScriptPromisify = (src) => {
     // Scripting methods
     // ------------------
     async render (resultSet) {
-      console.log("22")
+      console.log("33")
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
@@ -89,6 +89,10 @@ var getScriptPromisify = (src) => {
         series,
         timeline
       }
+      console.log(countries)
+      console.log(series)
+      console.log(timeline)
+      console.log(data)
       // console.log(data)
       // $.get('https://cdn.jsdelivr.net/gh/apache/incubator-echarts-website@asf-site/examples' + '/data/asset/data/life-expectancy.json', function (data) {
       //   console.log(data)
