@@ -72,8 +72,8 @@ this._placeholder = this._root.querySelector('#placeholder')
       var myChart = this._myChart = echarts.init(this._root, 'dark')
       console.log("55")
       const MEASURE_DIMENSION = '@MeasureDimension'
-      const Region = []
-      const CalendarYear = []
+      const countries = []
+      const timeline = []
       const series = []
       console.log(resultSet)
       resultSet.forEach(dp => {
@@ -82,15 +82,15 @@ this._placeholder = this._root.querySelector('#placeholder')
         
         const year = Number(dp.Calendar_Year.description)
 
-        if (Region.indexOf(country) === -1) {
-          Region.push(country)
+        if (countries.indexOf(country) === -1) {
+          countries.push(country)
         }
-        if (CalendarYear.indexOf(year) === -1) {
-          CalendarYear.push(year)
+        if (timeline.indexOf(year) === -1) {
+          timeline.push(year)
         }
-        const iT = CalendarYear.indexOf(year)
+        const iT = timeline.indexOf(year)
         series[iT] = series[iT] || []
-        const iC = Region.indexOf(country)
+        const iC = countries.indexOf(country)
         series[iT][iC] = series[iT][iC] || []
 
         let iV
@@ -101,18 +101,18 @@ this._placeholder = this._root.querySelector('#placeholder')
       })
       
       const data = {
-        Region,
+        countries,
         series,
-        CalendarYear
+        timeline
       }
       console.log("09")
-      console.log(Region)
+      console.log(countries)
 	    console.log(series)
-	    console.log(CalendarYear)
+	    console.log(timeline)
       console.log(data)
 	   const datasetWithFilters = [];
   const seriesList = [];
-  echarts.util.each(Region, function (country) {
+  echarts.util.each(countries, function (country) {
     var datasetId = country;
     datasetWithFilters.push({
       id: datasetId,
