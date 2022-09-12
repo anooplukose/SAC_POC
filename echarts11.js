@@ -24,7 +24,7 @@
   class SamplePrepared11 extends HTMLElement {
     constructor () {
       super()
-      console.log("109")
+      console.log("119")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -96,8 +96,8 @@ this._placeholder = this._root.querySelector('#placeholder')
         let iV
         if (description === 'Sales') { iV = 0 }
         series[iT][iC][iV] = rawValue
-        series[iT][iC][3] = country
-        series[iT][iC][4] = year
+        series[iT][iC][1] = country
+        series[iT][iC][2] = year
       })
       
       const data = {
@@ -110,7 +110,8 @@ this._placeholder = this._root.querySelector('#placeholder')
 	    console.log(series)
 	    console.log(CalendarYear)
       console.log(data)
-	  
+	   const datasetWithFilters = [];
+  const seriesList = [];
   echarts.util.each(Region, function (country) {
     var datasetId = country;
     datasetWithFilters.push({
