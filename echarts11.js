@@ -80,7 +80,7 @@ this._placeholder = this._root.querySelector('#placeholder')
         const { rawValue, description } = dp[MEASURE_DIMENSION]
         const country = dp.Region.description
         
-        const year = Number(dp.Year.description)
+        const year = Number(dp.Calendar_Year.description)
 
         if (Region.indexOf(country) === -1) {
           Region.push(country)
@@ -105,8 +105,11 @@ this._placeholder = this._root.querySelector('#placeholder')
         series,
         CalendarYear
       }
-      
-      
+      console.log("09")
+      console.log(Region)
+	    console.log(series)
+	    console.log(CalendarYear)
+      console.log(data)
 	  
   echarts.util.each(Region, function (country) {
     var datasetId = country;
@@ -117,7 +120,7 @@ this._placeholder = this._root.querySelector('#placeholder')
         type: 'filter',
         config: {
           and: [
-            { dimension: 'Year', gte: 1950 },
+            { dimension: 'Calendar_Year', gte: 1950 },
             { dimension: 'Region', '=': country }
           ]
         }
@@ -141,10 +144,10 @@ this._placeholder = this._root.querySelector('#placeholder')
         focus: 'series'
       },
       encode: {
-        x: 'Year',
+        x: 'Calendar_Year',
         y: 'Sales',
         label: ['Region', 'Sales'],
-        itemName: 'Year',
+        itemName: 'Calendar_Year',
         tooltip: ['Sales']
       }
     });
@@ -169,7 +172,7 @@ this._placeholder = this._root.querySelector('#placeholder')
       nameLocation: 'middle'
     },
     yAxis: {
-      name: 'ACT Sales AR'
+      name: 'Sales'
     },
     grid: {
       right: 140
