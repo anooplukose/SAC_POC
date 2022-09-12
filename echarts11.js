@@ -165,7 +165,6 @@ this._placeholder = this._root.querySelector('#placeholder')
   },
       ...datasetWithFilters
     ],
-	 console.log("05")
     title: {
       text: 'All Region Sales Since 2002'
     },
@@ -185,7 +184,9 @@ this._placeholder = this._root.querySelector('#placeholder')
     },
     series: seriesList
   };
+	    console.log("05")
       myChart.setOption(option)
+	    console.log("06")
     }
   }
 
