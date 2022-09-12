@@ -24,13 +24,13 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("002")
+      console.log("003")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
 	this._firstConnection = false;
       this._props = {}
-     
+     this.render()
       this.addEventListener("click", event => {
         console.log("26")
 				var event = new Event("onClick")
