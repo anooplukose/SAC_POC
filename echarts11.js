@@ -24,7 +24,7 @@
   class SamplePrepared11 extends HTMLElement {
     constructor () {
       super()
-      console.log("159")
+      console.log("179")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -74,7 +74,45 @@ this._placeholder = this._root.querySelector('#placeholder')
       const MEASURE_DIMENSION = '@MeasureDimension'
       const countries = []
       const timeline = []
-      const series = []
+      const series = [['Calendar Year','Region','ACT Sales AR'],
+     ['2002','ASIA PACIFIC',777.48],
+['2002','CHINA',88.95],
+['2002','EUROPE & AME',1741.68],
+['2002','LATIN AMERICA',752.87],
+['2002','NORTH AMERICA',1689.94],
+['2002','OTHER',209.44],
+['2003','ASIA PACIFIC',801.51],
+['2003','CHINA',27.92],
+['2003','EUROPE & AME',1891.47],
+['2003','LATIN AMERICA',894.73],
+['2003','NORTH AMERICA',1703.62],
+['2003','OTHER',187.75],
+['2004','ASIA PACIFIC',841.18],
+['2004','CHINA',35.26],
+['2004','EUROPE & AME',2186.82],
+['2004','LATIN AMERICA',1161.65],
+['2004','NORTH AMERICA',1725.71],
+['2004','OTHER',137.97],
+['2005','ASIA PACIFIC',856.32],
+['2005','CHINA',65.27],
+['2005','EUROPE & AME',2206.87],
+['2005','LATIN AMERICA',1182.87],
+['2005','NORTH AMERICA',1911.91],
+['2005','OTHER',83.17],
+['2006','ASIA PACIFIC',894.49],
+['2006','CHINA',74.2],
+['2006','EUROPE & AME',2146.14],
+['2006','LATIN AMERICA',1200.35],
+['2006','NORTH AMERICA',1896.01],
+['2006','OTHER',90.13],
+['2007','ASIA PACIFIC',973.18],
+['2007','CHINA',101.67],
+['2007','EUROPE & AME',2453.03],
+['2007','LATIN AMERICA',1596.9],
+['2007','NORTH AMERICA',2012.5],
+['2007','OTHER',79.45],
+['2008','ASIA PACIFIC',1146.92],
+['2008','CHINA',133.52]]
       console.log(resultSet)
       resultSet.forEach(dp => {
         const { rawValue, description } = dp[MEASURE_DIMENSION]
@@ -88,16 +126,16 @@ this._placeholder = this._root.querySelector('#placeholder')
         if (timeline.indexOf(year) === -1) {
           timeline.push(year)
         }
-        const iT = timeline.indexOf(year)
-        series[iT] = series[iT] || []
-        const iC = countries.indexOf(country)
-        series[iT][iC] = series[iT][iC] || []
+//         const iT = timeline.indexOf(year)
+//         series[iT] = series[iT] || []
+//         const iC = countries.indexOf(country)
+//         series[iT][iC] = series[iT][iC] || []
 
-        let iV
-        if (description === 'Sales') { iV = 0 }
-        series[iT][iC][iV] = rawValue
-        series[iT][iC][1] = country
-        series[iT][iC][2] = year
+//         let iV
+//         if (description === 'Sales') { iV = 0 }
+//         series[iT][iC][iV] = rawValue
+//         series[iT][iC][1] = country
+//         series[iT][iC][2] = year
       })
       
       const data = {
@@ -161,7 +199,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     animationDuration: 10000,
     dataset: [
       {
-    source: data
+    source: series
   },
       ...datasetWithFilters
     ],
