@@ -139,7 +139,7 @@ this._placeholder = this._root.querySelector('#placeholder')
         const { rawValue, description } = dp[MEASURE_DIMENSION]
         const country = dp.Region.description
         
-        const year = Number(dp.Calendar Year.description)
+        const year = Number(dp.Year.description)
 
         if (Region.indexOf(country) === -1) {
           Region.push(country)
@@ -153,7 +153,7 @@ this._placeholder = this._root.querySelector('#placeholder')
         series[iT][iC] = series[iT][iC] || []
 
         let iV
-        if (description === 'ACT Sales AR') { iV = 0 }
+        if (description === 'Sales') { iV = 0 }
         series[iT][iC][iV] = rawValue
         series[iT][iC][3] = country
         series[iT][iC][4] = year
@@ -176,7 +176,7 @@ this._placeholder = this._root.querySelector('#placeholder')
         type: 'filter',
         config: {
           and: [
-            { dimension: 'Calendar Year', gte: 1950 },
+            { dimension: 'Year', gte: 1950 },
             { dimension: 'Region', '=': country }
           ]
         }
@@ -200,11 +200,11 @@ this._placeholder = this._root.querySelector('#placeholder')
         focus: 'series'
       },
       encode: {
-        x: 'Calendar Year',
-        y: 'ACT Sales AR',
-        label: ['Region', 'ACT Sales AR'],
-        itemName: 'Calendar Year',
-        tooltip: ['ACT Sales AR']
+        x: 'Year',
+        y: 'Sales',
+        label: ['Region', 'Sales'],
+        itemName: 'Year',
+        tooltip: ['Sales']
       }
     });
   });
