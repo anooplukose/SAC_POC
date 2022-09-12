@@ -24,7 +24,7 @@
   class SamplePrepared11 extends HTMLElement {
     constructor () {
       super()
-      console.log("139")
+      console.log("149")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -165,6 +165,7 @@ this._placeholder = this._root.querySelector('#placeholder')
   },
       ...datasetWithFilters
     ],
+	 console.log("05")
     title: {
       text: 'All Region Sales Since 2002'
     },
