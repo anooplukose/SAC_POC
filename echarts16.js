@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("015")
+      console.log("016")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -77,6 +77,9 @@ this._placeholder = this._root.querySelector('#placeholder')
 	    const countries = [];
 	     const timeline = []
 	     const arra=[]
+	     arra.push(['Year','Region','Sales'])
+	    console.log("202")
+	    console.log(arra)
   const datasetWithFilters = [];
   const seriesList = [];
 	    const series = []
@@ -87,7 +90,7 @@ this._placeholder = this._root.querySelector('#placeholder')
 		    const year = Number(dp.Year.description)
 		    
 		   
-		    const arr= [rawValue,country,year]
+		    const arr= [year,country,rawValue]
 		    
 		    if (countries.indexOf(country) === -1) {
           countries.push(country)
