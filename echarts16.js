@@ -18,13 +18,13 @@ var getScriptPromisify = (src) => {
       }
       </style>
       <div id="root" style="width: 100%; height: 100%;">
-        <div id="placeholder">All Region Sales Since 2002</div>
+        <div id="placeholder"></div>
       </div>
     `
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("023")
+      console.log("001")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -142,7 +142,7 @@ this._placeholder = this._root.querySelector('#placeholder')
       endLabel: {
         show: true,
         formatter: function (params) {
-          return params.value[1] + ': ' + params.value[2];
+          return '$' + params.value[2]+' m';
         }
       },
       labelLayout: {
@@ -162,6 +162,11 @@ this._placeholder = this._root.querySelector('#placeholder')
   });
  const option = {
     animationDuration: 20000,
+	 legend: {
+    orient: 'horizontal',
+    left: 300,
+    top: 20
+  },
     dataset: [
       {
     source: arra
@@ -182,7 +187,10 @@ this._placeholder = this._root.querySelector('#placeholder')
       nameLocation: 'middle'
     },
     yAxis: {
-      name: 'Sales'
+      name: 'Sales',
+	    axisLabel: {
+        formatter: '{value} $m'
+      }
     },
     grid: {
       right: 140
