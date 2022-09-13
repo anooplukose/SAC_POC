@@ -24,13 +24,13 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("007")
+      console.log("008")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
 	this._firstConnection = false;
       this._props = {}
-     //this.render()
+     this.render()
       this.addEventListener("click", event => {
         console.log("26")
 				var event = new Event("onClick")
@@ -47,7 +47,7 @@ var getScriptPromisify = (src) => {
   
 
 
-    async render () {
+    async render (resultSet) {
       console.log("33")
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
