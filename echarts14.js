@@ -18,13 +18,13 @@
       }
       </style>
       <div id="root" style="width: 100%; height: 100%;">
-        <div id="placeholder">Time-Series Animation Chart</div>
+        <div id="placeholder">All Region Sales Since 2002</div>
       </div>
     `
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("80")
+      console.log("81")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -183,7 +183,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     });
   });
  const option = {
-    animationDuration: 50000,
+    animationDuration: 20000,
     dataset: [
       {
     source: [
