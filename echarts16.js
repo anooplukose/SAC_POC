@@ -73,6 +73,7 @@ this._placeholder = this._root.querySelector('#placeholder')
 //         'ASIA PACIFIC'
     
 //   ];
+	   const MEASURE_DIMENSION = '@MeasureDimension'
 	    const countries = [];
 	     const timeline = []
   const datasetWithFilters = [];
