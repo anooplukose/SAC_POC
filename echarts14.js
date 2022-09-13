@@ -24,7 +24,7 @@
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("78")
+      console.log("79")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -105,7 +105,7 @@
 
         onCustomWidgetResize (width, height) {
      console.log("25")
-      this.render()
+      //this.render()
     }
        
         
