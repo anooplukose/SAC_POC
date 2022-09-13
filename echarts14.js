@@ -24,13 +24,13 @@
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("79")
+      console.log("80")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
 	this._firstConnection = false;
       this._props = {}
-     // this.render()
+      this.render()
       this.addEventListener("click", event => {
         console.log("26")
 				var event = new Event("onClick")
@@ -62,7 +62,7 @@
           {
           console.log("Step-10");
           console.log(" execute kyun nahi ho raha");
-        //  callme.redraw();
+          callme.redraw();
 					}
 				}
         
@@ -92,7 +92,7 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
             if (this._firstConnection){
-            //this.redraw();
+            this.redraw();
             }
             
             
