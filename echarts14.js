@@ -62,7 +62,7 @@
           {
           console.log("Step-10");
           console.log(" execute kyun nahi ho raha");
-          callme.redraw();
+         // callme.redraw();
 					}
 				}
         
