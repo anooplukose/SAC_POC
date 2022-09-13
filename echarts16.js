@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("018")
+      console.log("019")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -47,7 +47,7 @@ var getScriptPromisify = (src) => {
   
 
 
-    async render () {
+    async render (resultSet) {
       console.log("33")
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
