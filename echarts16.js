@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("014")
+      console.log("015")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -76,6 +76,7 @@ this._placeholder = this._root.querySelector('#placeholder')
 	   const MEASURE_DIMENSION = '@MeasureDimension'
 	    const countries = [];
 	     const timeline = []
+	     const arra=[]
   const datasetWithFilters = [];
   const seriesList = [];
 	    const series = []
@@ -84,8 +85,15 @@ this._placeholder = this._root.querySelector('#placeholder')
 		    const { rawValue, description } = dp[MEASURE_DIMENSION]
 		    const country = dp.Region.description
 		    const year = Number(dp.Year.description)
-		     if (countries.indexOf(country) === -1) {
+		    
+		   
+		    const arr= [rawValue,country,year]
+		    
+		    if (countries.indexOf(country) === -1) {
           countries.push(country)
+        }
+		     if (arra.indexOf(arr) === -1) {
+          arra.push(arr)
         }
 		    if (timeline.indexOf(year) === -1) {
           timeline.push(year)
@@ -96,12 +104,14 @@ this._placeholder = this._root.querySelector('#placeholder')
         series[iT][iC] = series[iT][iC] || []
 		    
 		    let iV
-        if (description === 'Income') { iV = 2 }
+        if (description === 'Sales') { iV = 2 }
         series[iT][iC][0] = year
 	series[iT][iC][1] = country
 		    series[iT][iC][iV] = rawValue
 		    
 	    })
+	    console.log("111")
+	    console.log(arra)
 	    const data=[ ['Year','Region','Sales'],
      ['2002','ASIA PACIFIC',777.48],
 ['2002','CHINA',88.95],
