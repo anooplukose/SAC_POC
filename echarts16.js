@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("012")
+      console.log("013")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -74,14 +74,32 @@ this._placeholder = this._root.querySelector('#placeholder')
     
 //   ];
 	    const countries = [];
+	     const timeline = []
   const datasetWithFilters = [];
   const seriesList = [];
+	    const series = []
 	    console.log(resultSet)
 	    resultSet.forEach(dp => {
+		    const { rawValue, description } = dp[MEASURE_DIMENSION]
 		    const country = dp.Region.description
+		    const year = Number(dp.Year.description)
 		     if (countries.indexOf(country) === -1) {
           countries.push(country)
         }
+		    if (timeline.indexOf(year) === -1) {
+          timeline.push(year)
+        }
+		    const iT = timeline.indexOf(year)
+        series[iT] = series[iT] || []
+        const iC = countries.indexOf(country)
+        series[iT][iC] = series[iT][iC] || []
+		    
+		    let iV
+        if (description === 'Income') { iV = 2 }
+        series[iT][iC][0] = year
+	series[iT][iC][1] = country
+		    series[iT][iC][iV] = rawValue
+		    
 	    })
 	    const data=[ ['Year','Region','Sales'],
      ['2002','ASIA PACIFIC',777.48],
@@ -210,6 +228,9 @@ this._placeholder = this._root.querySelector('#placeholder')
 ['2022','LATIN AMERICA',3185.54],
 ['2022','NORTH AMERICA',2179.47],
 ['2022','OTHER',320.87]]
+	    console.log(data)
+	    console.log("100")
+	    console.log(series)
   echarts.util.each(countries, function (country) {
     var datasetId = country;
     datasetWithFilters.push({
