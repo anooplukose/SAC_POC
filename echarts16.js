@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("008")
+      console.log("009")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -64,17 +64,24 @@ this._placeholder = this._root.querySelector('#placeholder')
       console.log("44")
       var myChart = this._myChart = echarts.init(this._root, 'dark')
       console.log("55")
-      const countries = [
-    'CHINA',
-    'EUROPE & AME',
-    'LATIN AMERICA',
-     'NORTH AMERICA',
-        'OTHER',
-        'ASIA PACIFIC'
+//       const countries = [
+//     'CHINA',
+//     'EUROPE & AME',
+//     'LATIN AMERICA',
+//      'NORTH AMERICA',
+//         'OTHER',
+//         'ASIA PACIFIC'
     
-  ];
+//   ];
+	    const countries = [];
   const datasetWithFilters = [];
   const seriesList = [];
+	    resultSet.forEach(dp => {
+		    const country = dp.Country.description
+		     if (countries.indexOf(country) === -1) {
+          countries.push(country)
+        }
+	    }
 	    const data=[ ['Year','Region','Sales'],
      ['2002','ASIA PACIFIC',777.48],
 ['2002','CHINA',88.95],
