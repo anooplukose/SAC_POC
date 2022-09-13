@@ -24,7 +24,7 @@
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("77")
+      console.log("78")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -183,7 +183,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     });
   });
  const option = {
-    animationDuration: 1000000,
+    animationDuration: 50000,
     dataset: [
       {
     source: [
