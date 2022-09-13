@@ -164,7 +164,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     animationDuration: 20000,
 	 legend: {
     orient: 'horizontal',
-    left: 20,
+    left: 200,
     top: 20
   },
     dataset: [
@@ -189,7 +189,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     yAxis: {
       name: 'Sales',
 	    axisLabel: {
-        formatter: '{value} $'
+        formatter: '{value} $m'
       }
     },
     grid: {
