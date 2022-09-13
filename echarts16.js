@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("002")
+      console.log("003")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -189,7 +189,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     yAxis: {
       name: 'Sales',
 	    axisLabel: {
-        formatter: '{value} $m'
+        formatter: '${value} m'
       }
     },
     grid: {
