@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("004")
+      console.log("005")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -75,53 +75,7 @@ this._placeholder = this._root.querySelector('#placeholder')
   ];
   const datasetWithFilters = [];
   const seriesList = [];
-  echarts.util.each(countries, function (country) {
-    var datasetId = country;
-    datasetWithFilters.push({
-      id: datasetId,
-    
-      transform: {
-        type: 'filter',
-        config: {
-          and: [
-            { dimension: 'Calendar Year', gte: 1950 },
-            { dimension: 'Region', '=': country }
-          ]
-        }
-      }
-    });
-    seriesList.push({
-      type: 'line',
-      datasetId: datasetId,
-      showSymbol: false,
-      name: country,
-      endLabel: {
-        show: true,
-        formatter: function (params) {
-          return params.value[1] + ': ' + params.value[2];
-        }
-      },
-      labelLayout: {
-        moveOverlap: 'shiftY'
-      },
-      emphasis: {
-        focus: 'series'
-      },
-      encode: {
-        x: 'Calendar Year',
-        y: 'ACT Sales AR',
-        label: ['Region', 'ACT Sales AR'],
-        itemName: 'Calendar Year',
-        tooltip: ['ACT Sales AR']
-      }
-    });
-  });
- const option = {
-    animationDuration: 10000,
-    dataset: [
-      {
-    source: [
-      ['Calendar Year','Region','ACT Sales AR'],
+	    const data=[ ['Calendar Year','Region','ACT Sales AR'],
      ['2002','ASIA PACIFIC',777.48],
 ['2002','CHINA',88.95],
 ['2002','EUROPE & AME',1741.68],
@@ -247,8 +201,55 @@ this._placeholder = this._root.querySelector('#placeholder')
 ['2022','EUROPE & AME',2364.02],
 ['2022','LATIN AMERICA',3185.54],
 ['2022','NORTH AMERICA',2179.47],
-['2022','OTHER',320.87]
-    ]
+['2022','OTHER',320.87]]
+  echarts.util.each(countries, function (country) {
+    var datasetId = country;
+    datasetWithFilters.push({
+      id: datasetId,
+    
+      transform: {
+        type: 'filter',
+        config: {
+          and: [
+            { dimension: 'Calendar Year', gte: 1950 },
+            { dimension: 'Region', '=': country }
+          ]
+        }
+      }
+    });
+    seriesList.push({
+      type: 'line',
+      datasetId: datasetId,
+      showSymbol: false,
+      name: country,
+      endLabel: {
+        show: true,
+        formatter: function (params) {
+          return params.value[1] + ': ' + params.value[2];
+        }
+      },
+      labelLayout: {
+        moveOverlap: 'shiftY'
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      encode: {
+        x: 'Calendar Year',
+        y: 'ACT Sales AR',
+        label: ['Region', 'ACT Sales AR'],
+        itemName: 'Calendar Year',
+        tooltip: ['ACT Sales AR']
+      }
+    });
+  });
+ const option = {
+    animationDuration: 10000,
+    dataset: [
+      {
+    source: data
+     
+    
   },
       ...datasetWithFilters
     ],
