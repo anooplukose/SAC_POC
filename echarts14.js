@@ -30,7 +30,7 @@
       this._root = this._shadowRoot.getElementById('root')
 	this._firstConnection = false;
       this._props = {}
-      this.render()
+     // this.render()
       this.addEventListener("click", event => {
         console.log("26")
 				var event = new Event("onClick")
