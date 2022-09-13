@@ -18,13 +18,13 @@ var getScriptPromisify = (src) => {
       }
       </style>
       <div id="root" style="width: 100%; height: 100%;">
-        <div id="placeholder">Time-Series Animation Chart</div>
+        <div id="placeholder">All Region Sales Since 2002</div>
       </div>
     `
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("021")
+      console.log("022")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -161,7 +161,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     });
   });
  const option = {
-    animationDuration: 40000,
+    animationDuration: 25000,
     dataset: [
       {
     source: arra
