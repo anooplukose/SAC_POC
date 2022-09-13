@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("005")
+      console.log("006")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -75,7 +75,7 @@ this._placeholder = this._root.querySelector('#placeholder')
   ];
   const datasetWithFilters = [];
   const seriesList = [];
-	    const data=[ ['Calendar Year','Region','ACT Sales AR'],
+	    const data=[ ['Year','Region','Sales'],
      ['2002','ASIA PACIFIC',777.48],
 ['2002','CHINA',88.95],
 ['2002','EUROPE & AME',1741.68],
@@ -211,7 +211,7 @@ this._placeholder = this._root.querySelector('#placeholder')
         type: 'filter',
         config: {
           and: [
-            { dimension: 'Calendar Year', gte: 1950 },
+            { dimension: 'Year', gte: 1950 },
             { dimension: 'Region', '=': country }
           ]
         }
@@ -235,11 +235,11 @@ this._placeholder = this._root.querySelector('#placeholder')
         focus: 'series'
       },
       encode: {
-        x: 'Calendar Year',
-        y: 'ACT Sales AR',
-        label: ['Region', 'ACT Sales AR'],
-        itemName: 'Calendar Year',
-        tooltip: ['ACT Sales AR']
+        x: 'Year',
+        y: 'Sales',
+        label: ['Region', 'Sales'],
+        itemName: 'Year',
+        tooltip: ['Sales']
       }
     });
   });
@@ -265,7 +265,7 @@ this._placeholder = this._root.querySelector('#placeholder')
       nameLocation: 'middle'
     },
     yAxis: {
-      name: 'ACT Sales AR'
+      name: 'Sales'
     },
     grid: {
       right: 140
