@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("022")
+      console.log("023")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -161,7 +161,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     });
   });
  const option = {
-    animationDuration: 25000,
+    animationDuration: 20000,
     dataset: [
       {
     source: arra
