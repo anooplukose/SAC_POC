@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared17 extends HTMLElement {
     constructor () {
       super()
-      console.log("012")
+      console.log("014")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -77,6 +77,7 @@ this._placeholder = this._root.querySelector('#placeholder')
 	    const countries = [];
 	     const timeline = []
 	     const arra=[]
+	     
 	     arra.push(['Year','Region','Sales'])
 	    console.log("202")
 	    console.log(arra)
@@ -187,26 +188,7 @@ this._placeholder = this._root.querySelector('#placeholder')
             lineStyle: {
               color: '#555'
             },
-            checkpointStyle: {
-              color: '#bbb',
-              borderColor: '#777',
-              borderWidth: 2
-            },
-            controlStyle: {
-              showNextBtn: false,
-              showPrevBtn: false,
-              color: '#666',
-              borderColor: '#666'
-            },
-            emphasis: {
-              label: {
-                color: '#fff'
-              },
-              controlStyle: {
-                color: '#aaa',
-                borderColor: '#aaa'
-              }
-            },
+            
             data: []
           },
 	    animationDuration: 20000,
@@ -253,8 +235,8 @@ this._placeholder = this._root.querySelector('#placeholder')
     },
     series: [
         {
-          type: 'scatter',
-          data: data.arra[0]
+          type: 'line',
+          data: data.arra['rawNo'][0]
           
         }
       ],
@@ -270,8 +252,8 @@ this._placeholder = this._root.querySelector('#placeholder')
           },
           series: {
             name: data.timeline[n],
-            type: 'scatter',
-            data: data.arra[n]
+            type: 'line',
+            data: data.arra['rawNo'][n]
             
           }
         })
