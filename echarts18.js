@@ -31,7 +31,7 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
-      console.log("006")
+      console.log("007")
       await getScriptPromisify('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json')
       console.log("1")
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
@@ -189,7 +189,7 @@ for (let i = startIndex; i < years.length - 1; ++i) {
     option.graphic.elements[0].style.text = year;
     chart.setOption(option);
   }
-});
+};
     }
   }
 
