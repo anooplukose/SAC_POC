@@ -113,11 +113,17 @@ this._placeholder = this._root.querySelector('#placeholder')
 		    series[iT][iC][iV] = rawValue
 		    
 	    })
+	    
+	    const data = {
+        timeline,
+        countries,
+        arra
+      }
 	    console.log("111")
 	    console.log(arra)
 // 	   
 	   // console.log(data)
-	    console.log("100")
+	    	    console.log("100")
 	    console.log(series)
   echarts.util.each(countries, function (country) {
     var datasetId = country;
@@ -161,7 +167,49 @@ this._placeholder = this._root.querySelector('#placeholder')
     });
   });
  const option = {
-    animationDuration: 20000,
+    baseOption: {
+          timeline: {
+            axisType: 'category',
+            orient: 'vertical',
+            autoPlay: true,
+            inverse: true,
+            playInterval: 1000,
+            left: null,
+            right: 0,
+            top: 20,
+            bottom: 20,
+            width: 55,
+            height: null,
+            label: {
+              color: '#999'
+            },
+            symbol: 'none',
+            lineStyle: {
+              color: '#555'
+            },
+            checkpointStyle: {
+              color: '#bbb',
+              borderColor: '#777',
+              borderWidth: 2
+            },
+            controlStyle: {
+              showNextBtn: false,
+              showPrevBtn: false,
+              color: '#666',
+              borderColor: '#666'
+            },
+            emphasis: {
+              label: {
+                color: '#fff'
+              },
+              controlStyle: {
+                color: '#aaa',
+                borderColor: '#aaa'
+              }
+            },
+            data: []
+          },
+	    animationDuration: 20000,
 	 color: [
   '#6DF26D',
         '#c23531',
@@ -204,7 +252,27 @@ this._placeholder = this._root.querySelector('#placeholder')
       right: 140
     },
     series: seriesList
+    },
+	 options: []
   };
+	    for (var n = 0; n < data.timeline.length; n++) {
+        option.baseOption.timeline.data.push(data.timeline[n])
+        option.options.push({
+          title: {
+            show: true,
+            text: data.timeline[n] + ''
+          },
+          series: {
+            name: data.timeline[n],
+            type: 'scatter',
+            itemStyle: itemStyle,
+            data: data.series[n],
+            symbolSize: function (val) {
+              return sizeFunction(val[2])
+            }
+          }
+        })
+      }
       myChart.setOption(option)
     }
   }
