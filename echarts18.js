@@ -31,7 +31,7 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
-      console.log("004")
+      console.log("005")
       await getScriptPromisify('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json')
       console.log("1")
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
@@ -63,13 +63,12 @@ const countryColors = {
   'United States': '#b22234'
 };
        console.log("2")
-$.when(
-  $.getJSON('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json'),
-  $.getJSON('https://echarts.apache.org/examples/data/asset/data/life-expectancy-table.json')
-).done(function (res0, res1) {
+const re=[]
+const re1=[]
+(function (re, re1) {
   console.log("3")
-  const flags = res0[0];
-  const data = res1[0];
+  const flags = re[0];
+  const data = re1[0];
   const years = [];
   for (let i = 0; i < data.length; ++i) {
     if (years.length === 0 || years[years.length - 1] !== data[i][4]) {
