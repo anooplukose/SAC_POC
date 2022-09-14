@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared17 extends HTMLElement {
     constructor () {
       super()
-      console.log("005")
+      console.log("006")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
