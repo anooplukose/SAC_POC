@@ -31,7 +31,7 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
-      console.log("002")
+      console.log("003")
       await getScriptPromisify('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
@@ -62,7 +62,7 @@ const countryColors = {
 };
 $.when(
   $.getJSON('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json'),
-  $.getJSON(ROOT_PATH + '/data/asset/data/life-expectancy-table.json')
+  $.getJSON('https://echarts.apache.org/examples/data/asset/data/life-expectancy-table.json')
 ).done(function (res0, res1) {
   const flags = res0[0];
   const data = res1[0];
