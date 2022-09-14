@@ -31,9 +31,11 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
-      console.log("003")
+      console.log("004")
       await getScriptPromisify('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json')
+      console.log("1")
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
+     
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
 
       const chart = echarts.init(this._root)
@@ -60,10 +62,12 @@ const countryColors = {
   'United Kingdom': '#00247d',
   'United States': '#b22234'
 };
+       console.log("2")
 $.when(
   $.getJSON('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json'),
   $.getJSON('https://echarts.apache.org/examples/data/asset/data/life-expectancy-table.json')
 ).done(function (res0, res1) {
+  console.log("3")
   const flags = res0[0];
   const data = res1[0];
   const years = [];
@@ -84,6 +88,7 @@ $.when(
   }
   let startIndex = 10;
   let startYear = years[startIndex];
+  console.log("4")
   const option = {
     grid: {
       top: 10,
@@ -182,7 +187,7 @@ for (let i = startIndex; i < years.length - 1; ++i) {
     });
     option.series[0].data = source;
     option.graphic.elements[0].style.text = year;
-    myChart.setOption(option);
+    chart.setOption(option);
   }
 });
     }
