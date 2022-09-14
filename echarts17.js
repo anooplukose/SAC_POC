@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared17 extends HTMLElement {
     constructor () {
       super()
-      console.log("010")
+      console.log("011")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -251,7 +251,13 @@ this._placeholder = this._root.querySelector('#placeholder')
     grid: {
       right: 140
     },
-    series: seriesList
+    series:  series: [
+        {
+          type: 'scatter',
+          data: data.arra[0]
+          
+        }
+      ],
     },
 	 options: []
   };
