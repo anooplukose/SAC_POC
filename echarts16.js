@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("003")
+      console.log("004")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -162,6 +162,14 @@ this._placeholder = this._root.querySelector('#placeholder')
   });
  const option = {
     animationDuration: 20000,
+	 color: [
+  '#6DF26D',
+        '#c23531',
+        '#E062AE',
+        '#96BFFF',
+        '#ea7e53',
+        '#eedd78'
+  ],
 	 legend: {
     orient: 'horizontal',
     left: 600,
