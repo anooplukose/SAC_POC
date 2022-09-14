@@ -31,7 +31,7 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
-      console.log("005")
+      console.log("006")
       await getScriptPromisify('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json')
       console.log("1")
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
@@ -64,8 +64,9 @@ const countryColors = {
 };
        console.log("2")
 const re=[]
+console.log("21")
 const re1=[]
-(function (re, re1) {
+function (re, re1) {
   console.log("3")
   const flags = re[0];
   const data = re1[0];
