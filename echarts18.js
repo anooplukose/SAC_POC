@@ -12,7 +12,7 @@ var getScriptPromisify = (src) => {
       <div id="root" style="width: 100%; height: 100%;">
       </div>
     `
-  class SamplePrepared extends HTMLElement {
+  class SamplePrepared18 extends HTMLElement {
     constructor () {
       super()
 
@@ -31,6 +31,7 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
+      console.log("001")
       await getScriptPromisify('https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
 await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
@@ -83,7 +84,7 @@ $.when(
   }
   let startIndex = 10;
   let startYear = years[startIndex];
-  option = {
+  const option = {
     grid: {
       top: 10,
       bottom: 30,
@@ -187,5 +188,5 @@ for (let i = startIndex; i < years.length - 1; ++i) {
     }
   }
 
-  customElements.define('com-sap-sample-echarts-prepared', SamplePrepared)
+  customElements.define('com-sap-sample-echarts-prepared18', SamplePrepared18)
 })()
