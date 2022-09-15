@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("003")
+    console.log("004")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -1556,8 +1556,10 @@ var allData = {
     }
   ]
 }
-
+console.log(allData)
+		
 chart.data = JSON.parse(JSON.stringify(allData[year]));
+		console.log(chart.data)
 categoryAxis.zoom({ start: 0, end: 1 / chart.data.length });
 
 series.events.on("inited", function() {
