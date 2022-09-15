@@ -24,13 +24,17 @@
   class SamplePrepared14 extends HTMLElement {
     constructor () {
       super()
-      console.log("81")
+      console.log("82")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
 	this._firstConnection = false;
       this._props = {}
-      this.render()
+	    for (let i = 0; i < 4 ; ++i) 
+	    {
+		    this.render()
+	    }
+      
       this.addEventListener("click", event => {
         console.log("26")
 				var event = new Event("onClick")
