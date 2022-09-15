@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared17 extends HTMLElement {
     constructor () {
       super()
-      console.log("016")
+      console.log("017")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -77,6 +77,7 @@ this._placeholder = this._root.querySelector('#placeholder')
 	    const countries = [];
 	     const timeline = []
 	     const arra=[]
+	     const arra1=[]
 	     
 	     arra.push(['Year','Region','Sales'])
 	    console.log("202")
@@ -98,6 +99,9 @@ this._placeholder = this._root.querySelector('#placeholder')
         }
 		     if (arra.indexOf(arr) === -1) {
           arra.push(arr)
+        }
+		    if (arra1.indexOf(arr) === -1) {
+          arra1.push(arr)
         }
 		    if (timeline.indexOf(year) === -1) {
           timeline.push(year)
@@ -260,7 +264,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     series: [
         {
           type: 'line',
-          data: data.series[0]
+          data: arra1[0]
           
         }
       ],
@@ -280,7 +284,7 @@ this._placeholder = this._root.querySelector('#placeholder')
           series: {
             name: data.timeline[n],
             type: 'line',
-            data: data.series[n]
+            data: arra1[n]
             
           }
         })
