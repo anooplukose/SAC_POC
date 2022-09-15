@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("001")
+    console.log("002")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -183,7 +183,7 @@ height:500px;
 am4core.useTheme(am4themes_animated);
 // Themes end
 console.log("101")
-var chart = am4core.create("chartdiv", am4charts.XYChart);
+var chart = am4core.create('chartdiv', am4charts.XYChart);
 		console.log("102")
 chart.padding(40, 40, 40, 40);
 
