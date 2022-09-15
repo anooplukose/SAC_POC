@@ -31,6 +31,7 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
+      console.log("001")
       await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
 
 
@@ -39,6 +40,7 @@ var getScriptPromisify = (src) => {
 for (let i = 0; i < 5; ++i) {
   data.push(Math.round(Math.random() * 200));
 }
+      console.log(data)
 const option = {
   xAxis: {
     max: 'dataMax'
@@ -72,6 +74,8 @@ const option = {
   animationEasing: 'linear',
   animationEasingUpdate: 'linear'
 };
+      console.log(data)
+      console.log(data.length)
       function run() {
   for (var i = 0; i < data.length; ++i) {
     if (Math.random() > 0.9) {
