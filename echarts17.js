@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared17 extends HTMLElement {
     constructor () {
       super()
-      console.log("019")
+      console.log("020")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -184,29 +184,8 @@ this._placeholder = this._root.querySelector('#placeholder')
               color: '#999'
             },
             symbol: 'none',
-            lineStyle: {
-              color: '#555'
-            },
-            checkpointStyle: {
-              color: '#bbb',
-              borderColor: '#777',
-              borderWidth: 2
-            },
-            controlStyle: {
-              showNextBtn: false,
-              showPrevBtn: false,
-              color: '#666',
-              borderColor: '#666'
-            },
-            emphasis: {
-              label: {
-                color: '#fff'
-              },
-              controlStyle: {
-                color: '#aaa',
-                borderColor: '#aaa'
-              }
-            },
+          
+            
             data: []
           },
 	    animationDuration: 20000,
