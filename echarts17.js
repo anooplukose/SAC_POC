@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared17 extends HTMLElement {
     constructor () {
       super()
-      console.log("015")
+      console.log("016")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -108,10 +108,12 @@ this._placeholder = this._root.querySelector('#placeholder')
         series[iT][iC] = series[iT][iC] || []
 		    
 		    let iV
-        if (description === 'Sales') { iV = 2 }
-        series[iT][iC][0] = year
-	series[iT][iC][1] = country
+        if (description === 'Sales') { iV = 0 }
+        
+	
 		    series[iT][iC][iV] = rawValue
+		    series[iT][iC][1] = country
+		    series[iT][iC][2] = year
 		    
 	    })
 	    
@@ -127,7 +129,8 @@ this._placeholder = this._root.querySelector('#placeholder')
 // 	   
 	   // console.log(data)
 	    	    console.log("100")
-	 
+	 console.log(data.series[0])
+	    console.log(data.timeline.length)
   echarts.util.each(countries, function (country) {
     var datasetId = country;
     datasetWithFilters.push({
@@ -235,6 +238,25 @@ this._placeholder = this._root.querySelector('#placeholder')
     grid: {
       right: 140
     },
+	    visualMap: [
+            {
+              show: false,
+              dimension: 3,
+              categories: data.countries,
+              calculable: true,
+              precision: 0.1,
+              textGap: 30,
+              textStyle: {
+                color: '#ccc'
+              },
+              inRange: {
+                color: (function () {
+                  var colors = ['#bcd3bb', '#e88f70', '#edc1a5', '#9dc5c8', '#e1e8c8', '#7b7c68', '#e5b5b5', '#f0b489', '#928ea8', '#bda29a']
+                  return colors.concat(colors)
+                })()
+              }
+            }
+          ],
     series: [
         {
           type: 'line',
@@ -245,6 +267,9 @@ this._placeholder = this._root.querySelector('#placeholder')
     },
 	 options: []
   };
+	    console.log("999")
+	    console.log(data)
+	    console.log(series)
 	    for (var n = 0; n < data.timeline.length; n++) {
         option.baseOption.timeline.data.push(data.timeline[n])
         option.options.push({
