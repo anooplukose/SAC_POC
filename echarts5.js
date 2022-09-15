@@ -38,7 +38,7 @@ var getScriptPromisify = (src) => {
     // Scripting methods
     // ------------------
     async render (resultSet) {
-      console.log("331")
+      console.log("332")
      // await getScriptPromisify('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0/echarts.min.js')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/jquery')
        await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
@@ -278,6 +278,9 @@ var getScriptPromisify = (src) => {
         },
         options: []
       }
+      console.log("999")
+	    console.log(data)
+	    console.log(series)
 console.log(data.series[0])
       console.log(data.timeline.length)
       for (var n = 0; n < data.timeline.length; n++) {
