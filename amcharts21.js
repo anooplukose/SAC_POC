@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    
+    console.log("001")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -178,275 +178,1394 @@ height:500px;
 
       redraw()
         {
-        let myChart=this.shadowRoot.getElementById('chartdiv');
-       console.log("Step-11_1");
-        
-       
+        //let myChart=this.shadowRoot.getElementById('chartdiv');
+		// Themes begin
 am4core.useTheme(am4themes_animated);
 // Themes end
-var data=[{
-    "country": "Dummy",
-    "disabled": true,
-    "value": 1000,
-    "color": am4core.color("#dadada"),
-    "opacity": 0.3,
-    "strokeDasharray": "4,4"
-}];
-//var arCountries=["India","Australia","America","Pakistan"];
-//var arValues=[12,12,14,15];
-for(var i=0;i<this.countries.length;i++)
-{
-data.push(
-{
-"country":this.countries[i],
-"value":this.grossValue[i]
+console.log("101")
+var chart = am4core.create("chartdiv", am4charts.XYChart);
+		console.log("102")
+chart.padding(40, 40, 40, 40);
+
+chart.numberFormatter.bigNumberPrefixes = [
+  { "number": 1e+3, "suffix": "K" },
+  { "number": 1e+6, "suffix": "M" },
+  { "number": 1e+9, "suffix": "B" }
+];
+
+var label = chart.plotContainer.createChild(am4core.Label);
+label.x = am4core.percent(97);
+label.y = am4core.percent(95);
+label.horizontalCenter = "right";
+label.verticalCenter = "middle";
+label.dx = -15;
+label.fontSize = 50;
+
+var playButton = chart.plotContainer.createChild(am4core.PlayButton);
+playButton.x = am4core.percent(97);
+playButton.y = am4core.percent(95);
+playButton.dy = -2;
+playButton.verticalCenter = "middle";
+playButton.events.on("toggled", function(event) {
+  if (event.target.isActive) {
+    play();
+  }
+  else {
+    stop();
+  }
+})
+
+var stepDuration = 4000;
+
+var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.dataFields.category = "network";
+categoryAxis.renderer.minGridDistance = 1;
+categoryAxis.renderer.inversed = true;
+categoryAxis.renderer.grid.template.disabled = true;
+
+var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+valueAxis.min = 0;
+valueAxis.rangeChangeEasing = am4core.ease.linear;
+valueAxis.rangeChangeDuration = stepDuration;
+valueAxis.extraMax = 0.1;
+
+var series = chart.series.push(new am4charts.ColumnSeries());
+series.dataFields.categoryY = "network";
+series.dataFields.valueX = "MAU";
+series.tooltipText = "{valueX.value}"
+series.columns.template.strokeOpacity = 0;
+series.columns.template.column.cornerRadiusBottomRight = 5;
+series.columns.template.column.cornerRadiusTopRight = 5;
+series.interpolationDuration = stepDuration;
+series.interpolationEasing = am4core.ease.linear;
+
+var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+labelBullet.label.horizontalCenter = "right";
+labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
+labelBullet.label.textAlign = "end";
+labelBullet.label.dx = -10;
+
+chart.zoomOutButton.disabled = true;
+
+// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+series.columns.template.adapter.add("fill", function(fill, target){
+  return chart.colors.getIndex(target.dataItem.index);
 });
-}
-console.log(data);
-/*
-var data = [{
-    "country": "Dummy",
-    "disabled": true,
-    "litres": 1000,
-    "color": am4core.color("#dadada"),
-    "opacity": 0.3,
-    "strokeDasharray": "4,4"
-}, {
-    "country": "Lithuania",
-    "litres": 501.9
-}, {
-    "country": "Estonia",
-    "litres": 301.9
-}, {
-    "country": "Ireland",
-    "litres": 201.1
-}, {
-    "country": "Germany",
-    "litres": 165.8
-}, {
-    "country": "Australia",
-    "litres": 139.9
-}, {
-    "country": "Austria",
-    "litres": 128.3
-}];
-*/
 
-// cointainer to hold both charts
-var container = am4core.create(myChart, am4core.Container);
-container.width = am4core.percent(100);
-container.height = am4core.percent(100);
-container.layout = "horizontal";
+var year = 2003;
+label.text = year.toString();
 
-container.events.on("maxsizechanged", function () {
-    chart1.zIndex = 0;
-    separatorLine.zIndex = 1;
-    dragText.zIndex = 2;
-    chart2.zIndex = 3;
-})
+var interval;
 
-var chart1 = container.createChild(am4charts.PieChart);
-chart1 .fontSize = 11;
-chart1.hiddenState.properties.opacity = 0; // this makes initial fade in effect
-chart1.data = data;
-chart1.radius = am4core.percent(70);
-chart1.innerRadius = am4core.percent(40);
-chart1.zIndex = 1;
-
-var series1 = chart1.series.push(new am4charts.PieSeries());
-series1.dataFields.value = "value";
-series1.dataFields.category = "country";
-series1.colors.step = 2;
-series1.alignLabels = false;
-series1.labels.template.bent = true;
-series1.labels.template.radius = 3;
-series1.labels.template.padding(0,0,0,0);
-
-var sliceTemplate1 = series1.slices.template;
-sliceTemplate1.cornerRadius = 5;
-sliceTemplate1.draggable = true;
-sliceTemplate1.inert = true;
-sliceTemplate1.propertyFields.fill = "color";
-sliceTemplate1.propertyFields.fillOpacity = "opacity";
-sliceTemplate1.propertyFields.stroke = "color";
-sliceTemplate1.propertyFields.strokeDasharray = "strokeDasharray";
-sliceTemplate1.strokeWidth = 1;
-sliceTemplate1.strokeOpacity = 1;
-
-var zIndex = 5;
-
-sliceTemplate1.events.on("down", function (event) {
-    event.target.toFront();
-    // also put chart to front
-    var series = event.target.dataItem.component;
-    series.chart.zIndex = zIndex++;
-})
-
-series1.ticks.template.disabled = true;
-
-sliceTemplate1.states.getKey("active").properties.shiftRadius = 0;
-
-sliceTemplate1.events.on("dragstop", function (event) {
-    handleDragStop(event);
-})
-
-// separator line and text
-var separatorLine = container.createChild(am4core.Line);
-separatorLine.x1 = 0;
-separatorLine.y2 = 300;
-separatorLine.strokeWidth = 3;
-separatorLine.stroke = am4core.color("#dadada");
-separatorLine.valign = "middle";
-separatorLine.strokeDasharray = "5,5";
-
-
-var dragText = container.createChild(am4core.Label);
-dragText.text = "Drag slices over the line";
-dragText.rotation = 90;
-dragText.valign = "middle";
-dragText.align = "center";
-dragText.paddingBottom = 5;
-
-// second chart
-var chart2 = container.createChild(am4charts.PieChart);
-chart2.hiddenState.properties.opacity = 0; // this makes initial fade in effect
-chart2 .fontSize = 11;
-chart2.radius = am4core.percent(70);
-chart2.data = data;
-chart2.innerRadius = am4core.percent(40);
-chart2.zIndex = 1;
-
-var series2 = chart2.series.push(new am4charts.PieSeries());
-series2.dataFields.value = "value";
-series2.dataFields.category = "country";
-series2.colors.step = 2;
-
-series2.alignLabels = false;
-series2.labels.template.bent = true;
-series2.labels.template.radius = 3;
-series2.labels.template.padding(0,0,0,0);
-series2.labels.template.propertyFields.disabled = "disabled";
-
-var sliceTemplate2 = series2.slices.template;
-sliceTemplate2.copyFrom(sliceTemplate1);
-
-series2.ticks.template.disabled = true;
-
-function handleDragStop(event) {
-    var targetSlice = event.target;
-    var dataItem1;
-    var dataItem2;
-    var slice1;
-    var slice2;
-
-    if (series1.slices.indexOf(targetSlice) != -1) {
-        slice1 = targetSlice;
-        slice2 = series2.dataItems.getIndex(targetSlice.dataItem.index).slice;
-    }
-    else if (series2.slices.indexOf(targetSlice) != -1) {
-        slice1 = series1.dataItems.getIndex(targetSlice.dataItem.index).slice;
-        slice2 = targetSlice;
-    }
-
-
-    dataItem1 = slice1.dataItem;
-    dataItem2 = slice2.dataItem;
-
-    var series1Center = am4core.utils.spritePointToSvg({ x: 0, y: 0 }, series1.slicesContainer);
-    var series2Center = am4core.utils.spritePointToSvg({ x: 0, y: 0 }, series2.slicesContainer);
-
-    var series1CenterConverted = am4core.utils.svgPointToSprite(series1Center, series2.slicesContainer);
-    var series2CenterConverted = am4core.utils.svgPointToSprite(series2Center, series1.slicesContainer);
-
-    // tooltipY and tooltipY are in the middle of the slice, so we use them to avoid extra calculations
-    var targetSlicePoint = am4core.utils.spritePointToSvg({ x: targetSlice.tooltipX, y: targetSlice.tooltipY }, targetSlice);
-
-    if (targetSlice == slice1) {
-        if (targetSlicePoint.x > container.pixelWidth / 2) {
-            var value = dataItem1.value;
-
-            dataItem1.hide();
-
-            var animation = slice1.animate([{ property: "x", to: series2CenterConverted.x }, { property: "y", to: series2CenterConverted.y }], 400);
-            animation.events.on("animationprogress", function (event) {
-                slice1.hideTooltip();
-            })
-
-            slice2.x = 0;
-            slice2.y = 0;
-
-            dataItem2.show();
-        }
-        else {
-            slice1.animate([{ property: "x", to: 0 }, { property: "y", to: 0 }], 400);
-        }
-    }
-    if (targetSlice == slice2) {
-        if (targetSlicePoint.x < container.pixelWidth / 2) {
-
-            var value = dataItem2.value;
-
-            dataItem2.hide();
-
-            var animation = slice2.animate([{ property: "x", to: series1CenterConverted.x }, { property: "y", to: series1CenterConverted.y }], 400);
-            animation.events.on("animationprogress", function (event) {
-                slice2.hideTooltip();
-            })
-
-            slice1.x = 0;
-            slice1.y = 0;
-            dataItem1.show();
-        }
-        else {
-            slice2.animate([{ property: "x", to: 0 }, { property: "y", to: 0 }], 400);
-        }
-    }
-
-    toggleDummySlice(series1);
-    toggleDummySlice(series2);
-
-    series1.hideTooltip();
-    series2.hideTooltip();
+function play() {
+  interval = setInterval(function(){
+    nextYear();
+  }, stepDuration)
+  nextYear();
 }
 
-function toggleDummySlice(series) {
-    var show = true;
-    for (var i = 1; i < series.dataItems.length; i++) {
-        var dataItem = series.dataItems.getIndex(i);
-        if (dataItem.slice.visible && !dataItem.slice.isHiding) {
-            show = false;
-        }
-    }
-
-    var dummySlice = series.dataItems.getIndex(0);
-    if (show) {
-        dummySlice.show();
-    }
-    else {
-        dummySlice.hide();
-    }
+function stop() {
+  if (interval) {
+    clearInterval(interval);
+  }
 }
 
-series2.events.on("datavalidated", function () {
+function nextYear() {
+  year++
 
-    var dummyDataItem = series2.dataItems.getIndex(0);
-    dummyDataItem.show(0);
-    dummyDataItem.slice.draggable = false;
-    dummyDataItem.slice.tooltipText = undefined;
+  if (year > 2018) {
+    year = 2003;
+  }
 
-    for (var i = 1; i < series2.dataItems.length; i++) {
-        series2.dataItems.getIndex(i).hide(0);
+  var newData = allData[year];
+  var itemsWithNonZero = 0;
+  for (var i = 0; i < chart.data.length; i++) {
+    chart.data[i].MAU = newData[i].MAU;
+    if (chart.data[i].MAU > 0) {
+      itemsWithNonZero++;
     }
+  }
+
+  if (year == 2003) {
+    series.interpolationDuration = stepDuration / 4;
+    valueAxis.rangeChangeDuration = stepDuration / 4;
+  }
+  else {
+    series.interpolationDuration = stepDuration;
+    valueAxis.rangeChangeDuration = stepDuration;
+  }
+
+  chart.invalidateRawData();
+  label.text = year.toString();
+
+  categoryAxis.zoom({ start: 0, end: itemsWithNonZero / categoryAxis.dataItems.length });
+}
+
+
+categoryAxis.sortBySeries = series;
+
+var allData = {
+  "2003": [
+    {
+      "network": "Facebook",
+      "MAU": 0
+    },
+    {
+      "network": "Flickr",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+
+    {
+      "network": "Friendster",
+      "MAU": 4470000
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 0
+    },
+    {
+      "network": "Orkut",
+      "MAU": 0
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 0
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 0
+    },
+    {
+      "network": "WeChat",
+      "MAU": 0
+    },
+    {
+      "network": "Weibo",
+      "MAU": 0
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 0
+    }
+  ],
+  "2004": [
+    {
+      "network": "Facebook",
+      "MAU": 0
+    },
+    {
+      "network": "Flickr",
+      "MAU": 3675135
+    },
+    {
+      "network": "Friendster",
+      "MAU": 5970054
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 980036
+    },
+    {
+      "network": "Orkut",
+      "MAU": 4900180
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 0
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 0
+    },
+    {
+      "network": "WeChat",
+      "MAU": 0
+    },
+    {
+      "network": "Weibo",
+      "MAU": 0
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 0
+    }
+  ],
+  "2005": [
+    {
+      "network": "Facebook",
+      "MAU": 0
+    },
+    {
+      "network": "Flickr",
+      "MAU": 7399354
+    },
+    {
+      "network": "Friendster",
+      "MAU": 7459742
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 9731610
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 19490059
+    },
+    {
+      "network": "Orkut",
+      "MAU": 9865805
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 0
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 0
+    },
+    {
+      "network": "WeChat",
+      "MAU": 0
+    },
+    {
+      "network": "Weibo",
+      "MAU": 0
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 1946322
+    }
+  ],
+  "2006": [
+    {
+      "network": "Facebook",
+      "MAU": 0
+    },
+    {
+      "network": "Flickr",
+      "MAU": 14949270
+    },
+    {
+      "network": "Friendster",
+      "MAU": 8989854
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 19932360
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 54763260
+    },
+    {
+      "network": "Orkut",
+      "MAU": 14966180
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 248309
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 0
+    },
+    {
+      "network": "WeChat",
+      "MAU": 0
+    },
+    {
+      "network": "Weibo",
+      "MAU": 0
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 19878248
+    }
+  ],
+  "2007": [
+    {
+      "network": "Facebook",
+      "MAU": 0
+    },
+    {
+      "network": "Flickr",
+      "MAU": 29299875
+    },
+    {
+      "network": "Friendster",
+      "MAU": 24253200
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 29533250
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 69299875
+    },
+    {
+      "network": "Orkut",
+      "MAU": 26916562
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 488331
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 0
+    },
+    {
+      "network": "WeChat",
+      "MAU": 0
+    },
+    {
+      "network": "Weibo",
+      "MAU": 0
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 143932250
+    }
+  ],
+  "2008": [
+    {
+      "network": "Facebook",
+      "MAU": 100000000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 30000000
+    },
+    {
+      "network": "Friendster",
+      "MAU": 51008911
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 55045618
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 72408233
+    },
+    {
+      "network": "Orkut",
+      "MAU": 44357628
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 1944940
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 0
+    },
+    {
+      "network": "WeChat",
+      "MAU": 0
+    },
+    {
+      "network": "Weibo",
+      "MAU": 0
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 294493950
+    }
+  ],
+  "2009": [
+    {
+      "network": "Facebook",
+      "MAU": 276000000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 41834525
+    },
+    {
+      "network": "Friendster",
+      "MAU": 28804331
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 57893524
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 70133095
+    },
+    {
+      "network": "Orkut",
+      "MAU": 47366905
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 3893524
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 0
+    },
+    {
+      "network": "WeChat",
+      "MAU": 0
+    },
+    {
+      "network": "Weibo",
+      "MAU": 0
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 413611440
+    }
+  ],
+  "2010": [
+    {
+      "network": "Facebook",
+      "MAU": 517750000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 54708063
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 166029650
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 59953290
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 68046710
+    },
+    {
+      "network": "Orkut",
+      "MAU": 49941613
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 0
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 43250000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 0
+    },
+    {
+      "network": "Weibo",
+      "MAU": 19532900
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 480551990
+    }
+  ],
+  "2011": [
+    {
+      "network": "Facebook",
+      "MAU": 766000000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 66954600
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 170000000
+    },
+    {
+      "network": "Google+",
+      "MAU": 0
+    },
+    {
+      "network": "Hi5",
+      "MAU": 46610848
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 46003536
+    },
+    {
+      "network": "Orkut",
+      "MAU": 47609080
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 0
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 0
+    },
+    {
+      "network": "Twitter",
+      "MAU": 92750000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 47818400
+    },
+    {
+      "network": "Weibo",
+      "MAU": 48691040
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 642669824
+    }
+  ],
+  "2012": [
+    {
+      "network": "Facebook",
+      "MAU": 979750000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 79664888
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 170000000
+    },
+    {
+      "network": "Google+",
+      "MAU": 107319100
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 0
+    },
+    {
+      "network": "MySpace",
+      "MAU": 0
+    },
+    {
+      "network": "Orkut",
+      "MAU": 45067022
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 0
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 146890156
+    },
+    {
+      "network": "Twitter",
+      "MAU": 160250000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 118123370
+    },
+    {
+      "network": "Weibo",
+      "MAU": 79195730
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 0
+    },
+    {
+      "network": "YouTube",
+      "MAU": 844638200
+    }
+  ],
+  "2013": [
+    {
+      "network": "Facebook",
+      "MAU": 1170500000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 80000000
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 170000000
+    },
+    {
+      "network": "Google+",
+      "MAU": 205654700
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 117500000
+    },
+    {
+      "network": "MySpace",
+      "MAU": 0
+    },
+    {
+      "network": "Orkut",
+      "MAU": 0
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 0
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 293482050
+    },
+    {
+      "network": "Twitter",
+      "MAU": 223675000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 196523760
+    },
+    {
+      "network": "Weibo",
+      "MAU": 118261880
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 300000000
+    },
+    {
+      "network": "YouTube",
+      "MAU": 1065223075
+    }
+  ],
+  "2014": [
+    {
+      "network": "Facebook",
+      "MAU": 1334000000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 0
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 170000000
+    },
+    {
+      "network": "Google+",
+      "MAU": 254859015
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 250000000
+    },
+    {
+      "network": "MySpace",
+      "MAU": 0
+    },
+    {
+      "network": "Orkut",
+      "MAU": 0
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 135786956
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 388721163
+    },
+    {
+      "network": "Twitter",
+      "MAU": 223675000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 444232415
+    },
+    {
+      "network": "Weibo",
+      "MAU": 154890345
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 498750000
+    },
+    {
+      "network": "YouTube",
+      "MAU": 1249451725
+    }
+  ],
+  "2015": [
+    {
+      "network": "Facebook",
+      "MAU": 1516750000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 0
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 170000000
+    },
+    {
+      "network": "Google+",
+      "MAU": 298950015
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 400000000
+    },
+    {
+      "network": "MySpace",
+      "MAU": 0
+    },
+    {
+      "network": "Orkut",
+      "MAU": 0
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 0
+    },
+    {
+      "network": "Reddit",
+      "MAU": 163346676
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 475923363
+    },
+    {
+      "network": "Twitter",
+      "MAU": 304500000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 660843407
+    },
+    {
+      "network": "Weibo",
+      "MAU": 208716685
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 800000000
+    },
+    {
+      "network": "YouTube",
+      "MAU": 1328133360
+    }
+  ],
+  "2016": [
+    {
+      "network": "Facebook",
+      "MAU": 1753500000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 0
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 398648000
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 550000000
+    },
+    {
+      "network": "MySpace",
+      "MAU": 0
+    },
+    {
+      "network": "Orkut",
+      "MAU": 0
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 143250000
+    },
+    {
+      "network": "Reddit",
+      "MAU": 238972480
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 238648000
+    },
+    {
+      "network": "TikTok",
+      "MAU": 0
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 565796720
+    },
+    {
+      "network": "Twitter",
+      "MAU": 314500000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 847512320
+    },
+    {
+      "network": "Weibo",
+      "MAU": 281026560
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 1000000000
+    },
+    {
+      "network": "YouTube",
+      "MAU": 1399053600
+    }
+  ],
+  "2017": [
+    {
+      "network": "Facebook",
+      "MAU": 2035750000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 0
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 495657000
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 750000000
+    },
+    {
+      "network": "MySpace",
+      "MAU": 0
+    },
+    {
+      "network": "Orkut",
+      "MAU": 0
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 195000000
+    },
+    {
+      "network": "Reddit",
+      "MAU": 297394200
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 239142500
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 593783960
+    },
+    {
+      "network": "Twitter",
+      "MAU": 328250000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 921742750
+    },
+    {
+      "network": "Weibo",
+      "MAU": 357569030
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 1333333333
+    },
+    {
+      "network": "YouTube",
+      "MAU": 1495657000
+    }
+  ],
+  "2018": [
+    {
+      "network": "Facebook",
+      "MAU": 2255250000
+    },
+    {
+      "network": "Flickr",
+      "MAU": 0
+    },
+    {
+      "network": "Friendster",
+      "MAU": 0
+    },
+    {
+      "network": "Google Buzz",
+      "MAU": 0
+    },
+    {
+      "network": "Google+",
+      "MAU": 430000000
+    },
+    {
+      "network": "Hi5",
+      "MAU": 0
+    },
+    {
+      "network": "Instagram",
+      "MAU": 1000000000
+    },
+    {
+      "network": "MySpace",
+      "MAU": 0
+    },
+    {
+      "network": "Orkut",
+      "MAU": 0
+    },
+    {
+      "network": "Pinterest",
+      "MAU": 246500000
+    },
+    {
+      "network": "Reddit",
+      "MAU": 355000000
+    },
+    {
+      "network": "Snapchat",
+      "MAU": 0
+    },
+    {
+      "network": "TikTok",
+      "MAU": 500000000
+    },
+    {
+      "network": "Tumblr",
+      "MAU": 624000000
+    },
+    {
+      "network": "Twitter",
+      "MAU": 329500000
+    },
+    {
+      "network": "WeChat",
+      "MAU": 1000000000
+    },
+    {
+      "network": "Weibo",
+      "MAU": 431000000
+    },
+    {
+      "network": "Whatsapp",
+      "MAU": 1433333333
+    },
+    {
+      "network": "YouTube",
+      "MAU": 1900000000
+    }
+  ]
+}
+
+chart.data = JSON.parse(JSON.stringify(allData[year]));
+categoryAxis.zoom({ start: 0, end: 1 / chart.data.length });
+
+series.events.on("inited", function() {
+  setTimeout(function() {
+    playButton.isActive = true; // this starts interval
+  }, 2000)
 })
-
-series1.events.on("datavalidated", function () {
-    var dummyDataItem = series1.dataItems.getIndex(0);
-    dummyDataItem.hide(0);
-    dummyDataItem.slice.draggable = false;
-    dummyDataItem.slice.tooltipText = undefined;
-})
-
-
+       
         }
     
     
