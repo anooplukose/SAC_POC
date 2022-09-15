@@ -31,7 +31,7 @@ var getScriptPromisify = (src) => {
     }
 
     async render () {
-      console.log("001")
+      console.log("002")
       await getScriptPromisify('https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js')
 
 
@@ -77,6 +77,7 @@ const option = {
       console.log(data)
       console.log(data.length)
       function run() {
+        console.log("11")
   for (var i = 0; i < data.length; ++i) {
     if (Math.random() > 0.9) {
       data[i] += Math.round(Math.random() * 2000);
