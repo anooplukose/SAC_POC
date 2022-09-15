@@ -265,7 +265,7 @@ this._placeholder = this._root.querySelector('#placeholder')
           series: {
             name: data.timeline[n],
             type: 'scatter',
-            data: arra.series[n]
+            data: arra.[n]
             
           }
         })
