@@ -179,7 +179,7 @@ height:500px;
       redraw()
         {
         let myChart=this.shadowRoot.getElementById('chartdiv');
-       console.log("Step-11");
+       console.log("Step-11_1");
         
        
 am4core.useTheme(am4themes_animated);
