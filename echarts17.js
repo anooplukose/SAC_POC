@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared17 extends HTMLElement {
     constructor () {
       super()
-      console.log("014")
+      console.log("015")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -118,14 +118,16 @@ this._placeholder = this._root.querySelector('#placeholder')
 	    const data = {
         timeline,
         countries,
-        arra
+        series
       }
 	    console.log("111")
 	    console.log(arra)
+	    console.log(timeline)
+	    console.log(series)
 // 	   
 	   // console.log(data)
 	    	    console.log("100")
-	    console.log(series)
+	 
   echarts.util.each(countries, function (country) {
     var datasetId = country;
     datasetWithFilters.push({
@@ -236,7 +238,7 @@ this._placeholder = this._root.querySelector('#placeholder')
     series: [
         {
           type: 'line',
-          data: data.arra['rawNo'][0]
+          data: data.series[0]
           
         }
       ],
@@ -253,7 +255,7 @@ this._placeholder = this._root.querySelector('#placeholder')
           series: {
             name: data.timeline[n],
             type: 'line',
-            data: data.arra['rawNo'][n]
+            data: data.series[n]
             
           }
         })
