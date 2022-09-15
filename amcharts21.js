@@ -57,7 +57,7 @@ height:500px;
     
    
   
-  customElements.define('com-sap-sample-helloworld8', class HelloWorld extends HTMLElement     {
+  customElements.define('com-sap-sample-helloworld21', class HelloWorld21 extends HTMLElement     {
    constructor() {
 			super(); 
       
