@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared17 extends HTMLElement {
     constructor () {
       super()
-      console.log("017")
+      console.log("007")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -77,8 +77,6 @@ this._placeholder = this._root.querySelector('#placeholder')
 	    const countries = [];
 	     const timeline = []
 	     const arra=[]
-	     const arra1=[]
-	     
 	     arra.push(['Year','Region','Sales'])
 	    console.log("202")
 	    console.log(arra)
@@ -100,9 +98,6 @@ this._placeholder = this._root.querySelector('#placeholder')
 		     if (arra.indexOf(arr) === -1) {
           arra.push(arr)
         }
-		    if (arra1.indexOf(arr) === -1) {
-          arra1.push(arr)
-        }
 		    if (timeline.indexOf(year) === -1) {
           timeline.push(year)
         }
@@ -112,29 +107,24 @@ this._placeholder = this._root.querySelector('#placeholder')
         series[iT][iC] = series[iT][iC] || []
 		    
 		    let iV
-        if (description === 'Sales') { iV = 0 }
-        
-	
+        if (description === 'Sales') { iV = 2 }
+        series[iT][iC][0] = year
+	series[iT][iC][1] = country
 		    series[iT][iC][iV] = rawValue
-		    series[iT][iC][1] = country
-		    series[iT][iC][2] = year
 		    
 	    })
 	    
 	    const data = {
         timeline,
         countries,
-        series
+        arra
       }
 	    console.log("111")
 	    console.log(arra)
-	    console.log(timeline)
-	    console.log(series)
 // 	   
 	   // console.log(data)
 	    	    console.log("100")
-	 console.log(data.series[0])
-	    console.log(data.timeline.length)
+	    console.log(series)
   echarts.util.each(countries, function (country) {
     var datasetId = country;
     datasetWithFilters.push({
@@ -197,7 +187,26 @@ this._placeholder = this._root.querySelector('#placeholder')
             lineStyle: {
               color: '#555'
             },
-            
+            checkpointStyle: {
+              color: '#bbb',
+              borderColor: '#777',
+              borderWidth: 2
+            },
+            controlStyle: {
+              showNextBtn: false,
+              showPrevBtn: false,
+              color: '#666',
+              borderColor: '#666'
+            },
+            emphasis: {
+              label: {
+                color: '#fff'
+              },
+              controlStyle: {
+                color: '#aaa',
+                borderColor: '#aaa'
+              }
+            },
             data: []
           },
 	    animationDuration: 20000,
@@ -242,38 +251,10 @@ this._placeholder = this._root.querySelector('#placeholder')
     grid: {
       right: 140
     },
-	    visualMap: [
-            {
-              show: false,
-              dimension: 3,
-              categories: data.countries,
-              calculable: true,
-              precision: 0.1,
-              textGap: 30,
-              textStyle: {
-                color: '#ccc'
-              },
-              inRange: {
-                color: (function () {
-                  var colors = ['#bcd3bb', '#e88f70', '#edc1a5', '#9dc5c8', '#e1e8c8', '#7b7c68', '#e5b5b5', '#f0b489', '#928ea8', '#bda29a']
-                  return colors.concat(colors)
-                })()
-              }
-            }
-          ],
-    series: [
-        {
-          type: 'line',
-          data: arra1[0]
-          
-        }
-      ],
+    series: seriesList
     },
 	 options: []
   };
-	    console.log("999")
-	    console.log(data)
-	    console.log(series)
 	    for (var n = 0; n < data.timeline.length; n++) {
         option.baseOption.timeline.data.push(data.timeline[n])
         option.options.push({
@@ -283,8 +264,8 @@ this._placeholder = this._root.querySelector('#placeholder')
           },
           series: {
             name: data.timeline[n],
-            type: 'line',
-            data: arra1[n]
+            type: 'scatter',
+            data: data.series[n]
             
           }
         })
