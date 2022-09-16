@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("021")
+    console.log("022")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -319,14 +319,14 @@ function nextYear() {
 
 
 categoryAxis.sortBySeries = series;
-		const a1=arra[0]+","+arra[1]+","+arra[2]+","+arra[3]+","+arra[4]+","+"arra[5]"
-		const a2=arra[6]+","+arra[7]+","+arra[8]+","+arra[9]+","+arra[10]+","+"arra[11]"
-		const a3=arra[12]+","+arra[13]+","+arra[14]+","+arra[15]+","+arra[16]+","+"arra[17]"
-		const a4=arra[18]+","+arra[19]+","+arra[20]+","+arra[21]+","+arra[22]+","+"arra[23]"
-		const a5=arra[24]+","+arra[25]+","+arra[26]+","+arra[27]+","+arra[28]+","+"arra[29]"
+		const a1=arra[0]+","+arra[1]+","+arra[2]+","+arra[3]+","+arra[4]+","+arra[5]
+		const a2=arra[6]+","+arra[7]+","+arra[8]+","+arra[9]+","+arra[10]+","+arra[11]
+		const a3=arra[12]+","+arra[13]+","+arra[14]+","+arra[15]+","+arra[16]+","+arra[17]
+		const a4=arra[18]+","+arra[19]+","+arra[20]+","+arra[21]+","+arra[22]+","+arra[23]
+		const a5=arra[24]+","+arra[25]+","+arra[26]+","+arra[27]+","+arra[28]+","+arra[29]
 		
 		
-		var allData1={
+		var allData={
 			
 			"2002": [
 				 a1
@@ -346,7 +346,7 @@ categoryAxis.sortBySeries = series;
 				
 		}
 
-var allData = {
+var allData1 = {
 "2002": [
     {
       "Region": "ASIA PACIFIC",
