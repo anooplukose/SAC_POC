@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("009")
+    console.log("010")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -293,142 +293,167 @@ function nextYear() {
 categoryAxis.sortBySeries = series;
 
 var allData = {
-"2002": [
-    {
+
+    {"year" : "2002",
       "network": "ASIA PACIFIC",
       "MAU": 777.48
     },
     {
+"year" : "2002",
       "network": "CHINA",
       "MAU": 88.95
     },
     {
+"year" : "2002",
       "network": "EUROPE & AME",
       "MAU": 1741.68
     },
 
     {
+"year" : "2002",
       "network": "LATIN AMERICA",
       "MAU": 752.87
     },
     {
+"year" : "2002",
       "network": "NORTH AMERICA",
       "MAU": 1689.94
     },
     {
+"year" : "2002",
       "network": "OTHER",
       "MAU": 209.44
-    }
+    },
     
-  ],
-  "2003": [
     {
+"year" : "2003",
       "network": "ASIA PACIFIC",
       "MAU": 801.51
     },
     {
+"year" : "2003",
       "network": "CHINA",
       "MAU": 27.92
     },
     {
+"year" : "2003",
       "network": "EUROPE & AME",
       "MAU": 1891.47
     },
     {
+"year" : "2003",
       "network": "LATIN AMERICA",
       "MAU": 894.73
     },
     {
+"year" : "2003",
       "network": "NORTH AMERICA",
       "MAU": 1703.62
     },
     {
+"year" : "2003",
       "network": "OTHER",
       "MAU": 187.75
-    }
+    },
     
-  ],
-  "2004": [
+
+
     {
+"year" : "2004",
       "network": "ASIA PACIFIC",
       "MAU": 841.18
     },
     {
+"year" : "2004",
       "network": "CHINA",
       "MAU": 35.26
     },
     {
+"year" : "2004",
       "network": "EUROPE & AME",
       "MAU": 2186.82
     },
     {
+"year" : "2004",
       "network": "LATIN AMERICA",
       "MAU": 1161.65
     },
     {
+"year" : "2004",
       "network": "NORTH AMERICA",
       "MAU": 1725.71
     },
     {
+"year" : "2004",
       "network": "OTHER",
       "MAU": 137.97
-    }
+    },
    
-  ],
-  "2005": [
+
+
     {
+"year" : "2005",
       "network": "ASIA PACIFIC",
       "MAU": 856.32
     },
     {
+"year" : "2005",
       "network": "CHINA",
       "MAU": 65.27
     },
     {
+"year" : "2005",
       "network": "EUROPE & AME",
       "MAU": 2206.87
     },
     {
+"year" : "2005",
       "network": "LATIN AMERICA",
       "MAU": 1182.87
     },
     {
+"year" : "2005",
       "network": "NORTH AMERICA",
       "MAU": 1911.91
     },
     {
+"year" : "2005",
       "network": "OTHER",
       "MAU": 83.17
-    }
+    },
    
-  ],
-  "2006": [
+
+
     {
+"year" : "2006",
       "network": "ASIA PACIFIC",
       "MAU": 894.49
     },
     {
+"year" : "2006",
       "network": "CHINA",
       "MAU": 74.2
     },
     {
+"year" : "2006",
       "network": "EUROPE & AME",
       "MAU": 2146.14
     },
     {
+"year" : "2006",
       "network": "LATIN AMERICA",
       "MAU": 1200.35
     },
     {
+"year" : "2006",
       "network": "NORTH AMERICA",
       "MAU": 1896.01
     },
     {
+"year" : "2006",
       "network": "OTHER",
       "MAU": 90.13
     }
-    
-  ]
 }
 console.log(allData)
 		
