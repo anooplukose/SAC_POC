@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("024")
+    console.log("025")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -166,6 +166,8 @@ height:500px;
         {
 		console.log(resultSet)
 		const MEASURE_DIMENSION = '@MeasureDimension'
+		const Region='Region'
+		const y='Year'
 	    const countries = [];
 	     const timeline = []
 	     const arra=[]
@@ -188,8 +190,16 @@ chart.padding(40, 40, 40, 40);
 		const d= resultSet[0][MEASURE_DIMENSION].rawValue
 		console.log(d)
 		console.log(Number(d))
+		const e = [Region,resultSet[0]["Region"]]
+		const d=[y,resultSet[0]["Year"]]
+		console.log(e)
+		console.log(d)
+		console.log(e[0])
+		console.log(d[0])
 //"+"Year"+":"+resultSet[i]["Year"].description
 		for (var i = 0; i < resultSet.length; i++) {
+			
+		
 			
 			const c = "{"+"Region"+":"+resultSet[i]["Region"].description+","+"Sales"+":"+resultSet[i][MEASURE_DIMENSION].rawValue+"}"
 			if (arra.indexOf(c) === -1) {
@@ -326,7 +336,7 @@ categoryAxis.sortBySeries = series;
 		const a5=arra[24]+","+arra[25]+","+arra[26]+","+arra[27]+","+arra[28]+","+arra[29]
 		
 		
-		var allData1={
+		var allData={
 			
 			"2002": [
 				 a1
