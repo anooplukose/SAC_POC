@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("026")
+    console.log("027")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -198,8 +198,12 @@ chart.padding(40, 40, 40, 40);
 		console.log(f[0])
 //"+"Year"+":"+resultSet[i]["Year"].description
 		for (var i = 0; i < resultSet.length; i++) {
-			
-		
+			const country=resultSet[i]["Region"].description
+			if(countries.findIndex(country))
+			{
+				countries.push(country)
+			}
+		countries.push(resultSet[i]["Region"].description)
 			
 			const c = "{"+"Region"+":"+resultSet[i]["Region"].description+","+"Sales"+":"+resultSet[i][MEASURE_DIMENSION].rawValue+"}"
 			if (arra.indexOf(c) === -1) {
@@ -336,7 +340,7 @@ categoryAxis.sortBySeries = series;
 		const a5=arra[24]+","+arra[25]+","+arra[26]+","+arra[27]+","+arra[28]+","+arra[29]
 		
 		
-		var allData={
+		var allData1={
 			
 			"2002": [
 				 a1
