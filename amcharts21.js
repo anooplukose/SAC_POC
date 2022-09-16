@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("012")
+    console.log("013")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -186,7 +186,7 @@ chart.padding(40, 40, 40, 40);
 		    const year = Number(dp.Year.description)
 		    const rawNo= Number(rawValue)
 		    
-		}
+		})
 		console.log(country)
 		
 chart.numberFormatter.bigNumberPrefixes = [
