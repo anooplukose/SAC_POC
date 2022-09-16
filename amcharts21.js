@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("010")
+    console.log("011")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -293,6 +293,7 @@ function nextYear() {
 categoryAxis.sortBySeries = series;
 
 var allData = {
+	[
 
     {"year" : "2002",
       "network": "ASIA PACIFIC",
@@ -323,9 +324,9 @@ var allData = {
 "year" : "2002",
       "network": "OTHER",
       "MAU": 209.44
-    },
-    
-    {
+    }
+    ],
+  [  {
 "year" : "2003",
       "network": "ASIA PACIFIC",
       "MAU": 801.51
@@ -354,11 +355,12 @@ var allData = {
 "year" : "2003",
       "network": "OTHER",
       "MAU": 187.75
-    },
+    }
+	],
     
 
 
-    {
+  [  {
 "year" : "2004",
       "network": "ASIA PACIFIC",
       "MAU": 841.18
@@ -387,11 +389,11 @@ var allData = {
 "year" : "2004",
       "network": "OTHER",
       "MAU": 137.97
-    },
-   
+    }
+   ],
 
 
-    {
+ [   {
 "year" : "2005",
       "network": "ASIA PACIFIC",
       "MAU": 856.32
@@ -420,11 +422,11 @@ var allData = {
 "year" : "2005",
       "network": "OTHER",
       "MAU": 83.17
-    },
-   
+    }
+   ],
 
 
-    {
+  [  {
 "year" : "2006",
       "network": "ASIA PACIFIC",
       "MAU": 894.49
@@ -454,6 +456,7 @@ var allData = {
       "network": "OTHER",
       "MAU": 90.13
     }
+	]
 }
 console.log(allData)
 		
