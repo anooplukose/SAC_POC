@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("013")
+    console.log("014")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -105,7 +105,7 @@ height:500px;
           {
           console.log("Step-10");
           console.log(" execute kyun nahi ho raha");
-          callme.redraw();
+          //callme.redraw();
 					}
 				}
         
@@ -135,7 +135,7 @@ height:500px;
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
 		onCustomWidgetAfterUpdate(oChangedProperties) {
             if (this._firstConnection){
-            this.redraw();
+          //  this.redraw();
             }
             
             
@@ -178,16 +178,17 @@ console.log("101")
 var chart = am4core.create(myChart, am4charts.XYChart);
 		console.log("102")
 chart.padding(40, 40, 40, 40);
+		console.log(resultSet[0])
+		console.log(resultSet[0]["Year"])
+		console.log(resultSet[0]["Region"])
+		
 
-		resultSet.forEach(dp => {
-			const { rawValue, description } = dp[MEASURE_DIMENSION]
-		    const country = dp.Region.description
-		    console.log(dp.Region)
-		    const year = Number(dp.Year.description)
-		    const rawNo= Number(rawValue)
+// 		for (var i = 0; i < resultSet.length; i++) {
+			
 		    
-		})
-		console.log(country)
+// 		}
+	
+		
 		
 chart.numberFormatter.bigNumberPrefixes = [
   { "number": 1e+3, "suffix": "K" },
