@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("033")
+    console.log("034")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -507,7 +507,251 @@ var allData = {
       "Sales": sales[29]
     }
     
+  ],
+"2007": [
+    {
+      "Region": countries[0],
+      "Sales": sales[30]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[31]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[32]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[33]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[34]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[35]
+    }
+    
+  ],
+	"2008": [
+    {
+      "Region": countries[0],
+      "Sales": sales[36]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[37]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[38]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[39]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[40]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[41]
+    }
+    
+  ],
+	"2009": [
+    {
+      "Region": countries[0],
+      "Sales": sales[42]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[43]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[44]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[45]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[46]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[47]
+    }
+    
+  ],
+	"2010": [
+    {
+      "Region": countries[0],
+      "Sales": sales[48]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[49]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[50]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[51]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[52]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[53]
+    }
+    
+  ],
+	"2011": [
+    {
+      "Region": countries[0],
+      "Sales": sales[54]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[55]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[56]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[57]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[58]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[59]
+    }
+    
+  ],
+	"2012": [
+    {
+      "Region": countries[0],
+      "Sales": sales[60]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[61]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[62]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[63]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[64]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[65]
+    }
+    
+  ],
+	"2013": [
+    {
+      "Region": countries[0],
+      "Sales": sales[66]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[67]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[68]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[69]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[70]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[71]
+    }
+    
+  ],
+	"2014": [
+    {
+      "Region": countries[0],
+      "Sales": sales[72]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[73]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[74]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[75]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[76]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[77]
+    }
+    
+  ],
+	"2015": [
+    {
+      "Region": countries[0],
+      "Sales": sales[78]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[79]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[80]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[81]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[82]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[83]
+    }
+    
   ]
+	
 }
 console.log(allData)
 		console.log(allData1)
