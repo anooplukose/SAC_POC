@@ -326,7 +326,7 @@ categoryAxis.sortBySeries = series;
 		const a5=arra[24]+","+arra[25]+","+arra[26]+","+arra[27]+","+arra[28]+","+"arra[29]"
 		
 		
-		var allData={
+		var allData1={
 			
 			"2002": [
 				 a1
@@ -346,7 +346,7 @@ categoryAxis.sortBySeries = series;
 				
 		}
 
-var allData1 = {
+var allData = {
 "2002": [
     {
       "Region": "ASIA PACIFIC",
