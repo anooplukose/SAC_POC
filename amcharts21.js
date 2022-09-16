@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("006")
+    console.log("007")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -156,21 +156,7 @@ height:500px;
         */
          
 
-         get Countries() {
-            return this.countries;
-        }
-
-        set Countries(value) {
-            this.countries = value;
-        }
-	 
-	 get grossMargin() {
-            return this.grossValue;
-        }
-
-        set grossMargin(value) {
-            this.grossValue = value;
-        }
+         
         
      
         
@@ -307,7 +293,7 @@ categoryAxis.sortBySeries = series;
 
 var allData = {
  "2002": {
-    {
+    
      
       "ASIA PACIFIC": 777.48,
 	"CHINA": 88.95,
