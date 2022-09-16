@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("008")
+    console.log("009")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -162,8 +162,9 @@ height:500px;
         
 
 
-      redraw()
+      redraw(resultSet)
         {
+		console.log(resultSet)
         let myChart=this.shadowRoot.getElementById('chartdiv');
 		// Themes begin
 am4core.useTheme(am4themes_animated);
