@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("031")
+    console.log("032")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -374,11 +374,11 @@ categoryAxis.sortBySeries = series;
 var allData = {
 "2002": [
     {
-      "Region": "ASIA PACIFIC",
+      "Region": countries[0],
       "Sales": 777.48
     },
     {
-      "Region": "CHINA",
+      "Region": countries[1],
       "Sales": 88.95
     },
     {
@@ -402,11 +402,11 @@ var allData = {
   ],
   "2003": [
     {
-      "Region": "ASIA PACIFIC",
+      "Region": countries[0],
       "Sales": 801.51
     },
     {
-      "Region": "CHINA",
+      "Region": countries[1],
       "Sales": 27.92
     },
     {
@@ -429,11 +429,11 @@ var allData = {
   ],
   "2004": [
     {
-      "Region": "ASIA PACIFIC",
+      "Region": countries[0],
       "Sales": 841.18
     },
     {
-      "Region": "CHINA",
+      "Region": countries[1],
       "Sales": 35.26
     },
     {
@@ -456,11 +456,11 @@ var allData = {
   ],
   "2005": [
     {
-      "Region": "ASIA PACIFIC",
+      "Region": countries[0],
       "Sales": 856.32
     },
     {
-      "Region": "CHINA",
+      "Region": countries[1],
       "Sales": 65.27
     },
     {
@@ -483,11 +483,11 @@ var allData = {
   ],
   "2006": [
     {
-      "Region": "ASIA PACIFIC",
+      "Region": countries[0],
       "Sales": 894.49
     },
     {
-      "Region": "CHINA",
+      "Region": countries[1],
       "Sales": 74.2
     },
     {
