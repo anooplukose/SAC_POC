@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("017")
+    console.log("018")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -246,8 +246,8 @@ valueAxis.rangeChangeDuration = stepDuration;
 valueAxis.extraMax = 0.1;
 
 var series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.categoryY = "network";
-series.dataFields.valueX = "MAU";
+series.dataFields.categoryY = "Region";
+series.dataFields.valueX = "Sales";
 series.tooltipText = "{valueX.value}"
 series.columns.template.strokeOpacity = 0;
 series.columns.template.column.cornerRadiusBottomRight = 5;
@@ -296,8 +296,8 @@ function nextYear() {
   var newData = allData[year];
   var itemsWithNonZero = 0;
   for (var i = 0; i < chart.data.length; i++) {
-    chart.data[i].MAU = newData[i].MAU;
-    if (chart.data[i].MAU > 0) {
+    chart.data[i].Sales = newData[i].Sales;
+    if (chart.data[i].Sales > 0) {
       itemsWithNonZero++;
     }
   }
@@ -349,137 +349,137 @@ categoryAxis.sortBySeries = series;
 var allData = {
 "2002": [
     {
-      "network": "ASIA PACIFIC",
-      "MAU": 777.48
+      "Region": "ASIA PACIFIC",
+      "Sales": 777.48
     },
     {
-      "network": "CHINA",
-      "MAU": 88.95
+      "Region": "CHINA",
+      "Sales": 88.95
     },
     {
-      "network": "EUROPE & AME",
-      "MAU": 1741.68
+      "Region": "EUROPE & AME",
+      "Sales": 1741.68
     },
 
     {
-      "network": "LATIN AMERICA",
-      "MAU": 752.87
+      "Region": "LATIN AMERICA",
+      "Sales": 752.87
     },
     {
-      "network": "NORTH AMERICA",
-      "MAU": 1689.94
+      "Region": "NORTH AMERICA",
+      "Sales": 1689.94
     },
     {
-      "network": "OTHER",
-      "MAU": 209.44
+      "Region": "OTHER",
+      "Sales": 209.44
     }
     
   ],
   "2003": [
     {
-      "network": "ASIA PACIFIC",
-      "MAU": 801.51
+      "Region": "ASIA PACIFIC",
+      "Sales": 801.51
     },
     {
-      "network": "CHINA",
-      "MAU": 27.92
+      "Region": "CHINA",
+      "Sales": 27.92
     },
     {
-      "network": "EUROPE & AME",
-      "MAU": 1891.47
+      "Region": "EUROPE & AME",
+      "Sales": 1891.47
     },
     {
-      "network": "LATIN AMERICA",
-      "MAU": 894.73
+      "Region": "LATIN AMERICA",
+      "Sales": 894.73
     },
     {
-      "network": "NORTH AMERICA",
-      "MAU": 1703.62
+      "Region": "NORTH AMERICA",
+      "Sales": 1703.62
     },
     {
-      "network": "OTHER",
-      "MAU": 187.75
+      "Region": "OTHER",
+      "Sales": 187.75
     }
     
   ],
   "2004": [
     {
-      "network": "ASIA PACIFIC",
-      "MAU": 841.18
+      "Region": "ASIA PACIFIC",
+      "Sales": 841.18
     },
     {
-      "network": "CHINA",
-      "MAU": 35.26
+      "Region": "CHINA",
+      "Sales": 35.26
     },
     {
-      "network": "EUROPE & AME",
-      "MAU": 2186.82
+      "Region": "EUROPE & AME",
+      "Sales": 2186.82
     },
     {
-      "network": "LATIN AMERICA",
-      "MAU": 1161.65
+      "Region": "LATIN AMERICA",
+      "Sales": 1161.65
     },
     {
-      "network": "NORTH AMERICA",
-      "MAU": 1725.71
+      "Region": "NORTH AMERICA",
+      "Sales": 1725.71
     },
     {
-      "network": "OTHER",
-      "MAU": 137.97
+      "Region": "OTHER",
+      "Sales": 137.97
     }
    
   ],
   "2005": [
     {
-      "network": "ASIA PACIFIC",
-      "MAU": 856.32
+      "Region": "ASIA PACIFIC",
+      "Sales": 856.32
     },
     {
-      "network": "CHINA",
-      "MAU": 65.27
+      "Region": "CHINA",
+      "Sales": 65.27
     },
     {
-      "network": "EUROPE & AME",
-      "MAU": 2206.87
+      "Region": "EUROPE & AME",
+      "Sales": 2206.87
     },
     {
-      "network": "LATIN AMERICA",
-      "MAU": 1182.87
+      "Region": "LATIN AMERICA",
+      "Sales": 1182.87
     },
     {
-      "network": "NORTH AMERICA",
-      "MAU": 1911.91
+      "Region": "NORTH AMERICA",
+      "Sales": 1911.91
     },
     {
-      "network": "OTHER",
-      "MAU": 83.17
+      "Region": "OTHER",
+      "Sales": 83.17
     }
    
   ],
   "2006": [
     {
-      "network": "ASIA PACIFIC",
-      "MAU": 894.49
+      "Region": "ASIA PACIFIC",
+      "Sales": 894.49
     },
     {
-      "network": "CHINA",
-      "MAU": 74.2
+      "Region": "CHINA",
+      "Sales": 74.2
     },
     {
-      "network": "EUROPE & AME",
-      "MAU": 2146.14
+      "Region": "EUROPE & AME",
+      "Sales": 2146.14
     },
     {
-      "network": "LATIN AMERICA",
-      "MAU": 1200.35
+      "Region": "LATIN AMERICA",
+      "Sales": 1200.35
     },
     {
-      "network": "NORTH AMERICA",
-      "MAU": 1896.01
+      "Region": "NORTH AMERICA",
+      "Sales": 1896.01
     },
     {
-      "network": "OTHER",
-      "MAU": 90.13
+      "Region": "OTHER",
+      "Sales": 90.13
     }
     
   ]
