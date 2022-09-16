@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("023")
+    console.log("024")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -485,6 +485,7 @@ var allData = {
   ]
 }
 console.log(allData)
+		console.log(allData1)
 		
 		
 chart.data = JSON.parse(JSON.stringify(allData[year]));
