@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("018")
+    console.log("019")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -234,7 +234,7 @@ var stepDuration = 4000;
 
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.renderer.grid.template.location = 0;
-categoryAxis.dataFields.category = "network";
+categoryAxis.dataFields.category = "Region";
 categoryAxis.renderer.minGridDistance = 1;
 categoryAxis.renderer.inversed = true;
 categoryAxis.renderer.grid.template.disabled = true;
