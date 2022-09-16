@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("032")
+    console.log("033")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -46,7 +46,7 @@
   <style>
 #chartdiv {
   width: 100%;
-height:500px;
+height:100%;
 }
 </style>
   <div id="chartdiv"></div>
@@ -202,7 +202,7 @@ chart.padding(40, 40, 40, 40);
 			const country=resultSet[i]["Region"].description
 			const sal=resultSet[i][MEASURE_DIMENSION].rawValue
 			const yea=resultSet[i]["Year"].description
-			sales.push(sal)
+			sales.push(Number(sal))
 			if(countries.indexOf(country)=== -1)
 			{
 				countries.push(country)
@@ -375,136 +375,136 @@ var allData = {
 "2002": [
     {
       "Region": countries[0],
-      "Sales": 777.48
+      "Sales": sales[0]
     },
     {
       "Region": countries[1],
-      "Sales": 88.95
+      "Sales": sales[1]
     },
     {
-      "Region": "EUROPE & AME",
-      "Sales": 1741.68
+      "Region": countries[2],
+      "Sales": sales[2]
     },
 
     {
-      "Region": "LATIN AMERICA",
-      "Sales": 752.87
+      "Region": countries[3],
+      "Sales": sales[3]
     },
     {
-      "Region": "NORTH AMERICA",
-      "Sales": 1689.94
+      "Region": countries[4],
+      "Sales": sales[4]
     },
     {
-      "Region": "OTHER",
-      "Sales": 209.44
+      "Region": countries[5],
+      "Sales": sales[5]
     }
     
   ],
   "2003": [
     {
       "Region": countries[0],
-      "Sales": 801.51
+      "Sales": sales[6]
     },
     {
       "Region": countries[1],
-      "Sales": 27.92
+      "Sales": sales[7]
     },
     {
-      "Region": "EUROPE & AME",
-      "Sales": 1891.47
+      "Region": countries[2],
+      "Sales": sales[8]
     },
     {
-      "Region": "LATIN AMERICA",
-      "Sales": 894.73
+      "Region": countries[3],
+      "Sales": sales[9]
     },
     {
-      "Region": "NORTH AMERICA",
-      "Sales": 1703.62
+      "Region":countries[4],
+      "Sales": sales[10]
     },
     {
-      "Region": "OTHER",
-      "Sales": 187.75
+      "Region":countries[5],
+      "Sales": sales[11]
     }
     
   ],
   "2004": [
     {
       "Region": countries[0],
-      "Sales": 841.18
+      "Sales": sales[12]
     },
     {
       "Region": countries[1],
-      "Sales": 35.26
+      "Sales": sales[13]
     },
     {
-      "Region": "EUROPE & AME",
-      "Sales": 2186.82
+      "Region": countries[2],
+      "Sales": sales[14]
     },
     {
-      "Region": "LATIN AMERICA",
-      "Sales": 1161.65
+      "Region": countries[3],
+      "Sales": sales[15]
     },
     {
-      "Region": "NORTH AMERICA",
-      "Sales": 1725.71
+      "Region": countries[4],
+      "Sales": sales[16]
     },
     {
-      "Region": "OTHER",
-      "Sales": 137.97
+      "Region": countries[5],
+      "Sales": sales[17]
     }
    
   ],
   "2005": [
     {
       "Region": countries[0],
-      "Sales": 856.32
+      "Sales":sales[18]
     },
     {
       "Region": countries[1],
-      "Sales": 65.27
+      "Sales": sales[19]
     },
     {
-      "Region": "EUROPE & AME",
-      "Sales": 2206.87
+      "Region": countries[2],
+      "Sales": sales[20]
     },
     {
-      "Region": "LATIN AMERICA",
-      "Sales": 1182.87
+      "Region": countries[3],
+      "Sales": sales[21]
     },
     {
-      "Region": "NORTH AMERICA",
-      "Sales": 1911.91
+      "Region": countries[4],
+      "Sales": sales[22]
     },
     {
-      "Region": "OTHER",
-      "Sales": 83.17
+      "Region": countries[5],
+      "Sales": sales[23]
     }
    
   ],
   "2006": [
     {
       "Region": countries[0],
-      "Sales": 894.49
+      "Sales": sales[24]
     },
     {
       "Region": countries[1],
-      "Sales": 74.2
+      "Sales": sales[25]
     },
     {
-      "Region": "EUROPE & AME",
-      "Sales": 2146.14
+      "Region": countries[2],
+      "Sales": sales[26]
     },
     {
-      "Region": "LATIN AMERICA",
-      "Sales": 1200.35
+      "Region": countries[3],
+      "Sales": sales[27]
     },
     {
-      "Region": "NORTH AMERICA",
-      "Sales": 1896.01
+      "Region": countries[4],
+      "Sales": sales[28]
     },
     {
-      "Region": "OTHER",
-      "Sales": 90.13
+      "Region": countries[5],
+      "Sales": sales[29]
     }
     
   ]
