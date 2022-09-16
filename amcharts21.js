@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("029")
+    console.log("030")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -170,7 +170,7 @@ height:500px;
 		const y='Year'
 	    const countries = [];
 	     const timeline = []
-	     const sales[]
+	     const sales=[]
 	     const arra=[]
         let myChart=this.shadowRoot.getElementById('chartdiv');
 		// Themes begin
@@ -201,10 +201,15 @@ chart.padding(40, 40, 40, 40);
 		for (var i = 0; i < resultSet.length; i++) {
 			const country=resultSet[i]["Region"].description
 			const sal=resultSet[i][MEASURE_DIMENSION].rawValue
+			const yea=resultSet[i]["Year"].description
 			sales.push(sal)
 			if(countries.indexOf(country)=== -1)
 			{
 				countries.push(country)
+			}
+			if(timeline.indexOf(yea)=== -1)
+			{
+				timeline.push(yea)
 			}
 		countries.push(resultSet[i]["Region"].description)
 			
@@ -217,6 +222,7 @@ chart.padding(40, 40, 40, 40);
 		console.log("99")
 		console.log(countries)
 		console.log(sales)
+		console.log(timeline)
 		console.log(arra)
 	
 		
