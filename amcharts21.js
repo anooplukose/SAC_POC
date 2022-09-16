@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("030")
+    console.log("031")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -211,7 +211,7 @@ chart.padding(40, 40, 40, 40);
 			{
 				timeline.push(yea)
 			}
-		countries.push(resultSet[i]["Region"].description)
+		
 			
 			const c = "{"+"Region"+":"+resultSet[i]["Region"].description+","+"Sales"+":"+resultSet[i][MEASURE_DIMENSION].rawValue+"}"
 			if (arra.indexOf(c) === -1) {
