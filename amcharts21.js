@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("025")
+    console.log("026")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -191,11 +191,11 @@ chart.padding(40, 40, 40, 40);
 		console.log(d)
 		console.log(Number(d))
 		const e = [Region,resultSet[0]["Region"]]
-		const d=[y,resultSet[0]["Year"]]
+		const f=[y,resultSet[0]["Year"]]
 		console.log(e)
-		console.log(d)
+		console.log(f)
 		console.log(e[0])
-		console.log(d[0])
+		console.log(f[0])
 //"+"Year"+":"+resultSet[i]["Year"].description
 		for (var i = 0; i < resultSet.length; i++) {
 			
