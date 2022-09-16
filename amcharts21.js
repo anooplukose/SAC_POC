@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("011")
+    console.log("012")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -165,15 +165,30 @@ height:500px;
       redraw(resultSet)
         {
 		console.log(resultSet)
+		const MEASURE_DIMENSION = '@MeasureDimension'
+	    const countries = [];
+	     const timeline = []
+	     const arra=[]
         let myChart=this.shadowRoot.getElementById('chartdiv');
 		// Themes begin
 am4core.useTheme(am4themes_animated);
 // Themes end
 console.log("101")
+		
 var chart = am4core.create(myChart, am4charts.XYChart);
 		console.log("102")
 chart.padding(40, 40, 40, 40);
 
+		resultSet.forEach(dp => {
+			const { rawValue, description } = dp[MEASURE_DIMENSION]
+		    const country = dp.Region.description
+		    console.log(dp.Region)
+		    const year = Number(dp.Year.description)
+		    const rawNo= Number(rawValue)
+		    
+		}
+		console.log(country)
+		
 chart.numberFormatter.bigNumberPrefixes = [
   { "number": 1e+3, "suffix": "K" },
   { "number": 1e+6, "suffix": "M" },
@@ -293,170 +308,142 @@ function nextYear() {
 categoryAxis.sortBySeries = series;
 
 var allData = {
-	[
-
-    {"year" : "2002",
+"2002": [
+    {
       "network": "ASIA PACIFIC",
       "MAU": 777.48
     },
     {
-"year" : "2002",
       "network": "CHINA",
       "MAU": 88.95
     },
     {
-"year" : "2002",
       "network": "EUROPE & AME",
       "MAU": 1741.68
     },
 
     {
-"year" : "2002",
       "network": "LATIN AMERICA",
       "MAU": 752.87
     },
     {
-"year" : "2002",
       "network": "NORTH AMERICA",
       "MAU": 1689.94
     },
     {
-"year" : "2002",
       "network": "OTHER",
       "MAU": 209.44
     }
-    ],
-  [  {
-"year" : "2003",
+    
+  ],
+  "2003": [
+    {
       "network": "ASIA PACIFIC",
       "MAU": 801.51
     },
     {
-"year" : "2003",
       "network": "CHINA",
       "MAU": 27.92
     },
     {
-"year" : "2003",
       "network": "EUROPE & AME",
       "MAU": 1891.47
     },
     {
-"year" : "2003",
       "network": "LATIN AMERICA",
       "MAU": 894.73
     },
     {
-"year" : "2003",
       "network": "NORTH AMERICA",
       "MAU": 1703.62
     },
     {
-"year" : "2003",
       "network": "OTHER",
       "MAU": 187.75
     }
-	],
     
-
-
-  [  {
-"year" : "2004",
+  ],
+  "2004": [
+    {
       "network": "ASIA PACIFIC",
       "MAU": 841.18
     },
     {
-"year" : "2004",
       "network": "CHINA",
       "MAU": 35.26
     },
     {
-"year" : "2004",
       "network": "EUROPE & AME",
       "MAU": 2186.82
     },
     {
-"year" : "2004",
       "network": "LATIN AMERICA",
       "MAU": 1161.65
     },
     {
-"year" : "2004",
       "network": "NORTH AMERICA",
       "MAU": 1725.71
     },
     {
-"year" : "2004",
       "network": "OTHER",
       "MAU": 137.97
     }
-   ],
-
-
- [   {
-"year" : "2005",
+   
+  ],
+  "2005": [
+    {
       "network": "ASIA PACIFIC",
       "MAU": 856.32
     },
     {
-"year" : "2005",
       "network": "CHINA",
       "MAU": 65.27
     },
     {
-"year" : "2005",
       "network": "EUROPE & AME",
       "MAU": 2206.87
     },
     {
-"year" : "2005",
       "network": "LATIN AMERICA",
       "MAU": 1182.87
     },
     {
-"year" : "2005",
       "network": "NORTH AMERICA",
       "MAU": 1911.91
     },
     {
-"year" : "2005",
       "network": "OTHER",
       "MAU": 83.17
     }
-   ],
-
-
-  [  {
-"year" : "2006",
+   
+  ],
+  "2006": [
+    {
       "network": "ASIA PACIFIC",
       "MAU": 894.49
     },
     {
-"year" : "2006",
       "network": "CHINA",
       "MAU": 74.2
     },
     {
-"year" : "2006",
       "network": "EUROPE & AME",
       "MAU": 2146.14
     },
     {
-"year" : "2006",
       "network": "LATIN AMERICA",
       "MAU": 1200.35
     },
     {
-"year" : "2006",
       "network": "NORTH AMERICA",
       "MAU": 1896.01
     },
     {
-"year" : "2006",
       "network": "OTHER",
       "MAU": 90.13
     }
-	]
+    
+  ]
 }
 console.log(allData)
 		
