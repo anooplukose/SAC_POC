@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("019")
+    console.log("020")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -326,7 +326,7 @@ categoryAxis.sortBySeries = series;
 		const a5=arra[24]+","+arra[25]+","+arra[26]+","+arra[27]+","+arra[28]+","+"arra[29]"
 		
 		
-		var testData={
+		var allData={
 			
 			"2002": [
 				 a1
@@ -346,7 +346,7 @@ categoryAxis.sortBySeries = series;
 				
 		}
 
-var allData = {
+var allData1 = {
 "2002": [
     {
       "Region": "ASIA PACIFIC",
