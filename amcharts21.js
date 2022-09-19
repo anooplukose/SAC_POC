@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("037")
+    console.log("038")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -314,7 +314,7 @@ function stop() {
 function nextYear() {
   year++
 
-  if (year > 2015) {
+  if (year > 2022) {
     year = 2002;
   }
 
