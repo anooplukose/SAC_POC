@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("040")
+    console.log("041")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -228,7 +228,7 @@ chart.padding(40, 40, 40, 40);
 		
 		
 chart.numberFormatter.bigNumberPrefixes = [
-  { "number": 1e+0, "suffix": "m" },
+  { "number": 1e+0, "suffix": "" },
   { "number": 1e+6, "suffix": "M" },
   { "number": 1e+9, "suffix": "B" }
 ];
@@ -258,12 +258,12 @@ playButton.events.on("toggled", function(event) {
 var stepDuration = 2000;
 		
 chart.colors.list = [
-  am4core.color("#845EC2"),
-  am4core.color("#D65DB1"),
-  am4core.color("#FF6F91"),
-  am4core.color("#FF9671"),
-  am4core.color("#FFC75F"),
-  am4core.color("#F9F871")
+  am4core.color("#ff0064"),
+  am4core.color("#ffaa00"),
+  am4core.color("#00e6be"),
+  am4core.color("#50e600"),
+  am4core.color("#8dc898"),
+  am4core.color("#f3ded6")
 ];
 
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
