@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("035")
+    console.log("036")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -228,7 +228,7 @@ chart.padding(40, 40, 40, 40);
 		
 		
 chart.numberFormatter.bigNumberPrefixes = [
-  { "number": 1e+3, "suffix": "K" },
+  { "number": 1e, "suffix": "m" },
   { "number": 1e+6, "suffix": "M" },
   { "number": 1e+9, "suffix": "B" }
 ];
@@ -748,6 +748,195 @@ var allData = {
     {
       "Region": countries[5],
       "Sales": sales[83]
+    }
+    
+  ],
+	"2016": [
+    {
+      "Region": countries[0],
+      "Sales": sales[84]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[85]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[86]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[87]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[88]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[89]
+    }
+    
+  ],
+	"2017": [
+    {
+      "Region": countries[0],
+      "Sales": sales[90]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[91]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[92]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[93]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[94]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[95]
+    }
+    
+  ],
+	"2018": [
+    {
+      "Region": countries[0],
+      "Sales": sales[96]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[97]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[98]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[99]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[100]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[101]
+    }
+    
+  ],
+	"2019": [
+    {
+      "Region": countries[0],
+      "Sales": sales[102]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[103]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[104]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[105]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[106]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[107]
+    }
+    
+  ],
+	"2020": [
+    {
+      "Region": countries[0],
+      "Sales": sales[108]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[109]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[110]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[111]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[112]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[113]
+    }
+    
+  ],
+	"2021": [
+    {
+      "Region": countries[0],
+      "Sales": sales[114]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[115]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[116]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[117]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[118]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[119]
+    }
+    
+  ],
+	"2022": [
+    {
+      "Region": countries[0],
+      "Sales": sales[120]
+    },
+    {
+      "Region": countries[1],
+      "Sales": sales[121]
+    },
+    {
+      "Region": countries[2],
+      "Sales": sales[122]
+    },
+    {
+      "Region": countries[3],
+      "Sales": sales[123]
+    },
+    {
+      "Region": countries[4],
+      "Sales": sales[124]
+    },
+    {
+      "Region": countries[5],
+      "Sales": sales[125]
     }
     
   ]
