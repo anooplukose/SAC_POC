@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("038")
+    console.log("039")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -286,6 +286,10 @@ labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
 labelBullet.label.textAlign = "end";
 labelBullet.label.dx = -10;
 
+var title = chart.titles.create();
+title.text = "Syngenta Annual Sales($m) trend";
+title.fontSize = 25;
+
 chart.zoomOutButton.disabled = true;
 
 // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
@@ -314,7 +318,7 @@ function stop() {
 function nextYear() {
   year++
 
-  if (year > 2022) {
+  if (year > 2021) {
     year = 2002;
   }
 
