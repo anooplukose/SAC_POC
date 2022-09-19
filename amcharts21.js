@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("036")
+    console.log("037")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -228,7 +228,7 @@ chart.padding(40, 40, 40, 40);
 		
 		
 chart.numberFormatter.bigNumberPrefixes = [
-  { "number": 1e, "suffix": "m" },
+  { "number": 1e+0, "suffix": "m" },
   { "number": 1e+6, "suffix": "M" },
   { "number": 1e+9, "suffix": "B" }
 ];
