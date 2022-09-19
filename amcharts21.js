@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("039")
+    console.log("040")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -255,7 +255,16 @@ playButton.events.on("toggled", function(event) {
   }
 })
 
-var stepDuration = 4000;
+var stepDuration = 2000;
+		
+chart.colors.list = [
+  am4core.color("#845EC2"),
+  am4core.color("#D65DB1"),
+  am4core.color("#FF6F91"),
+  am4core.color("#FF9671"),
+  am4core.color("#FFC75F"),
+  am4core.color("#F9F871")
+];
 
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.renderer.grid.template.location = 0;
