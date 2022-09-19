@@ -24,7 +24,7 @@ var getScriptPromisify = (src) => {
   class SamplePrepared16 extends HTMLElement {
     constructor () {
       super()
-      console.log("004")
+      console.log("005")
       this._shadowRoot = this.attachShadow({ mode: 'open' })
       this._shadowRoot.appendChild(template.content.cloneNode(true))
       this._root = this._shadowRoot.getElementById('root')
@@ -142,7 +142,7 @@ this._placeholder = this._root.querySelector('#placeholder')
       endLabel: {
         show: true,
         formatter: function (params) {
-          return '$' + params.value[2]+' m';
+          return params.value[2];
         }
       },
       labelLayout: {
@@ -184,7 +184,7 @@ this._placeholder = this._root.querySelector('#placeholder')
       ...datasetWithFilters
     ],
     title: {
-      text: 'All Region Sales Since 2002'
+      text: 'Syngenta Annual Sales($m) trend'
     },
     tooltip: {
       order: 'valueDesc',
