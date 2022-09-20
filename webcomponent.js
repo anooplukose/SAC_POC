@@ -2,9 +2,18 @@
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
         <style>
+	#main{
+      border: 1px solid;
+      background: yellow;
+      width: 100%;
+      overflow: hidden;
+     }
 #chartdiv {
-  width: 100%;
-height:100%;
+  color: black;
+      font-weight: bold;
+      white-space: nowrap;
+      clear: both;
+      float: left;
 }
 </style>
   <div id="chartdiv"></div>
@@ -14,7 +23,7 @@ height:100%;
 
 
 		constructor() {
-			console.log("005")
+			console.log("006")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
