@@ -14,13 +14,13 @@
       </style>
       <div id="root" style="width: 100%; height: 100%;">
         <div id="placeholder"></div>
-      </div>
+      </div>;
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("003")
+			console.log("004")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
