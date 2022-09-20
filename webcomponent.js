@@ -1,20 +1,14 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-       <style>
-      #root {
-        background-color: #100c2a;
-      }
-      #placeholder {
-        padding-top: 1em;
-        text-align: center;
-        font-size: 1.5em;
-        color: white;
-      }
-      </style>
-      <div id="root" style="width: 100%; height: 100%;">
-        <div id="placeholder"></div>
-      </div>;
+        <style>
+#chartdiv {
+  width: 100%;
+height:100%;
+}
+</style>
+  <div id="chartdiv"></div>
+  `;
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
