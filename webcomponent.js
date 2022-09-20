@@ -14,7 +14,7 @@ height:100%;
 
 
 		constructor() {
-			console.log("004")
+			console.log("005")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
