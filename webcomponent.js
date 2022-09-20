@@ -17,16 +17,16 @@
 }
 </style>
   <div id="chartdiv">
-  <p class="para" id="para1">
+  <p class="chartdiv" id="para1">
             Geeksforgeeks | 
             A computer science portal for geeks
         </p>
   
-        <p class="para" id="para2">
+        <p class="chartdiv" id="para2">
             This is another text
         </p>
   
-        <p class="para" id="para3">
+        <p class="chartdiv" id="para3">
             This is the third line of the 
             example line of the example.
         </p>
@@ -40,7 +40,7 @@ const para3 = document.getElementById("para3");
 
 
 		constructor() {
-			console.log("009")
+			console.log("010")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
