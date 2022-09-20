@@ -13,10 +13,10 @@
     //animatedJS.src='https://www.amcharts.com/lib/4/themes/animated.js';
     //document.head.appendChild(animatedJS);
     
-    const amchartscorejs = "https://cdn.amcharts.com/lib/4/core.js";
-    const amchartschartsjs = "https://cdn.amcharts.com/lib/4/charts.js";
-    const amchartsanimatedjs = "https://cdn.amcharts.com/lib/4/themes/animated.js"; 
-    console.log("041")
+    const amchartscorejs = "https://cdn.amcharts.com/lib/5/index.js";
+    const amchartschartsjs = "https://cdn.amcharts.com/lib/5/xy.js";
+    const amchartsanimatedjs = "https://cdn.amcharts.com/lib/5/themes/Animated.js"; 
+    console.log("001")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -57,7 +57,7 @@ height:100%;
     
    
   
-  customElements.define('com-sap-sample-helloworld21', class HelloWorld21 extends HTMLElement     {
+  customElements.define('com-sap-sample-helloworld22', class HelloWorld22 extends HTMLElement     {
    constructor() {
 			super(); 
       
@@ -164,810 +164,833 @@ height:100%;
 
       redraw(resultSet)
         {
-		console.log(resultSet)
-		const MEASURE_DIMENSION = '@MeasureDimension'
-		const Region='Region'
-		const y='Year'
-	    const countries = [];
-	     const timeline = []
-	     const sales=[]
-	     const arra=[]
+		
         let myChart=this.shadowRoot.getElementById('chartdiv');
+		var root = am5.Root.new(myChart);
+		root.setThemes([
+  am5themes_Animated.new(root)
+]);
 		// Themes begin
-am4core.useTheme(am4themes_animated);
+
 // Themes end
 console.log("101")
 		
-var chart = am4core.create(myChart, am4charts.XYChart);
-		console.log("102")
-chart.padding(40, 40, 40, 40);
-		console.log(resultSet[0])
-		console.log(resultSet[0]["Year"])
-		console.log(resultSet[0]["Region"])
-		const a=resultSet[0]["Region"].description
-		console.log(a)
-		const b= "Region"+a
-		console.log(a)
-		const d= resultSet[0][MEASURE_DIMENSION].rawValue
-		console.log(d)
-		console.log(Number(d))
-		const e = [Region,resultSet[0]["Region"]]
-		const f=[y,resultSet[0]["Year"]]
-		console.log(e)
-		console.log(f)
-		console.log(e[0])
-		console.log(f[0])
-//"+"Year"+":"+resultSet[i]["Year"].description
-		for (var i = 0; i < resultSet.length; i++) {
-			const country=resultSet[i]["Region"].description
-			const sal=resultSet[i][MEASURE_DIMENSION].rawValue
-			const yea=resultSet[i]["Year"].description
-			sales.push(Number(sal))
-			if(countries.indexOf(country)=== -1)
-			{
-				countries.push(country)
-			}
-			if(timeline.indexOf(yea)=== -1)
-			{
-				timeline.push(yea)
-			}
-		
-			
-			const c = "{"+"Region"+":"+resultSet[i]["Region"].description+","+"Sales"+":"+resultSet[i][MEASURE_DIMENSION].rawValue+"}"
-			if (arra.indexOf(c) === -1) {
-          arra.push(c)
-        }
-		    
-		}
-		console.log("99")
-		console.log(countries)
-		console.log(sales)
-		console.log(timeline)
-		console.log(arra)
-	
-		
-		
-chart.numberFormatter.bigNumberPrefixes = [
-  { "number": 1e+0, "suffix": "" },
-  { "number": 1e+6, "suffix": "M" },
-  { "number": 1e+9, "suffix": "B" }
-];
-
-var label = chart.plotContainer.createChild(am4core.Label);
-label.x = am4core.percent(97);
-label.y = am4core.percent(95);
-label.horizontalCenter = "right";
-label.verticalCenter = "middle";
-label.dx = -15;
-label.fontSize = 50;
-
-var playButton = chart.plotContainer.createChild(am4core.PlayButton);
-playButton.x = am4core.percent(97);
-playButton.y = am4core.percent(95);
-playButton.dy = -2;
-playButton.verticalCenter = "middle";
-playButton.events.on("toggled", function(event) {
-  if (event.target.isActive) {
-    play();
-  }
-  else {
-    stop();
-  }
-})
-
-var stepDuration = 2000;
-		
-chart.colors.list = [
-  am4core.color("#ff0064"),
-  am4core.color("#ffaa00"),
-  am4core.color("#00e6be"),
-  am4core.color("#50e600"),
-  am4core.color("#8dc898"),
-  am4core.color("#f3ded6")
-];
-
-var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-categoryAxis.renderer.grid.template.location = 0;
-categoryAxis.dataFields.category = "Region";
-categoryAxis.renderer.minGridDistance = 1;
-categoryAxis.renderer.inversed = true;
-categoryAxis.renderer.grid.template.disabled = true;
-
-var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
-valueAxis.min = 0;
-valueAxis.rangeChangeEasing = am4core.ease.linear;
-valueAxis.rangeChangeDuration = stepDuration;
-valueAxis.extraMax = 0.1;
-
-var series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.categoryY = "Region";
-series.dataFields.valueX = "Sales";
-series.tooltipText = "{valueX.value}"
-series.columns.template.strokeOpacity = 0;
-series.columns.template.column.cornerRadiusBottomRight = 5;
-series.columns.template.column.cornerRadiusTopRight = 5;
-series.interpolationDuration = stepDuration;
-series.interpolationEasing = am4core.ease.linear;
-
-var labelBullet = series.bullets.push(new am4charts.LabelBullet())
-labelBullet.label.horizontalCenter = "right";
-labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
-labelBullet.label.textAlign = "end";
-labelBullet.label.dx = -10;
-
-var title = chart.titles.create();
-title.text = "Syngenta Annual Sales($m) trend";
-title.fontSize = 25;
-
-chart.zoomOutButton.disabled = true;
-
-// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
-series.columns.template.adapter.add("fill", function(fill, target){
-  return chart.colors.getIndex(target.dataItem.index);
+var chart = root.container.children.push(
+  am5xy.XYChart.new(root, {
+    panX: false,
+    panY: false,
+    wheelX: "none",
+    wheelY: "none",
+    layout: root.verticalLayout
+  })
+);
+		var yRenderer = am5xy.AxisRendererY.new(root, {
+  visible: false,
+  minGridDistance: 20,
+  inversed: true
 });
 
-var year = 2002;
-label.text = year.toString();
+yRenderer.grid.template.set("visible", false);
 
-var interval;
+var yAxis = chart.yAxes.push(
+  am5xy.CategoryAxis.new(root, {
+    maxDeviation: 0,
+    renderer: yRenderer,
+    categoryField: "weekday"
+  })
+);
 
-function play() {
-  interval = setInterval(function(){
-    nextYear();
-  }, stepDuration)
-  nextYear();
-}
+var xRenderer = am5xy.AxisRendererX.new(root, {
+  visible: false,
+  minGridDistance: 30,
+  opposite: true
+});
 
-function stop() {
-  if (interval) {
-    clearInterval(interval);
-  }
-}
+xRenderer.grid.template.set("visible", false);
 
-function nextYear() {
-  year++
+var xAxis = chart.xAxes.push(
+  am5xy.CategoryAxis.new(root, {
+    renderer: xRenderer,
+    categoryField: "hour"
+  })
+);
 
-  if (year > 2021) {
-    year = 2002;
-  }
+// Create series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/#Adding_series
+var series = chart.series.push(
+  am5xy.ColumnSeries.new(root, {
+    calculateAggregates: true,
+    stroke: am5.color(0xffffff),
+    clustered: false,
+    xAxis: xAxis,
+    yAxis: yAxis,
+    categoryXField: "hour",
+    categoryYField: "weekday",
+    valueField: "value"
+  })
+);
 
-  var newData = allData[year];
-  var itemsWithNonZero = 0;
-  for (var i = 0; i < chart.data.length; i++) {
-    chart.data[i].Sales = newData[i].Sales;
-    if (chart.data[i].Sales > 0) {
-      itemsWithNonZero++;
-    }
-  }
+series.columns.template.setAll({
+  forceHidden: true
+});
 
-  if (year == 2002) {
-    series.interpolationDuration = stepDuration / 4;
-    valueAxis.rangeChangeDuration = stepDuration / 4;
-  }
-  else {
-    series.interpolationDuration = stepDuration;
-    valueAxis.rangeChangeDuration = stepDuration;
-  }
+var circleTemplate = am5.Template.new({ radius: 5 });
 
-  chart.invalidateRawData();
-  label.text = year.toString();
+// Add circle bullet
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/#Bullets
+series.bullets.push(function () {
+  var graphics = am5.Circle.new(
+    root, {
+      stroke: series.get("stroke"),
+      fill: series.get("fill")
+    }, circleTemplate
+  );
+  return am5.Bullet.new(root, {
+    sprite: graphics
+  });
+});
 
-  categoryAxis.zoom({ start: 0, end: itemsWithNonZero / categoryAxis.dataItems.length });
-}
+// Set up heat rules
+// https://www.amcharts.com/docs/v5/concepts/settings/heat-rules/
+series.set("heatRules", [{
+  target: circleTemplate,
+  min: 5,
+  max: 35,
+  dataField: "value",
+  key: "radius"
+}]);
 
+// Set data
+// https://www.amcharts.com/docs/v5/charts/xy-chart/#Setting_data
+var data = [{
+  hour: "12pm",
+  weekday: "Sunday",
+  value: 2990
+}, {
+  hour: "1am",
+  weekday: "Sunday",
+  value: 2520
+}, {
+  hour: "2am",
+  weekday: "Sunday",
+  value: 2334
+}, {
+  hour: "3am",
+  weekday: "Sunday",
+  value: 2230
+}, {
+  hour: "4am",
+  weekday: "Sunday",
+  value: 2325
+}, {
+  hour: "5am",
+  weekday: "Sunday",
+  value: 2019
+}, {
+  hour: "6am",
+  weekday: "Sunday",
+  value: 2128
+}, {
+  hour: "7am",
+  weekday: "Sunday",
+  value: 2246
+}, {
+  hour: "8am",
+  weekday: "Sunday",
+  value: 2421
+}, {
+  hour: "9am",
+  weekday: "Sunday",
+  value: 2788
+}, {
+  hour: "10am",
+  weekday: "Sunday",
+  value: 2959
+}, {
+  hour: "11am",
+  weekday: "Sunday",
+  value: 3018
+}, {
+  hour: "12am",
+  weekday: "Sunday",
+  value: 3154
+}, {
+  hour: "1pm",
+  weekday: "Sunday",
+  value: 3172
+}, {
+  hour: "2pm",
+  weekday: "Sunday",
+  value: 3368
+}, {
+  hour: "3pm",
+  weekday: "Sunday",
+  value: 3464
+}, {
+  hour: "4pm",
+  weekday: "Sunday",
+  value: 3746
+}, {
+  hour: "5pm",
+  weekday: "Sunday",
+  value: 3656
+}, {
+  hour: "6pm",
+  weekday: "Sunday",
+  value: 3336
+}, {
+  hour: "7pm",
+  weekday: "Sunday",
+  value: 3292
+}, {
+  hour: "8pm",
+  weekday: "Sunday",
+  value: 3269
+}, {
+  hour: "9pm",
+  weekday: "Sunday",
+  value: 3300
+}, {
+  hour: "10pm",
+  weekday: "Sunday",
+  value: 3403
+}, {
+  hour: "11pm",
+  weekday: "Sunday",
+  value: 3323
+}, {
+  hour: "12pm",
+  weekday: "Monday",
+  value: 3346
+}, {
+  hour: "1am",
+  weekday: "Monday",
+  value: 2725
+}, {
+  hour: "2am",
+  weekday: "Monday",
+  value: 3052
+}, {
+  hour: "3am",
+  weekday: "Monday",
+  value: 3876
+}, {
+  hour: "4am",
+  weekday: "Monday",
+  value: 4453
+}, {
+  hour: "5am",
+  weekday: "Monday",
+  value: 3972
+}, {
+  hour: "6am",
+  weekday: "Monday",
+  value: 4644
+}, {
+  hour: "7am",
+  weekday: "Monday",
+  value: 5715
+}, {
+  hour: "8am",
+  weekday: "Monday",
+  value: 7080
+}, {
+  hour: "9am",
+  weekday: "Monday",
+  value: 8022
+}, {
+  hour: "10am",
+  weekday: "Monday",
+  value: 8446
+}, {
+  hour: "11am",
+  weekday: "Monday",
+  value: 9313
+}, {
+  hour: "12am",
+  weekday: "Monday",
+  value: 9011
+}, {
+  hour: "1pm",
+  weekday: "Monday",
+  value: 8508
+}, {
+  hour: "2pm",
+  weekday: "Monday",
+  value: 8515
+}, {
+  hour: "3pm",
+  weekday: "Monday",
+  value: 8399
+}, {
+  hour: "4pm",
+  weekday: "Monday",
+  value: 8649
+}, {
+  hour: "5pm",
+  weekday: "Monday",
+  value: 7869
+}, {
+  hour: "6pm",
+  weekday: "Monday",
+  value: 6933
+}, {
+  hour: "7pm",
+  weekday: "Monday",
+  value: 5969
+}, {
+  hour: "8pm",
+  weekday: "Monday",
+  value: 5552
+}, {
+  hour: "9pm",
+  weekday: "Monday",
+  value: 5434
+}, {
+  hour: "10pm",
+  weekday: "Monday",
+  value: 5070
+}, {
+  hour: "11pm",
+  weekday: "Monday",
+  value: 4851
+}, {
+  hour: "12pm",
+  weekday: "Tuesday",
+  value: 4468
+}, {
+  hour: "1am",
+  weekday: "Tuesday",
+  value: 3306
+}, {
+  hour: "2am",
+  weekday: "Tuesday",
+  value: 3906
+}, {
+  hour: "3am",
+  weekday: "Tuesday",
+  value: 4413
+}, {
+  hour: "4am",
+  weekday: "Tuesday",
+  value: 4726
+}, {
+  hour: "5am",
+  weekday: "Tuesday",
+  value: 4584
+}, {
+  hour: "6am",
+  weekday: "Tuesday",
+  value: 5717
+}, {
+  hour: "7am",
+  weekday: "Tuesday",
+  value: 6504
+}, {
+  hour: "8am",
+  weekday: "Tuesday",
+  value: 8104
+}, {
+  hour: "9am",
+  weekday: "Tuesday",
+  value: 8813
+}, {
+  hour: "10am",
+  weekday: "Tuesday",
+  value: 9278
+}, {
+  hour: "11am",
+  weekday: "Tuesday",
+  value: 10425
+}, {
+  hour: "12am",
+  weekday: "Tuesday",
+  value: 10137
+}, {
+  hour: "1pm",
+  weekday: "Tuesday",
+  value: 9290
+}, {
+  hour: "2pm",
+  weekday: "Tuesday",
+  value: 9255
+}, {
+  hour: "3pm",
+  weekday: "Tuesday",
+  value: 9614
+}, {
+  hour: "4pm",
+  weekday: "Tuesday",
+  value: 9713
+}, {
+  hour: "5pm",
+  weekday: "Tuesday",
+  value: 9667
+}, {
+  hour: "6pm",
+  weekday: "Tuesday",
+  value: 8774
+}, {
+  hour: "7pm",
+  weekday: "Tuesday",
+  value: 8649
+}, {
+  hour: "8pm",
+  weekday: "Tuesday",
+  value: 9937
+}, {
+  hour: "9pm",
+  weekday: "Tuesday",
+  value: 10286
+}, {
+  hour: "10pm",
+  weekday: "Tuesday",
+  value: 9175
+}, {
+  hour: "11pm",
+  weekday: "Tuesday",
+  value: 8581
+}, {
+  hour: "12pm",
+  weekday: "Wednesday",
+  value: 8145
+}, {
+  hour: "1am",
+  weekday: "Wednesday",
+  value: 7177
+}, {
+  hour: "2am",
+  weekday: "Wednesday",
+  value: 5657
+}, {
+  hour: "3am",
+  weekday: "Wednesday",
+  value: 6802
+}, {
+  hour: "4am",
+  weekday: "Wednesday",
+  value: 8159
+}, {
+  hour: "5am",
+  weekday: "Wednesday",
+  value: 8449
+}, {
+  hour: "6am",
+  weekday: "Wednesday",
+  value: 9453
+}, {
+  hour: "7am",
+  weekday: "Wednesday",
+  value: 9947
+}, {
+  hour: "8am",
+  weekday: "Wednesday",
+  value: 11471
+}, {
+  hour: "9am",
+  weekday: "Wednesday",
+  value: 12492
+}, {
+  hour: "10am",
+  weekday: "Wednesday",
+  value: 9388
+}, {
+  hour: "11am",
+  weekday: "Wednesday",
+  value: 9928
+}, {
+  hour: "12am",
+  weekday: "Wednesday",
+  value: 9644
+}, {
+  hour: "1pm",
+  weekday: "Wednesday",
+  value: 9034
+}, {
+  hour: "2pm",
+  weekday: "Wednesday",
+  value: 8964
+}, {
+  hour: "3pm",
+  weekday: "Wednesday",
+  value: 9069
+}, {
+  hour: "4pm",
+  weekday: "Wednesday",
+  value: 8898
+}, {
+  hour: "5pm",
+  weekday: "Wednesday",
+  value: 8322
+}, {
+  hour: "6pm",
+  weekday: "Wednesday",
+  value: 6909
+}, {
+  hour: "7pm",
+  weekday: "Wednesday",
+  value: 5810
+}, {
+  hour: "8pm",
+  weekday: "Wednesday",
+  value: 5151
+}, {
+  hour: "9pm",
+  weekday: "Wednesday",
+  value: 4911
+}, {
+  hour: "10pm",
+  weekday: "Wednesday",
+  value: 4487
+}, {
+  hour: "11pm",
+  weekday: "Wednesday",
+  value: 4118
+}, {
+  hour: "12pm",
+  weekday: "Thursday",
+  value: 3689
+}, {
+  hour: "1am",
+  weekday: "Thursday",
+  value: 3081
+}, {
+  hour: "2am",
+  weekday: "Thursday",
+  value: 6525
+}, {
+  hour: "3am",
+  weekday: "Thursday",
+  value: 6228
+}, {
+  hour: "4am",
+  weekday: "Thursday",
+  value: 6917
+}, {
+  hour: "5am",
+  weekday: "Thursday",
+  value: 6568
+}, {
+  hour: "6am",
+  weekday: "Thursday",
+  value: 6405
+}, {
+  hour: "7am",
+  weekday: "Thursday",
+  value: 8106
+}, {
+  hour: "8am",
+  weekday: "Thursday",
+  value: 8542
+}, {
+  hour: "9am",
+  weekday: "Thursday",
+  value: 8501
+}, {
+  hour: "10am",
+  weekday: "Thursday",
+  value: 8802
+}, {
+  hour: "11am",
+  weekday: "Thursday",
+  value: 9420
+}, {
+  hour: "12am",
+  weekday: "Thursday",
+  value: 8966
+}, {
+  hour: "1pm",
+  weekday: "Thursday",
+  value: 8135
+}, {
+  hour: "2pm",
+  weekday: "Thursday",
+  value: 8224
+}, {
+  hour: "3pm",
+  weekday: "Thursday",
+  value: 8387
+}, {
+  hour: "4pm",
+  weekday: "Thursday",
+  value: 8218
+}, {
+  hour: "5pm",
+  weekday: "Thursday",
+  value: 7641
+}, {
+  hour: "6pm",
+  weekday: "Thursday",
+  value: 6469
+}, {
+  hour: "7pm",
+  weekday: "Thursday",
+  value: 5441
+}, {
+  hour: "8pm",
+  weekday: "Thursday",
+  value: 4952
+}, {
+  hour: "9pm",
+  weekday: "Thursday",
+  value: 4643
+}, {
+  hour: "10pm",
+  weekday: "Thursday",
+  value: 4393
+}, {
+  hour: "11pm",
+  weekday: "Thursday",
+  value: 4017
+}, {
+  hour: "12pm",
+  weekday: "Friday",
+  value: 4022
+}, {
+  hour: "1am",
+  weekday: "Friday",
+  value: 3063
+}, {
+  hour: "2am",
+  weekday: "Friday",
+  value: 3638
+}, {
+  hour: "3am",
+  weekday: "Friday",
+  value: 3968
+}, {
+  hour: "4am",
+  weekday: "Friday",
+  value: 4070
+}, {
+  hour: "5am",
+  weekday: "Friday",
+  value: 4019
+}, {
+  hour: "6am",
+  weekday: "Friday",
+  value: 4548
+}, {
+  hour: "7am",
+  weekday: "Friday",
+  value: 5465
+}, {
+  hour: "8am",
+  weekday: "Friday",
+  value: 6909
+}, {
+  hour: "9am",
+  weekday: "Friday",
+  value: 7706
+}, {
+  hour: "10am",
+  weekday: "Friday",
+  value: 7867
+}, {
+  hour: "11am",
+  weekday: "Friday",
+  value: 8615
+}, {
+  hour: "12am",
+  weekday: "Friday",
+  value: 8218
+}, {
+  hour: "1pm",
+  weekday: "Friday",
+  value: 7604
+}, {
+  hour: "2pm",
+  weekday: "Friday",
+  value: 7429
+}, {
+  hour: "3pm",
+  weekday: "Friday",
+  value: 7488
+}, {
+  hour: "4pm",
+  weekday: "Friday",
+  value: 7493
+}, {
+  hour: "5pm",
+  weekday: "Friday",
+  value: 6998
+}, {
+  hour: "6pm",
+  weekday: "Friday",
+  value: 5941
+}, {
+  hour: "7pm",
+  weekday: "Friday",
+  value: 5068
+}, {
+  hour: "8pm",
+  weekday: "Friday",
+  value: 4636
+}, {
+  hour: "9pm",
+  weekday: "Friday",
+  value: 4241
+}, {
+  hour: "10pm",
+  weekday: "Friday",
+  value: 3858
+}, {
+  hour: "11pm",
+  weekday: "Friday",
+  value: 3833
+}, {
+  hour: "12pm",
+  weekday: "Saturday",
+  value: 3503
+}, {
+  hour: "1am",
+  weekday: "Saturday",
+  value: 2842
+}, {
+  hour: "2am",
+  weekday: "Saturday",
+  value: 2808
+}, {
+  hour: "3am",
+  weekday: "Saturday",
+  value: 2399
+}, {
+  hour: "4am",
+  weekday: "Saturday",
+  value: 2280
+}, {
+  hour: "5am",
+  weekday: "Saturday",
+  value: 2139
+}, {
+  hour: "6am",
+  weekday: "Saturday",
+  value: 2527
+}, {
+  hour: "7am",
+  weekday: "Saturday",
+  value: 2940
+}, {
+  hour: "8am",
+  weekday: "Saturday",
+  value: 3066
+}, {
+  hour: "9am",
+  weekday: "Saturday",
+  value: 3494
+}, {
+  hour: "10am",
+  weekday: "Saturday",
+  value: 3287
+}, {
+  hour: "11am",
+  weekday: "Saturday",
+  value: 3416
+}, {
+  hour: "12am",
+  weekday: "Saturday",
+  value: 3432
+}, {
+  hour: "1pm",
+  weekday: "Saturday",
+  value: 3523
+}, {
+  hour: "2pm",
+  weekday: "Saturday",
+  value: 3542
+}, {
+  hour: "3pm",
+  weekday: "Saturday",
+  value: 3347
+}, {
+  hour: "4pm",
+  weekday: "Saturday",
+  value: 3292
+}, {
+  hour: "5pm",
+  weekday: "Saturday",
+  value: 3416
+}, {
+  hour: "6pm",
+  weekday: "Saturday",
+  value: 3131
+}, {
+  hour: "7pm",
+  weekday: "Saturday",
+  value: 3057
+}, {
+  hour: "8pm",
+  weekday: "Saturday",
+  value: 3227
+}, {
+  hour: "9pm",
+  weekday: "Saturday",
+  value: 3060
+}, {
+  hour: "10pm",
+  weekday: "Saturday",
+  value: 2855
+}, {
+  hour: "11pm",
+  weekday: "Saturday",
+  value: 2625
+}];
 
-categoryAxis.sortBySeries = series;
-		const a1=arra[0]+","+arra[1]+","+arra[2]+","+arra[3]+","+arra[4]+","+arra[5]
-		const a2=arra[6]+","+arra[7]+","+arra[8]+","+arra[9]+","+arra[10]+","+arra[11]
-		const a3=arra[12]+","+arra[13]+","+arra[14]+","+arra[15]+","+arra[16]+","+arra[17]
-		const a4=arra[18]+","+arra[19]+","+arra[20]+","+arra[21]+","+arra[22]+","+arra[23]
-		const a5=arra[24]+","+arra[25]+","+arra[26]+","+arra[27]+","+arra[28]+","+arra[29]
-		
-		
-		var allData1={
-			
-			"2002": [
-				 a1
-				],
-			"2003": [
-					a2
-				],
-			"2004": [
-					a3
-				],
-			"2005": [
-					a4
-				],
-			"2006": [
-					a5
-				]		
-				
-		}
+series.data.setAll(data);
 
-var allData = {
-"2002": [
-    {
-      "Region": countries[0],
-      "Sales": sales[0]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[1]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[2]
-    },
+yAxis.data.setAll([
+  { weekday: "Sunday" },
+  { weekday: "Monday" },
+  { weekday: "Tuesday" },
+  { weekday: "Wednesday" },
+  { weekday: "Thursday" },
+  { weekday: "Friday" },
+  { weekday: "Saturday" }
+]);
 
-    {
-      "Region": countries[3],
-      "Sales": sales[3]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[4]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[5]
-    }
-    
-  ],
-  "2003": [
-    {
-      "Region": countries[0],
-      "Sales": sales[6]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[7]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[8]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[9]
-    },
-    {
-      "Region":countries[4],
-      "Sales": sales[10]
-    },
-    {
-      "Region":countries[5],
-      "Sales": sales[11]
-    }
-    
-  ],
-  "2004": [
-    {
-      "Region": countries[0],
-      "Sales": sales[12]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[13]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[14]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[15]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[16]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[17]
-    }
-   
-  ],
-  "2005": [
-    {
-      "Region": countries[0],
-      "Sales":sales[18]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[19]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[20]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[21]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[22]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[23]
-    }
-   
-  ],
-  "2006": [
-    {
-      "Region": countries[0],
-      "Sales": sales[24]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[25]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[26]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[27]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[28]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[29]
-    }
-    
-  ],
-"2007": [
-    {
-      "Region": countries[0],
-      "Sales": sales[30]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[31]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[32]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[33]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[34]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[35]
-    }
-    
-  ],
-	"2008": [
-    {
-      "Region": countries[0],
-      "Sales": sales[36]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[37]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[38]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[39]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[40]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[41]
-    }
-    
-  ],
-	"2009": [
-    {
-      "Region": countries[0],
-      "Sales": sales[42]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[43]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[44]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[45]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[46]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[47]
-    }
-    
-  ],
-	"2010": [
-    {
-      "Region": countries[0],
-      "Sales": sales[48]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[49]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[50]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[51]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[52]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[53]
-    }
-    
-  ],
-	"2011": [
-    {
-      "Region": countries[0],
-      "Sales": sales[54]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[55]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[56]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[57]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[58]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[59]
-    }
-    
-  ],
-	"2012": [
-    {
-      "Region": countries[0],
-      "Sales": sales[60]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[61]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[62]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[63]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[64]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[65]
-    }
-    
-  ],
-	"2013": [
-    {
-      "Region": countries[0],
-      "Sales": sales[66]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[67]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[68]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[69]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[70]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[71]
-    }
-    
-  ],
-	"2014": [
-    {
-      "Region": countries[0],
-      "Sales": sales[72]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[73]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[74]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[75]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[76]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[77]
-    }
-    
-  ],
-	"2015": [
-    {
-      "Region": countries[0],
-      "Sales": sales[78]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[79]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[80]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[81]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[82]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[83]
-    }
-    
-  ],
-	"2016": [
-    {
-      "Region": countries[0],
-      "Sales": sales[84]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[85]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[86]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[87]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[88]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[89]
-    }
-    
-  ],
-	"2017": [
-    {
-      "Region": countries[0],
-      "Sales": sales[90]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[91]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[92]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[93]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[94]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[95]
-    }
-    
-  ],
-	"2018": [
-    {
-      "Region": countries[0],
-      "Sales": sales[96]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[97]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[98]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[99]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[100]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[101]
-    }
-    
-  ],
-	"2019": [
-    {
-      "Region": countries[0],
-      "Sales": sales[102]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[103]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[104]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[105]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[106]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[107]
-    }
-    
-  ],
-	"2020": [
-    {
-      "Region": countries[0],
-      "Sales": sales[108]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[109]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[110]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[111]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[112]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[113]
-    }
-    
-  ],
-	"2021": [
-    {
-      "Region": countries[0],
-      "Sales": sales[114]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[115]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[116]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[117]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[118]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[119]
-    }
-    
-  ],
-	"2022": [
-    {
-      "Region": countries[0],
-      "Sales": sales[120]
-    },
-    {
-      "Region": countries[1],
-      "Sales": sales[121]
-    },
-    {
-      "Region": countries[2],
-      "Sales": sales[122]
-    },
-    {
-      "Region": countries[3],
-      "Sales": sales[123]
-    },
-    {
-      "Region": countries[4],
-      "Sales": sales[124]
-    },
-    {
-      "Region": countries[5],
-      "Sales": sales[125]
-    }
-    
-  ]
-	
-}
-console.log(allData)
-		console.log(allData1)
-		
-		
-chart.data = JSON.parse(JSON.stringify(allData[year]));
-		console.log(chart.data)
-categoryAxis.zoom({ start: 0, end: 1 / chart.data.length });
+xAxis.data.setAll([
+  { hour: "12pm" },
+  { hour: "1am" },
+  { hour: "2am" },
+  { hour: "3am" },
+  { hour: "4am" },
+  { hour: "5am" },
+  { hour: "6am" },
+  { hour: "7am" },
+  { hour: "8am" },
+  { hour: "9am" },
+  { hour: "10am" },
+  { hour: "11am" },
+  { hour: "12am" },
+  { hour: "1pm" },
+  { hour: "2pm" },
+  { hour: "3pm" },
+  { hour: "4pm" },
+  { hour: "5pm" },
+  { hour: "6pm" },
+  { hour: "7pm" },
+  { hour: "8pm" },
+  { hour: "9pm" },
+  { hour: "10pm" },
+  { hour: "11pm" }
+]);
 
-series.events.on("inited", function() {
-  setTimeout(function() {
-    playButton.isActive = true; // this starts interval
-  }, 2000)
-})
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/#Initial_animation
+chart.appear(1000, 100);
+
+setInterval(function () {
+  var i = 0;
+  series.data.each(function (d) {
+    var n = {
+      value: d.value + d.value * Math.random() * 0.5,
+      hour: d.hour,
+      weekday: d.weekday
+    };
+    series.data.setIndex(i, n);
+    i++;
+  });
+}, 1000);
        
         }
     
