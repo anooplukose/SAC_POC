@@ -16,14 +16,28 @@
       float: left;
 }
 </style>
-  <div id="chartdiv"></div>
+  <div id="chartdiv">
+  <p class="para" id="para1">
+            Geeksforgeeks | 
+            A computer science portal for geeks
+        </p>
+  
+        <p class="para" id="para2">
+            This is another text
+        </p>
+  
+        <p class="para" id="para3">
+            This is the third line of the 
+            example line of the example.
+        </p>
+  </div>
   `;
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("006")
+			console.log("007")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
