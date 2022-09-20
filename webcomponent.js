@@ -1,20 +1,26 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <head>
-      <title>HTML marquee Tag</title>
-   </head>
-	
-   <body>
-      <marquee>This is basic example of marquee</marquee>
-   </body>
-    `;
+       <style>
+      #root {
+        background-color: #100c2a;
+      }
+      #placeholder {
+        padding-top: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+      }
+      </style>
+      <div id="root" style="width: 100%; height: 100%;">
+        <div id="placeholder"></div>
+      </div>
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("002")
+			console.log("003")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
