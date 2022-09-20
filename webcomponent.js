@@ -37,7 +37,7 @@
 
 
 		constructor() {
-			console.log("007")
+			console.log("008")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -82,6 +82,12 @@
         */
 
         redraw(){
+		
+		const para1 = document.getElementById("para1");
+const para2 = document.getElementById("para2");
+const para3 = document.getElementById("para3");
+		console.log(para1)
+		
         }
     });
 })();
