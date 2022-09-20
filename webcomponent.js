@@ -32,12 +32,15 @@
         </p>
   </div>
   `;
-
+const para1 = document.getElementById("para1");
+const para2 = document.getElementById("para2");
+const para3 = document.getElementById("para3");
+		console.log(para1)
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("008")
+			console.log("009")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -83,10 +86,7 @@
 
         redraw(){
 		
-		const para1 = document.getElementById("para1");
-const para2 = document.getElementById("para2");
-const para3 = document.getElementById("para3");
-		console.log(para1)
+		
 		
         }
     });
