@@ -1,20 +1,39 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <head>
-      <title>HTML marquee Tag</title>
-   </head>
-	
-   <body>
-      <marquee>This is basic example of marquee</marquee>
-   </body>
-    `;
+         <style>
+      #root {
+        background-color: #100c2a;
+      }
+      .para {
+        padding-top: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+      }
+      </style>
+      <div id="root">
+        <p class="para" id="para1">
+            Geeksforgeeks | 
+            A computer science portal for geeks
+        </p>
+  
+        <p class="para" id="para2">
+            This is another text
+        </p>
+  
+        <p class="para" id="para3">
+            This is the third line of the 
+            example line of the example.
+        </p>
+  
+    </div>
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("002")
+			console.log("003")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -59,6 +78,20 @@
         */
 
         redraw(){
+	
+	
+const para1 = document.getElementById("para1");
+let elementWidth = para1.offsetWidth;
+    let parentWidth = para1.parentElement.offsetWidth;
+    let flag = 0;
+  
+    setInterval(() => {
+        para1.style.marginLeft = --flag + "px";
+  
+        if (elementWidth == -flag) {
+            flag = parentWidth;
+        }
+    }, 10);
         }
     });
 })();
