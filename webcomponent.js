@@ -33,7 +33,7 @@
 
 
 		constructor() {
-			console.log("003")
+			console.log("004")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -85,13 +85,7 @@ let elementWidth = para1.offsetWidth;
     let parentWidth = para1.parentElement.offsetWidth;
     let flag = 0;
   
-    setInterval(() => {
-        para1.style.marginLeft = --flag + "px";
-  
-        if (elementWidth == -flag) {
-            flag = parentWidth;
-        }
-    }, 10);
+    
         }
     });
 })();
