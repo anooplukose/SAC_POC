@@ -8,7 +8,7 @@
       width: 100%;
       overflow: hidden;
      }
-#chartdiv {
+.chartdiv {
   color: black;
       font-weight: bold;
       white-space: nowrap;
@@ -40,7 +40,7 @@ const para3 = document.getElementById("para3");
 
 
 		constructor() {
-			console.log("010")
+			console.log("011")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
