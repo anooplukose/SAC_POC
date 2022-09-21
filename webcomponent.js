@@ -9,12 +9,25 @@
       <marquee>This is basic example of marquee</marquee>
    </body>
     `;
+	
+	<script type="text/javascript" src="/javascript/codes/xbMarquee.js"></script>
+<script type="text/javascript">
+<!--
+	//set the marquee parameters
+	function init() { rtl_marquee.start(); }
+	var rtl_marquee_Text = 'JavaScript scrolling text';
+	var rtl_marquee_Direction = 'left';
+	var rtl_marquee_Contents='<span style="font-family:Comic Sans MS;font-size:12pt;white-space:nowrap;">' + rtl_marquee_Text + '</span>';
+	rtl_marquee = new xbMarquee('rtl_marquee', '29px', '90%', 6, 100, rtl_marquee_Direction, 'scroll', rtl_marquee_Contents);
+	window.setTimeout( init, 200);
+-->
+</script>
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("002")
+			console.log("003")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
