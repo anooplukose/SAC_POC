@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/5/index.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/5/xy.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/5/themes/Animated.js"; 
-    console.log("002")
+    console.log("003")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -194,8 +194,9 @@ console.log("101")
 			}
 		
 			
-			arra.push({ Region: resultSet[i]["Region"].description,
+			arra.push({ 
 				Year:resultSet[i]["Year"].description,
+				Region: resultSet[i]["Region"].description,
 				   value:Number(resultSet[i][MEASURE_DIMENSION].rawValue)
 			}
 			)
