@@ -1,46 +1,20 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <style>
-	#main{
-      border: 1px solid;
-      background: yellow;
-      width: 100%;
-      overflow: hidden;
-     }
-.chartdiv {
-  color: black;
-      font-weight: bold;
-      white-space: nowrap;
-      clear: both;
-      float: left;
-}
-</style>
-  <div id="chartdiv">
-  <p class="chartdiv" id="para1">
-            Geeksforgeeks | 
-            A computer science portal for geeks
-        </p>
-  
-        <p class="chartdiv" id="para2">
-            This is another text
-        </p>
-  
-        <p class="chartdiv" id="para3">
-            This is the third line of the 
-            example line of the example.
-        </p>
-  </div>
-  `;
-const para1 = document.getElementById("para1");
-const para2 = document.getElementById("para2");
-const para3 = document.getElementById("para3");
-		console.log(para1)
+        <head>
+      <title>HTML marquee Tag</title>
+   </head>
+	
+   <body>
+      <marquee>This is basic example of marquee</marquee>
+   </body>
+    `;
+
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("011")
+			console.log("002")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -85,9 +59,6 @@ const para3 = document.getElementById("para3");
         */
 
         redraw(){
-		
-		
-		
         }
     });
 })();
