@@ -1,33 +1,58 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <head>
-      <title>HTML marquee Tag</title>
-   </head>
+    <style>
+       #mainmodal {
+    position: fixed;
+    font-family: Arial;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.modalconent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFD700;
+    width: 100%;
+    padding: 50px;
+}
+
+.breakingtitle {
+	font-size: 50px;
+	background: black;
+	color: #FFD700;
+	padding: 10px;
+}
+
+#readmorebutton {
+	background: black;
+	color: #FFD700;
+	border-style: none;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.marquee {
+	color: black;
+	letter-spacing: 2px;
+	font-weight: 700;
+	padding: 30px;
+	font-size: 40px;
+}
+</style>	
 	
-   <body>
-      <marquee>This is basic example of marquee</marquee>
-   </body>
-    `;
-	
-	<script type="text/javascript" src="/javascript/codes/xbMarquee.js"></script>
-<script type="text/javascript">
-<!--
-	//set the marquee parameters
-	function init() { rtl_marquee.start(); }
-	var rtl_marquee_Text = 'JavaScript scrolling text';
-	var rtl_marquee_Direction = 'left';
-	var rtl_marquee_Contents='<span style="font-family:Comic Sans MS;font-size:12pt;white-space:nowrap;">' + rtl_marquee_Text + '</span>';
-	rtl_marquee = new xbMarquee('rtl_marquee', '29px', '90%', 6, 100, rtl_marquee_Direction, 'scroll', rtl_marquee_Contents);
-	window.setTimeout( init, 200);
--->
-</script>
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("003")
+			console.log("004")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
