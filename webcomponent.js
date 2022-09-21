@@ -1,7 +1,7 @@
 (function()  {
-    let tmpl = document.createElement('template');
-    tmpl.innerHTML = `
-    <style>
+   const template = document.createElement('template')
+  template.innerHTML = `
+      <style>
       #root {
         background-color: #100c2a;
       }
@@ -12,7 +12,7 @@
         color: white;
       }
       </style>
-	<div id="root" style="width: 100%; height: 100%;">
+      <div id="root" style="width: 100%; height: 100%;">
         <div id="placeholder"></div>
       </div>
 
@@ -22,9 +22,10 @@
 		constructor() {
 			console.log("004")
 			super(); 
-			this._shadowRoot = this.attachShadow({mode: "open"});
-            this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
-            this._firstConnection = false;
+			this._shadowRoot = this.attachShadow({ mode: 'open' })
+      this._shadowRoot.appendChild(template.content.cloneNode(true))
+      this._root = this._shadowRoot.getElementById('root')
+      console.log("005")
 		}
 
         //Fired when the widget is added to the html DOM of the page
@@ -53,6 +54,8 @@
         //When the custom widget is removed from the canvas or the analytic application is closed
         onCustomWidgetDestroy(){
         }
+
+
 
         
         //When the custom widget is resized on the canvas, the Custom Widget SDK framework executes the following JavaScript function call on the custom widget
