@@ -2,51 +2,19 @@
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
     <style>
-       #mainmodal {
-    position: fixed;
-    font-family: Arial;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 99999;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-}
-.modalconent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #FFD700;
-    width: 100%;
-    padding: 50px;
-}
-
-.breakingtitle {
-	font-size: 50px;
-	background: black;
-	color: #FFD700;
-	padding: 10px;
-}
-
-#readmorebutton {
-	background: black;
-	color: #FFD700;
-	border-style: none;
-  padding: 20px;
-  font-size: 20px;
-}
-
-.marquee {
-	color: black;
-	letter-spacing: 2px;
-	font-weight: 700;
-	padding: 30px;
-	font-size: 40px;
-}
-</style>	
-	
+      #root {
+        background-color: #100c2a;
+      }
+      #placeholder {
+        padding-top: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+      }
+      </style>
+	<div id="root" style="width: 100%; height: 100%;">
+        <div id="placeholder"></div>
+      </div>
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
