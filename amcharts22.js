@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/5/index.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/5/xy.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/5/themes/Animated.js"; 
-    console.log("001")
+    console.log("002")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -164,7 +164,11 @@ height:100%;
 
       redraw(resultSet)
         {
-		
+		const MEASURE_DIMENSION = '@MeasureDimension'
+		const countries = [];
+	     const timeline = []
+	     const sales=[]
+	     const arra=[]
         let myChart=this.shadowRoot.getElementById('chartdiv');
 		var root = am5.Root.new(myChart);
 		root.setThemes([
@@ -175,6 +179,30 @@ height:100%;
 // Themes end
 console.log("101")
 		
+		for (var i = 0; i < resultSet.length; i++) {
+			const country=resultSet[i]["Region"].description
+			const sal=resultSet[i][MEASURE_DIMENSION].rawValue
+			const yea=resultSet[i]["Year"].description
+			sales.push(Number(sal))
+			if(countries.indexOf(country)=== -1)
+			{
+				countries.push(country)
+			}
+			if(timeline.indexOf(yea)=== -1)
+			{
+				timeline.push(yea)
+			}
+		
+			
+			arra.push({ Region: resultSet[i]["Region"].description,
+				Year:resultSet[i]["Year"].description,
+				   value:Number(resultSet[i][MEASURE_DIMENSION].rawValue)
+			}
+			)
+        
+		    
+		}
+		console.log(arra)
 var chart = root.container.children.push(
   am5xy.XYChart.new(root, {
     panX: false,
