@@ -1,31 +1,81 @@
 (function()  {
-   const template = document.createElement('template')
-  template.innerHTML = `
-      <style>
-      #root {
-        background-color: #100c2a;
-      }
-      #placeholder {
-        padding-top: 1em;
-        text-align: center;
-        font-size: 1.5em;
-        color: white;
-      }
-      </style>
-      <div id="root" style="width: 100%; height: 100%;">
-        <div id="placeholder"></div>
-      </div>
+    let tmpl = document.createElement('template');
+    tmpl.innerHTML = `
+     <head>
+        <style>
+            .marquee {
+                height: 50px;
+                overflow: hidden;
+                position: relative;
+                background: #fefefe;
+                color: #333;
+                border: 1px solid #4a4a4a;
+            }
+            
+            .marquee p {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                line-height: 50px;
+                text-align: center;
+                -moz-transform: translateX(100%);
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+                -moz-animation: scroll-left 2s linear infinite;
+                -webkit-animation: scroll-left 2s linear infinite;
+                animation: scroll-left 20s linear infinite;
+            }
+            
+            @-moz-keyframes scroll-left {
+                0% {
+                    -moz-transform: translateX(100%);
+                }
+                100% {
+                    -moz-transform: translateX(-100%);
+                }
+            }
+            
+            @-webkit-keyframes scroll-left {
+                0% {
+                    -webkit-transform: translateX(100%);
+                }
+                100% {
+                    -webkit-transform: translateX(-100%);
+                }
+            }
+            
+            @keyframes scroll-left {
+                0% {
+                    -moz-transform: translateX(100%);
+                    -webkit-transform: translateX(100%);
+                    transform: translateX(100%);
+                }
+                100% {
+                    -moz-transform: translateX(-100%);
+                    -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
+                }
+            }
+        </style>
+    </head>
+	
+   <body>
+        <div class="marquee">
+            <p> Marquee in CSS </p>
+        </div>
+    </body>
+    `;
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
-			console.log("004")
+			console.log("006")
 			super(); 
-			this._shadowRoot = this.attachShadow({ mode: 'open' })
-      this._shadowRoot.appendChild(template.content.cloneNode(true))
-      this._root = this._shadowRoot.getElementById('root')
-      console.log("005")
+			this._shadowRoot = this.attachShadow({mode: "open"});
+            this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
+            this._firstConnection = false;
 		}
 
         //Fired when the widget is added to the html DOM of the page
@@ -54,8 +104,6 @@
         //When the custom widget is removed from the canvas or the analytic application is closed
         onCustomWidgetDestroy(){
         }
-
-
 
         
         //When the custom widget is resized on the canvas, the Custom Widget SDK framework executes the following JavaScript function call on the custom widget
