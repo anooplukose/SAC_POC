@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/5/index.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/5/xy.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/5/themes/Animated.js"; 
-    console.log("004")
+    console.log("005")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -291,6 +291,7 @@ series.set("heatRules", [{
 
 // Set data
 // https://www.amcharts.com/docs/v5/charts/xy-chart/#Setting_data
+		
 var data = [{
   Year: "12pm",
   Region: "Sunday",
@@ -972,40 +973,40 @@ var data = [{
 series.data.setAll(data);
 
 yAxis.data.setAll([
-  { weekday: "Sunday" },
-  { weekday: "Monday" },
-  { weekday: "Tuesday" },
-  { weekday: "Wednesday" },
-  { weekday: "Thursday" },
-  { weekday: "Friday" },
-  { weekday: "Saturday" }
+  { Region: "Sunday" },
+  { Region: "Monday" },
+  { Region: "Tuesday" },
+  { Region: "Wednesday" },
+  { Region: "Thursday" },
+  { Region: "Friday" },
+  { Region: "Saturday" }
 ]);
 
 xAxis.data.setAll([
-  { hour: "12pm" },
-  { hour: "1am" },
-  { hour: "2am" },
-  { hour: "3am" },
-  { hour: "4am" },
-  { hour: "5am" },
-  { hour: "6am" },
-  { hour: "7am" },
-  { hour: "8am" },
-  { hour: "9am" },
-  { hour: "10am" },
-  { hour: "11am" },
-  { hour: "12am" },
-  { hour: "1pm" },
-  { hour: "2pm" },
-  { hour: "3pm" },
-  { hour: "4pm" },
-  { hour: "5pm" },
-  { hour: "6pm" },
-  { hour: "7pm" },
-  { hour: "8pm" },
-  { hour: "9pm" },
-  { hour: "10pm" },
-  { hour: "11pm" }
+  { Year: "12pm" },
+  { Year: "1am" },
+  { Year: "2am" },
+  { Year: "3am" },
+  { Year: "4am" },
+  { Year: "5am" },
+  { Year: "6am" },
+  { Year: "7am" },
+  { Year: "8am" },
+  { Year: "9am" },
+  { Year: "10am" },
+  { Year: "11am" },
+  { Year: "12am" },
+  { Year: "1pm" },
+  { Year: "2pm" },
+  { Year: "3pm" },
+  { Year: "4pm" },
+  { Year: "5pm" },
+  { Year: "6pm" },
+  { Year: "7pm" },
+  { Year: "8pm" },
+  { Year: "9pm" },
+  { Year: "10pm" },
+  { Year: "11pm" }
 ]);
 
 // Make stuff animate on load
