@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/5/index.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/5/xy.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/5/themes/Animated.js"; 
-    console.log("008")
+    console.log("009")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -993,39 +993,40 @@ series.set("heatRules", [{
 
 series.data.setAll(data);
 
-yAxis.data.setAll([
-  { Region: "ASIA PACIFIC" },
-  { Region: "CHINA"},
-  { Region: "EUROPE & AME" },
-  { Region: "LATIN AMERICA" },
-  { Region: "NORTH AMERICA" },
-  { Region: "OTHER" }
+// yAxis.data.setAll([
+//   { Region: "ASIA PACIFIC" },
+//   { Region: "CHINA"},
+//   { Region: "EUROPE & AME" },
+//   { Region: "LATIN AMERICA" },
+//   { Region: "NORTH AMERICA" },
+//   { Region: "OTHER" }
   
-]);
-
-xAxis.data.setAll([
-  { Year: "2002" },
-  { Year: "2003" },
-  { Year: "2004" },
-  { Year: "2005" },
-  { Year: "2006" },
-  { Year: "2007" },
-  { Year: "2008" },
-  { Year: "2009" },
-  { Year: "2010" },
-  { Year: "2011" },
-  { Year: "2012" },
-  { Year: "2013" },
-  { Year: "2014" },
-  { Year: "2015" },
-  { Year: "2016" },
-  { Year: "2017" },
-  { Year: "2018" },
-  { Year: "2019" },
-  { Year: "2020" },
-  { Year: "2021" }
+// ]);
+yAxis.data.setAll(reg);
+		xAxis.data.setAll(ye);
+// xAxis.data.setAll([
+//   { Year: "2002" },
+//   { Year: "2003" },
+//   { Year: "2004" },
+//   { Year: "2005" },
+//   { Year: "2006" },
+//   { Year: "2007" },
+//   { Year: "2008" },
+//   { Year: "2009" },
+//   { Year: "2010" },
+//   { Year: "2011" },
+//   { Year: "2012" },
+//   { Year: "2013" },
+//   { Year: "2014" },
+//   { Year: "2015" },
+//   { Year: "2016" },
+//   { Year: "2017" },
+//   { Year: "2018" },
+//   { Year: "2019" },
+//   { Year: "2020" },
+//   { Year: "2021" }
   
-]);
+// ]);
 
 // Make stuff animate on load
 // https://www.amcharts.com/docs/v5/concepts/animations/#Initial_animation
