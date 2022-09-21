@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/5/index.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/5/xy.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/5/themes/Animated.js"; 
-    console.log("011")
+    console.log("012")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -270,7 +270,7 @@ chart.get("colors").set("colors", [
   am5.color(0x5aaa95),
   am5.color(0x86a873),
   am5.color(0xbb9f06),
-	am5.color(0xbb9f06)
+	am5.color("#ff0064")
 ]);
 // Create series
 // https://www.amcharts.com/docs/v5/charts/xy-chart/#Adding_series
