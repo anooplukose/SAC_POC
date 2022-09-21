@@ -203,6 +203,27 @@ console.log("101")
         
 		    
 		}
+		const reg=[]
+		for (var i = 0; i < countries.length; i++)
+		{
+			reg.push(
+				{
+					Region:countries[i]
+				}
+				)
+		}
+		
+		const ye=[]
+		for (var i = 0; i < timeline.length; i++)
+		{
+			ye.push(
+				{
+					Year:timeline[i]
+				}
+				)
+		}
+		console.log(reg)
+		console.log(ye)
 		console.log(arra)
 var chart = root.container.children.push(
   am5xy.XYChart.new(root, {
