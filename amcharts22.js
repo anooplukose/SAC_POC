@@ -264,14 +264,14 @@ var xAxis = chart.xAxes.push(
     categoryField: "Year"
   })
 );
-chart.get("colors").set("colors", [
-  am5.color(0x095256),
-  am5.color(0x087f8c),
-  am5.color(0x5aaa95),
-  am5.color(0x86a873),
-  am5.color(0xbb9f06),
-	am5.color("#ff0064")
-]);
+// chart.get("colors").set("colors", [
+//   am5.color(0x095256),
+//   am5.color(0x087f8c),
+//   am5.color(0x5aaa95),
+//   am5.color(0x86a873),
+//   am5.color(0xbb9f06),
+// 	am5.color("#ff0064")
+// ]);
 // Create series
 // https://www.amcharts.com/docs/v5/charts/xy-chart/#Adding_series
 var series = chart.series.push(
