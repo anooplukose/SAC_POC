@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/5/index.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/5/xy.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/5/themes/Animated.js"; 
-    console.log("009")
+    console.log("010")
     console.log("1-Step");
     
     //This function is used to load the library
