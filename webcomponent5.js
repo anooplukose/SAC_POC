@@ -11,17 +11,7 @@
                 color: #fefefe;
                 border: 1px solid #4a4a4a;
 		
-		position: absolute;
-                width: 100%;
-		margin: 0;
-                line-height: 50px;
-                text-align: center;
-                -moz-transform: translateX(100%);
-                -webkit-transform: translateX(100%);
-                transform: translateX(100%);
-                -moz-animation: scroll-left 2s linear infinite;
-                -webkit-animation: scroll-left 2s linear infinite;
-                animation: scroll-left 20s linear infinite;
+		
             }
             
             .marquee p {
@@ -73,7 +63,7 @@
     </head>
 	
    <body>
-        <div class="marquee">
+        <div id="marquee">
             Top selling product for 2021 is THIAMETHOXAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Top selling product family for 2021 is Fungicides&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max revenue generating region for 2021 from overall sales is Latin America with $4.5b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max revenue generating country from all regions for 2021 from overall sales is Brazil South & East /Seeds BR South $1.2b   
         </div>
     </body>
@@ -83,7 +73,7 @@
 
 
 		constructor() {
-			console.log("002")
+			console.log("003")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
