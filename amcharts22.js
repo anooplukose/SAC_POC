@@ -16,7 +16,7 @@
     const amchartscorejs = "https://cdn.amcharts.com/lib/5/index.js";
     const amchartschartsjs = "https://cdn.amcharts.com/lib/5/xy.js";
     const amchartsanimatedjs = "https://cdn.amcharts.com/lib/5/themes/Animated.js"; 
-    console.log("013")
+    console.log("014")
     console.log("1-Step");
     
     //This function is used to load the library
@@ -309,13 +309,13 @@ series.bullets.push(function () {
 
 // Set up heat rules
 // https://www.amcharts.com/docs/v5/concepts/settings/heat-rules/
-// series.set("heatRules", [{
-//   target: circleTemplate,
-//   min: 5,
-//   max: 35,
-//   dataField: "value",
-//   key: "radius"
-// }]);
+series.set("heatRules", [{
+  target: circleTemplate,
+  min: 5,
+  max: 35,
+  dataField: "value",
+  key: "radius"
+}]);
 
 // Set data
 // https://www.amcharts.com/docs/v5/charts/xy-chart/#Setting_data
