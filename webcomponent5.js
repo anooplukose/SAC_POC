@@ -73,7 +73,7 @@
 
 
 		constructor() {
-			console.log("005")
+			console.log("006")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -120,7 +120,7 @@
         redraw(){
 		
 		let div=this.shadowRoot.getElementById('marquee');
-		div.textContent = 'Replacement text';
+		div.textContent = "Replacement text";
 		div.innerHTML = `<span style="background-color: lime">Replacement HTML</span>`;
 		div.insertAdjacentText('beforeend', ' appended text');
 		div.insertAdjacentHTML(
