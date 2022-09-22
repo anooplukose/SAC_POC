@@ -64,7 +64,7 @@
 	
    <body>
         <div class="marquee">
-          Top selling product for 2021 is THIAMETHOXAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Top selling product family for 2021 is Fungicides&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max revenue generating region for 2021 from overall sales is Latin America with $4.5b   
+         <p> Top selling product for 2021 is THIAMETHOXAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Top selling product family for 2021 is Fungicides&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max revenue generating region for 2021 from overall sales is Latin America with $4.5b   </p>
         </div>
     </body>
     `;
@@ -73,7 +73,7 @@
 
 
 		constructor() {
-			console.log("008")
+			console.log("009")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -120,13 +120,13 @@
         redraw(){
 		
 		const div=this.shadowRoot.getElementById('marquee');
-		div.textContent = "Replacement text";
+		//div.textContent = "Replacement text";
 		div.innerHTML = `<span style="background-color: lime">Replacement HTML</span>`;
-		div.insertAdjacentText('beforeend', ' appended text');
-		div.insertAdjacentHTML(
-  'beforeend',
-  `<span style="background-color: cyan"> appended HTML</code>`,
-);
+// 		div.insertAdjacentText('beforeend', ' appended text');
+// 		div.insertAdjacentHTML(
+//   'beforeend',
+//   `<span style="background-color: cyan"> appended HTML</code>`,
+// );
         }
     });
 })();
