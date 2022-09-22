@@ -1,6 +1,6 @@
 (function()  {
-//     let tmpl = document.createElement('template');
-//     tmpl.innerHTML = `
+    let tmpl = document.createElement('template');
+    tmpl.innerHTML = `
      <head>
         <style>
             .marquee {
@@ -73,7 +73,7 @@
 
 
 		constructor() {
-			console.log("012")
+			console.log("013")
 			super(); 
 // 			this._shadowRoot = this.attachShadow({mode: "open"});
 //             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
