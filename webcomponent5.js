@@ -1,6 +1,6 @@
 (function()  {
-    let tmpl = document.createElement('template');
-    tmpl.innerHTML = `
+//     let tmpl = document.createElement('template');
+//     tmpl.innerHTML = `
      <head>
         <style>
             .marquee {
@@ -73,10 +73,10 @@
 
 
 		constructor() {
-			console.log("011")
+			console.log("012")
 			super(); 
-			this._shadowRoot = this.attachShadow({mode: "open"});
-            this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
+// 			this._shadowRoot = this.attachShadow({mode: "open"});
+//             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._firstConnection = false;
 		}
 
@@ -119,14 +119,8 @@
 
         redraw(){
 		
-		const div=document.querySelector('marquee');
-		//div.textContent = "Replacement text";
-		div.innerHTML = "New Test";
-// 		div.insertAdjacentText('beforeend', ' appended text');
-// 		div.insertAdjacentHTML(
-//   'beforeend',
-//   `<span style="background-color: cyan"> appended HTML</code>`,
-// );
+		//const div=document.querySelector('marquee');
+		
         }
     });
 })();
