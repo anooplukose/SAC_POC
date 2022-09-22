@@ -64,7 +64,7 @@
 	
    <body>
         <div class="marquee">
-         <p id="p1"> Top selling product for 2021 is THIAMETHOXAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Top selling product family for 2021 is Fungicides&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max revenue generating region for 2021 from overall sales is Latin America with $4.5b   </p>
+         <p id="p1"> Top selling product for 2021 is THIAMETHOXAM</p>
         </div>
     </body>
     `;
@@ -73,7 +73,7 @@
 
 
 		constructor() {
-			console.log("017")
+			console.log("018")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -120,7 +120,7 @@
         redraw(){
 		
 		//const div=document.querySelector('marquee');
-		const txt="Scrolling Text"
+		const txt="Top selling product for 2021 is THIAMETHOXAM		Top selling product family for 2021 is Fungicides	Top selling product family for 2021 is Fungicides	Max revenue generating region for 2021 from overall sales is Latin America with $4.5b"
 		this.shadowRoot.getElementById("p1").innerHTML = txt;
 		
         }
