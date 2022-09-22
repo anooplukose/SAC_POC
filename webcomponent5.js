@@ -10,6 +10,18 @@
                 background: #000000;
                 color: #fefefe;
                 border: 1px solid #4a4a4a;
+		
+		position: absolute;
+                width: 100%;
+		margin: 0;
+                line-height: 50px;
+                text-align: center;
+                -moz-transform: translateX(100%);
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+                -moz-animation: scroll-left 2s linear infinite;
+                -webkit-animation: scroll-left 2s linear infinite;
+                animation: scroll-left 20s linear infinite;
             }
             
             .marquee p {
@@ -71,7 +83,7 @@
 
 
 		constructor() {
-			console.log("001")
+			console.log("002")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
