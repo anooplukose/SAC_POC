@@ -73,10 +73,10 @@
 
 
 		constructor() {
-			console.log("013")
+			console.log("014")
 			super(); 
-// 			this._shadowRoot = this.attachShadow({mode: "open"});
-//             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
+			this._shadowRoot = this.attachShadow({mode: "open"});
+            this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._firstConnection = false;
 		}
 
