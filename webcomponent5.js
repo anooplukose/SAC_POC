@@ -73,7 +73,7 @@
 
 
 		constructor() {
-			console.log("016")
+			console.log("017")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -120,7 +120,8 @@
         redraw(){
 		
 		//const div=document.querySelector('marquee');
-		this.shadowRoot.getElementById("p1").innerHTML = "New text!";
+		const txt="Scrolling Text"
+		this.shadowRoot.getElementById("p1").innerHTML = txt;
 		
         }
     });
