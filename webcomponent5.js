@@ -73,7 +73,7 @@
 
 
 		constructor() {
-			console.log("021")
+			console.log("022")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -117,11 +117,12 @@
         }
         */
 
-        redraw(){
+        redraw(resultSet){
 		
+		const a1= resultSet[0]+resultSet[1]+resultSet[2];
 		//const div=document.querySelector('marquee');
 		const txt="Top selling product for 2021 is THIAMETHOXAM&nbsp;&nbsp;&nbspTop selling product family for 2021 is Fungicides..........Max revenue generating region for 2021 from overall sales is Latin America with $4.5b"
-		this.shadowRoot.getElementById("p1").innerHTML = txt;
+		this.shadowRoot.getElementById("p1").innerHTML = a1;
 		
         }
     });
