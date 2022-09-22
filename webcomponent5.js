@@ -73,7 +73,7 @@
 
 
 		constructor() {
-			console.log("010")
+			console.log("011")
 			super(); 
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
@@ -119,7 +119,7 @@
 
         redraw(){
 		
-		const div=document.getElementById('marquee');
+		const div=document.querySelector('marquee');
 		//div.textContent = "Replacement text";
 		div.innerHTML = "New Test";
 // 		div.insertAdjacentText('beforeend', ' appended text');
